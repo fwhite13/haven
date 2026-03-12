@@ -7,10 +7,9 @@
 
 // ─── State ───────────────────────────────────────────────────────
 const state = {
-  view: 'pin',  // 'pin' | 'fred' | 'holly'
+  view: 'pin',  // 'pin' | 'main'
   pin: '',
   activeTab: 'today',
-  hollySection: 'voice',  // 'voice' | 'gf' | 'schedule'
 };
 
 // ─── Content ──────────────────────────────────────────────────────
@@ -24,10 +23,10 @@ let tips = null;
 // ─── Sailing Constants ────────────────────────────────────────────
 const SAIL_DATE = new Date('2026-04-04T11:00:00-05:00');  // Miami ET
 const RETURN_DATE = new Date('2026-04-11T07:00:00-05:00');
-const HAVEN_AI_URL = 'https://fait.dev.fortressam.ai/';
+const FAIT_URL = 'https://fait.dev.fortressam.ai';
 
 // ─── PIN Auth ─────────────────────────────────────────────────────
-const PINS = { '1313': 'fred', '1009': 'holly' };
+const PINS = { '1313': 'main', '1009': 'main' };
 
 function handlePinInput(digit) {
   if (state.pin.length >= 4) return;
@@ -88,15 +87,9 @@ function navigateTo(view) {
     return;
   }
 
-  if (view === 'fred') {
-    document.getElementById('fred-screen').classList.add('active');
-    renderFredView();
-    return;
-  }
-
-  if (view === 'holly') {
-    document.getElementById('holly-screen').classList.add('active');
-    renderHollyView();
+  if (view === 'main') {
+    document.getElementById('main-screen').classList.add('active');
+    renderMainView();
     return;
   }
 }
@@ -176,10 +169,11 @@ function getGFStatus(status) {
   return map[status] || map.caution;
 }
 
-// ─── Fred's View ──────────────────────────────────────────────────
-function renderFredView() {
-  const tabEl = document.getElementById('fred-tab-content');
+// ─── Main View ───────────────────────────────────────────────────
+function renderMainView() {
   switchFredTab(state.activeTab);
+  setupVoice();
+  setupAskInput();
 }
 
 function switchFredTab(tab) {
@@ -257,11 +251,7 @@ function renderTodayTab(panel) {
         <button class="chat-send" onclick="sendChat()" aria-label="Send">➤</button>
       </div>
     </div>
-    <div style="margin-top:0.75rem">
-      <button class="haven-ai-btn" onclick="openHavenAI()">
-        <span>✦</span> Connect to Haven AI
-      </button>
-    </div>`;
+`;
 
   panel.innerHTML = html;
   setupChatInput();
@@ -601,8 +591,8 @@ function searchKB(query) {
   }
 
   // PIN / reset
-  if (q.includes('holly') || q.includes('switch') || q.includes('logout') || q.includes('lock')) {
-    return `To switch to Holly's view, you can lock the app from the header. Holly's PIN is 1009.`;
+  if (q.includes('switch') || q.includes('logout') || q.includes('lock')) {
+    return `You can lock the app from the header and re-enter your PIN to return.`;
   }
 
   return generalSearch(q);
@@ -699,29 +689,17 @@ function generalSearch(q) {
     if (k.some(kw => q.includes(kw))) return r;
   }
 
-  return "I didn't find a specific answer for that. Try asking a different way, or tap Connect to Haven AI below for more help.";
+  return "I didn't find a specific answer for that.";
 }
 
-// ─── Holly's View ──────────────────────────────────────────────────
-function renderHollyView() {
-  const sailing = getSailing();
-  const greeting = document.getElementById('holly-greeting');
-  if (greeting) {
-    greeting.querySelector('h1').textContent = `Good ${getTimeOfDay()}, Holly`;
-    greeting.querySelector('.sail-countdown').innerHTML =
-      `Norwegian Luna · <span>${sailing.text}</span>`;
-  }
-  setupVoice();
-}
-
-// Voice
+// ─── Voice ───────────────────────────────────────────────────────
 let recognition = null;
 let isListening = false;
 
 function setupVoice() {
   const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SpeechRec) {
-    const btn = document.getElementById('voice-btn');
+    const btn = document.getElementById('main-voice-btn');
     if (btn) {
       btn.querySelector('.voice-label').textContent = 'Type Below';
       btn.style.opacity = '0.6';
@@ -737,7 +715,7 @@ function setupVoice() {
   recognition.onresult = e => {
     const query = e.results[0][0].transcript;
     stopListening();
-    processHollyQuery(query);
+    processQuery(query);
   };
 
   recognition.onerror = () => stopListening();
@@ -755,15 +733,15 @@ function toggleVoice() {
 function startListening() {
   if (!recognition) {
     const query = prompt('Ask a question:');
-    if (query) processHollyQuery(query);
+    if (query) processQuery(query);
     return;
   }
   isListening = true;
   recognition.start();
 
-  const wrap = document.getElementById('voice-btn-wrap');
-  const btn = document.getElementById('voice-btn');
-  const status = document.getElementById('voice-status');
+  const wrap = document.getElementById('main-voice-btn-wrap');
+  const btn = document.getElementById('main-voice-btn');
+  const status = document.getElementById('main-voice-status');
   if (wrap) wrap.classList.add('listening');
   if (btn) btn.classList.add('listening');
   if (status) { status.textContent = 'Listening…'; status.classList.add('active'); }
@@ -773,27 +751,54 @@ function stopListening() {
   isListening = false;
   if (recognition) { try { recognition.stop(); } catch (e) {} }
 
-  const wrap = document.getElementById('voice-btn-wrap');
-  const btn = document.getElementById('voice-btn');
-  const status = document.getElementById('voice-status');
+  const wrap = document.getElementById('main-voice-btn-wrap');
+  const btn = document.getElementById('main-voice-btn');
+  const status = document.getElementById('main-voice-status');
   if (wrap) wrap.classList.remove('listening');
   if (btn) btn.classList.remove('listening');
   if (status) { status.textContent = 'Tap to ask'; status.classList.remove('active'); }
 }
 
-function processHollyQuery(query) {
-  const status = document.getElementById('voice-status');
+function setupAskInput() {
+  const input = document.getElementById('main-text-input');
+  if (!input) return;
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (q) { input.value = ''; processQuery(q); }
+    }
+  });
+}
+
+async function processQuery(query) {
+  const status = document.getElementById('main-voice-status');
   if (status) status.textContent = `"${query}"`;
 
   const answer = searchKB(query);
-  showHollyAnswer(answer);
+
+  if (answer.startsWith("I didn't find")) {
+    showMainAnswer('Searching Haven AI…');
+    try {
+      await fetch(FAIT_URL, { method: 'HEAD', signal: AbortSignal.timeout(3000) });
+      const faitAnswer = 'Haven AI is available but direct search is coming soon — try rephrasing or ask more specifically.';
+      showMainAnswer(faitAnswer);
+      speak(faitAnswer);
+    } catch {
+      const fallback = 'Full AI search unavailable right now — try rephrasing your question.';
+      showMainAnswer(fallback);
+      speak(fallback);
+    }
+    return;
+  }
+
+  showMainAnswer(answer);
   speak(answer);
 }
 
-function showHollyAnswer(text) {
-  const el = document.getElementById('holly-answer');
+function showMainAnswer(text) {
+  const el = document.getElementById('main-answer');
   if (!el) return;
-  // Strip markdown bold
   const clean = text.replace(/\*\*([^*]+)\*\*/g, '$1');
   el.querySelector('.answer-text').textContent = clean;
   el.classList.add('visible');
@@ -822,11 +827,11 @@ function speak(text) {
   if (preferred) utterance.voice = preferred;
 
   utterance.onstart = () => {
-    const sb = document.getElementById('stop-btn');
+    const sb = document.getElementById('main-stop-btn');
     if (sb) sb.style.display = 'inline-flex';
   };
   utterance.onend = () => {
-    const sb = document.getElementById('stop-btn');
+    const sb = document.getElementById('main-stop-btn');
     if (sb) sb.style.display = 'none';
   };
   window.speechSynthesis.speak(utterance);
@@ -834,67 +839,10 @@ function speak(text) {
 
 function stopSpeaking() {
   if (window.speechSynthesis) window.speechSynthesis.cancel();
-  const sb = document.getElementById('stop-btn');
+  const sb = document.getElementById('main-stop-btn');
   if (sb) sb.style.display = 'none';
 }
 
-function quickQuestion(q) {
-  const status = document.getElementById('voice-status');
-  if (status) status.textContent = `"${q}"`;
-  processHollyQuery(q);
-}
-
-// ─── Holly bottom nav ─────────────────────────────────────────────
-function switchHollySection(section) {
-  state.hollySection = section;
-  document.querySelectorAll('#holly-screen .bottom-nav-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.section === section);
-  });
-  document.querySelectorAll('.holly-section').forEach(s => {
-    s.style.display = s.dataset.section === section ? 'flex' : 'none';
-  });
-}
-
-// ─── Haven AI ────────────────────────────────────────────────────
-function openHavenAI() {
-  const isMobile = window.innerWidth < 768;
-  if (isMobile) {
-    showHavenAIModal();
-  } else {
-    window.open(HAVEN_AI_URL, '_blank', 'noopener');
-  }
-}
-
-function showHavenAIModal() {
-  const existing = document.getElementById('haven-ai-modal');
-  if (existing) { existing.remove(); }
-
-  const modal = document.createElement('div');
-  modal.id = 'haven-ai-modal';
-  modal.style.cssText = `
-    position:fixed;inset:0;z-index:1000;background:rgba(13,20,32,0.97);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:1.5rem;`;
-  modal.innerHTML = `
-    <div style="text-align:center;margin-bottom:2rem">
-      <div class="haven-wordmark-sm" style="margin-bottom:0.5rem">Haven AI</div>
-      <p style="color:var(--text-muted);font-size:0.875rem;max-width:280px">
-        Connect to the full AI assistant for advanced questions and personalized assistance.
-      </p>
-    </div>
-    <a href="${HAVEN_AI_URL}" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:0.6rem;background:var(--gold-gradient);color:var(--bg);
-              font-weight:700;font-size:1rem;padding:1rem 2rem;border-radius:var(--radius);
-              margin-bottom:1rem;width:100%;max-width:280px;justify-content:center;"
-       onclick="document.getElementById('haven-ai-modal').remove()">
-      Open Haven AI ↗
-    </a>
-    <button onclick="document.getElementById('haven-ai-modal').remove()"
-            style="color:var(--text-muted);font-size:0.875rem;padding:0.5rem 1rem">
-      Cancel
-    </button>`;
-  document.body.appendChild(modal);
-}
 
 // ─── Service Worker ───────────────────────────────────────────────
 function registerSW() {
@@ -936,11 +884,11 @@ function buildApp() {
       </div>
     </div>
 
-    <!-- Fred's Screen -->
-    <div id="fred-screen" class="screen">
+    <!-- Main Screen -->
+    <div id="main-screen" class="screen">
       <div class="app-header">
         <div class="header-left">
-          <div class="header-avatar">F</div>
+          <div class="header-avatar">H</div>
           <div>
             <div class="haven-wordmark-sm">Haven</div>
             <div class="header-title">Norwegian Luna · Suite 12846</div>
@@ -950,7 +898,30 @@ function buildApp() {
           <button class="icon-btn" onclick="navigateTo('pin')" title="Lock">🔒</button>
         </div>
       </div>
-      <div class="nav-tabs" id="fred-tabs">
+
+      <div class="ask-area">
+        <div id="main-voice-btn-wrap" class="voice-btn-wrap main-voice-btn-wrap">
+          <div class="voice-pulse-ring"></div>
+          <div class="voice-pulse-ring"></div>
+          <div class="voice-pulse-ring"></div>
+          <button id="main-voice-btn" class="voice-btn" onclick="toggleVoice()" aria-label="Ask a question">
+            <span class="mic-icon">🎤</span>
+            <span class="voice-label">Ask</span>
+          </button>
+        </div>
+        <div id="main-voice-status" class="voice-status">Tap to ask</div>
+        <div class="ask-input-row">
+          <input type="text" id="main-text-input" class="ask-text-input" placeholder="Ask Haven anything…" />
+          <button class="ask-send-btn" onclick="const i=document.getElementById('main-text-input');const q=i.value.trim();if(q){i.value='';processQuery(q);}" aria-label="Send">➤</button>
+        </div>
+        <div id="main-answer" class="main-answer">
+          <div class="answer-label">Haven says</div>
+          <div class="answer-text"></div>
+          <button id="main-stop-btn" class="stop-btn" onclick="stopSpeaking()" style="display:none">&#9646;&#9646; Stop</button>
+        </div>
+      </div>
+
+      <div class="nav-tabs" id="main-tabs">
         <button class="nav-tab active" data-tab="today" onclick="switchFredTab('today')">Today</button>
         <button class="nav-tab" data-tab="itinerary" onclick="switchFredTab('itinerary')">Itinerary</button>
         <button class="nav-tab" data-tab="gf" onclick="switchFredTab('gf')">GF Guide</button>
@@ -968,77 +939,6 @@ function buildApp() {
         <div id="tab-entertainment" class="tab-panel"></div>
         <div id="tab-tips" class="tab-panel"></div>
       </div>
-    </div>
-
-    <!-- Holly's Screen -->
-    <div id="holly-screen" class="screen">
-      <div class="app-header">
-        <div class="header-left">
-          <div class="header-avatar" style="color:#e0c068;border-color:#e0c068">H</div>
-          <div class="haven-wordmark-sm">Haven</div>
-        </div>
-        <div class="header-actions">
-          <button class="icon-btn" onclick="navigateTo('pin')" title="Lock">🔒</button>
-        </div>
-      </div>
-
-      <div class="holly-container">
-        <div class="holly-greeting" id="holly-greeting">
-          <h1>Good morning, Holly</h1>
-          <div class="sail-countdown">Norwegian Luna · <span>loading…</span></div>
-        </div>
-
-        <!-- Voice section -->
-        <div id="voice-btn-wrap" class="voice-btn-wrap">
-          <div class="voice-pulse-ring"></div>
-          <div class="voice-pulse-ring"></div>
-          <div class="voice-pulse-ring"></div>
-          <button id="voice-btn" class="voice-btn" onclick="toggleVoice()" aria-label="Ask a question">
-            <span class="mic-icon">🎤</span>
-            <span class="voice-label">Ask</span>
-          </button>
-        </div>
-        <div id="voice-status" class="voice-status">Tap to ask</div>
-
-        <div id="holly-answer" class="holly-answer">
-          <div class="answer-label">Haven says</div>
-          <div class="answer-text"></div>
-          <button id="stop-btn" class="stop-btn" onclick="stopSpeaking()" style="display:none">&#9646;&#9646; Stop</button>
-        </div>
-
-        <div style="height:1rem"></div>
-
-        <div class="section-header" style="width:100%;max-width:380px">
-          <span class="section-title">Quick questions</span>
-        </div>
-        <div class="quick-questions">
-          <button class="quick-q-btn" onclick="quickQuestion('What can I safely eat at Onda by Scarpetta?')">
-            <span class="quick-q-icon">🍝</span> What can I eat at Onda?
-          </button>
-          <button class="quick-q-btn" onclick="quickQuestion('What is today\\'s schedule and port?')">
-            <span class="quick-q-icon">📅</span> What's today's schedule?
-          </button>
-          <button class="quick-q-btn" onclick="quickQuestion('What time do we dock at port today?')">
-            <span class="quick-q-icon">⚓</span> What time do we dock?
-          </button>
-          <button class="quick-q-btn" onclick="quickQuestion('Tell me about the spa and my booked treatments')">
-            <span class="quick-q-icon">💆</span> Spa info & my treatments
-          </button>
-          <button class="quick-q-btn" onclick="quickQuestion('What gluten free options are safe for Holly on the ship?')">
-            <span class="quick-q-icon">🌿</span> GF safe options on ship
-          </button>
-          <button class="quick-q-btn" onclick="quickQuestion('What shows and entertainment are available tonight?')">
-            <span class="quick-q-icon">🎭</span> Tonight's entertainment
-          </button>
-        </div>
-
-        <div style="height:0.5rem"></div>
-        <div style="width:100%;max-width:380px">
-          <button class="haven-ai-btn" onclick="openHavenAI()">
-            <span>✦</span> Connect to Haven AI
-          </button>
-        </div>
-      </div>
     </div>`;
 }
 
@@ -1049,7 +949,7 @@ async function init() {
 
   // Restore session
   const saved = sessionStorage.getItem('haven_view');
-  if (saved && (saved === 'fred' || saved === 'holly')) {
+  if (saved && saved === 'main') {
     // Load content first, then navigate
     await loadContent();
     navigateTo(saved);

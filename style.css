@@ -265,6 +265,65 @@ h3 { font-size: 1rem; }
 
 .icon-btn:hover, .icon-btn:active { background: rgba(255,255,255,0.08); color: var(--text); }
 
+/* ─── Ask Area ─────────────────────────────────────────────── */
+.ask-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  width: 100%;
+}
+
+.main-voice-btn-wrap {
+  margin-bottom: 0.75rem;
+}
+
+.ask-input-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.ask-text-input {
+  flex: 1;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(26,35,64,0.8);
+  border-color: rgba(201,168,76,0.3);
+  border-radius: 24px;
+  padding: 0.65rem 1rem;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.ask-text-input::placeholder { color: var(--text-dim); }
+
+.ask-text-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.25);
+}
+
+.ask-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold-gradient);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.ask-send-btn:active { opacity: 0.8; transform: scale(0.93); }
+
 /* ─── Navigation Tabs ───────────────────────────────────────── */
 .nav-tabs {
   display: flex;
@@ -300,40 +359,6 @@ h3 { font-size: 1rem; }
 
 .nav-tab:hover { color: var(--text); }
 
-/* Bottom nav (Holly / mobile) */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  background: var(--card);
-  border-top: 1px solid rgba(201,168,76,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  z-index: 200;
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.bottom-nav-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  color: var(--text-muted);
-  font-size: 0.65rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color var(--transition);
-  -webkit-tap-highlight-color: transparent;
-  padding: 0.5rem 0;
-}
-
-.bottom-nav-btn .nav-icon { font-size: 1.3rem; }
-.bottom-nav-btn.active { color: var(--gold); }
 
 /* ─── Scroll Content ────────────────────────────────────────── */
 .scroll-content {
@@ -736,45 +761,7 @@ h3 { font-size: 1rem; }
 
 .chat-send:active { opacity: 0.8; transform: scale(0.93); }
 
-/* ─── Voice Button (Holly) ───────────────────────────────────── */
-#holly-screen {
-  background: var(--bg);
-}
-
-.holly-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1.5rem 1.5rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: calc(var(--nav-height) + 1.5rem + env(safe-area-inset-bottom));
-}
-
-.holly-greeting {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.holly-greeting h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.holly-greeting .sail-countdown {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.holly-greeting .sail-countdown span {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-/* Voice button */
+/* ─── Voice Button ───────────────────────────────────────────── */
 .voice-btn-wrap {
   position: relative;
   display: flex;
@@ -843,42 +830,9 @@ h3 { font-size: 1rem; }
 
 .voice-status.active { color: var(--gold); }
 
-/* Holly quick questions */
-.quick-questions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+/* Main answer display */
+.main-answer {
   width: 100%;
-  max-width: 380px;
-  margin-bottom: 1.5rem;
-}
-
-.quick-q-btn {
-  background: var(--card);
-  border: 1px solid rgba(201,168,76,0.2);
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
-  color: var(--text);
-  font-size: 0.875rem;
-  text-align: left;
-  transition: all var(--transition);
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.quick-q-btn:hover, .quick-q-btn:active {
-  background: var(--card-hover);
-  border-color: rgba(201,168,76,0.45);
-}
-
-.quick-q-icon { font-size: 1rem; flex-shrink: 0; }
-
-/* Holly answer display */
-.holly-answer {
-  width: 100%;
-  max-width: 380px;
   background: var(--card);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
@@ -888,7 +842,7 @@ h3 { font-size: 1rem; }
   display: none;
 }
 
-.holly-answer.visible { display: block; }
+.main-answer.visible { display: block; }
 
 .stop-btn {
   display: none;
@@ -908,7 +862,7 @@ h3 { font-size: 1rem; }
 }
 .stop-btn:hover { background: rgba(255,255,255,0.14); color: var(--text); }
 
-.holly-answer .answer-label {
+.main-answer .answer-label {
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1000,30 +954,6 @@ h3 { font-size: 1rem; }
 
 .tip-item strong { color: var(--text); font-weight: 600; }
 
-/* ─── Haven AI Button ────────────────────────────────────────── */
-.haven-ai-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  background: transparent;
-  border: 1.5px solid rgba(201,168,76,0.5);
-  border-radius: var(--radius);
-  padding: 0.75rem 1.25rem;
-  color: var(--gold);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  width: 100%;
-  transition: all var(--transition);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.haven-ai-btn:hover, .haven-ai-btn:active {
-  background: rgba(201,168,76,0.1);
-  border-color: var(--gold);
-}
-
 /* ─── Loading / Skeleton ─────────────────────────────────────── */
 @keyframes shimmer {
   from { background-position: -400px 0; }
@@ -1067,7 +997,7 @@ h3 { font-size: 1rem; }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (min-width: 480px) {
-  .holly-container { padding: 2rem; }
+  .ask-area { padding: 2rem 1rem; }
   .voice-btn { width: 140px; height: 140px; }
   .voice-pulse-ring { width: 168px; height: 168px; }
 }
@@ -1076,6 +1006,5 @@ h3 { font-size: 1rem; }
   .scroll-content { padding: 1.5rem 2rem; }
   .dashboard-grid { grid-template-columns: repeat(4, 1fr); }
   .pin-container { max-width: 360px; }
-  .quick-questions { max-width: 480px; }
-  .holly-answer { max-width: 480px; }
+  .main-answer { max-width: 480px; }
 }
