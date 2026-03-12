@@ -624,14 +624,14 @@ function formatGFAnswer(restaurant) {
 }
 
 function formatGFGeneral() {
-  if (!gfGuide) return "GF guide unavailable — check the GF Guide tab.";
+  if (!gfGuide) return "GF guide unavailable — try again in a moment.";
   const safe = gfGuide.restaurants.filter(r => r.gf_status === 'safe').map(r => r.name);
   return `Holly's safest options are the **Haven Restaurant** (dedicated staff, flag on day 1) and **Onda by Scarpetta** (GF pasta available). Also safe: ${safe.slice(2).join(', ')}. Always alert each restaurant to her gluten-free dietary requirement and ask about cross-contamination.`;
 }
 
 function formatTodayAnswer() {
   const dayIdx = getTodayDayIndex();
-  if (!itinerary) return "Itinerary loading — check the Itinerary tab.";
+  if (!itinerary) return "Itinerary loading — try again in a moment.";
   if (dayIdx < 0) {
     const sailing = getSailing();
     return `The cruise hasn't started yet — ${sailing.text}. Norwegian Luna departs Miami on April 4, 2026.`;
@@ -649,7 +649,7 @@ function formatPortAnswer(q) {
     return keywords.some(k => q.includes(k) && (name.includes(k) || k.includes(name.split(' ')[0].toLowerCase())));
   });
   if (matched) {
-    return `**${matched.name || matched.port}**: ${matched.notes || matched.description || 'See the Ports tab for details.'}${matched.gf_tip ? ` GF tip: ${matched.gf_tip}` : ''}`;
+    return `**${matched.name || matched.port}**: ${matched.notes || matched.description || 'Check the port guide for details.'}${matched.gf_tip ? ` GF tip: ${matched.gf_tip}` : ''}`;
   }
   return "Check the Ports tab for detailed information on each stop — Belize, Roatán, Costa Maya, and Cozumel.";
 }
@@ -662,9 +662,9 @@ function formatSpaAnswer(q) {
     }
   }
   if (q.includes('thermal')) {
-    return spa.thermal_suite ? `Thermal Suite: ${spa.thermal_suite}` : "See the Spa tab for Thermal Suite details.";
+    return spa.thermal_suite ? `Thermal Suite: ${spa.thermal_suite}` : "Ask me about the Thermal Suite for details.";
   }
-  return `The spa on Norwegian Luna offers treatments including facials, massages, manicures, and access to the Thermal Suite. Holly has treatments booked for April 5 (Sea Day). See the Spa tab for the full menu and pricing.`;
+  return `The spa on Norwegian Luna offers treatments including facials, massages, manicures, and access to the Thermal Suite. Holly has treatments booked for April 5 (Sea Day). Ask me about a specific treatment or check the spa section.`;
 }
 
 function formatEntertainmentAnswer(q) {
@@ -679,9 +679,9 @@ function formatEntertainmentAnswer(q) {
   }
   const shows = entertainment.shows || [];
   if (shows.length) {
-    return `Entertainment highlights: ${shows.slice(0, 3).map(s => s.name || s.title).join(', ')}. Check the Entertainment tab for the full schedule.`;
+    return `Entertainment highlights: ${shows.slice(0, 3).map(s => s.name || s.title).join(', ')}. Ask me about a specific show for more details.`;
   }
-  return "See the Entertainment tab for shows, venues, and the nightly schedule.";
+  return "Ask me about a specific show or tonight's schedule.";
 }
 
 function generalSearch(q) {
@@ -803,7 +803,13 @@ function showHollyAnswer(text) {
 function speak(text) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  const clean = text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\n+/g, '. ');
+  const clean = text
+    .replace(/\*\*([^*]+)\*\*/g, '$1')   // strip **bold** markers
+    .replace(/[\u{1F000}-\u{1FFFF}]/gu, '') // strip emoji (supplementary plane)
+    .replace(/[\u2600-\u27BF]/g, '')      // strip misc symbols & dingbats
+    .replace(/\s{2,}/g, ' ')             // collapse extra spaces left behind
+    .replace(/\n+/g, '. ')
+    .trim();
   const utterance = new SpeechSynthesisUtterance(clean);
   utterance.lang = 'en-US';
   utterance.rate = 0.95;
