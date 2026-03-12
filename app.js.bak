@@ -1,0 +1,1041 @@
+/* ═══════════════════════════════════════════════════════════════
+   Haven — Luxury Cruise Companion
+   Norwegian Luna · April 4–11, 2026 · Suite 12846
+   ═══════════════════════════════════════════════════════════════ */
+
+'use strict';
+
+// ─── State ───────────────────────────────────────────────────────
+const state = {
+  view: 'pin',  // 'pin' | 'fred' | 'holly'
+  pin: '',
+  activeTab: 'today',
+  hollySection: 'voice',  // 'voice' | 'gf' | 'schedule'
+};
+
+// ─── Content ──────────────────────────────────────────────────────
+let itinerary = null;
+let gfGuide = null;
+let ports = null;
+let spa = null;
+let entertainment = null;
+let tips = null;
+
+// ─── Sailing Constants ────────────────────────────────────────────
+const SAIL_DATE = new Date('2026-04-04T11:00:00-05:00');  // Miami ET
+const RETURN_DATE = new Date('2026-04-11T07:00:00-05:00');
+const HAVEN_AI_URL = 'https://fait.dev.fortressam.ai/';
+
+// ─── PIN Auth ─────────────────────────────────────────────────────
+const PINS = { '1313': 'fred', '1009': 'holly' };
+
+function handlePinInput(digit) {
+  if (state.pin.length >= 4) return;
+  state.pin += digit;
+  renderPinDots();
+  if (state.pin.length === 4) {
+    setTimeout(checkPin, 80);
+  }
+}
+
+function handlePinBack() {
+  if (state.pin.length > 0) {
+    state.pin = state.pin.slice(0, -1);
+    renderPinDots();
+  }
+}
+
+function checkPin() {
+  const who = PINS[state.pin];
+  if (who) {
+    sessionStorage.setItem('haven_view', who);
+    navigateTo(who);
+  } else {
+    shakePinDisplay();
+    document.getElementById('pin-error').textContent = 'Try again';
+    document.getElementById('pin-error').classList.add('visible');
+    setTimeout(() => {
+      state.pin = '';
+      renderPinDots();
+      document.getElementById('pin-error').classList.remove('visible');
+    }, 500);
+  }
+}
+
+function renderPinDots() {
+  const dots = document.querySelectorAll('.pin-dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('filled', i < state.pin.length);
+  });
+}
+
+function shakePinDisplay() {
+  const dotsEl = document.getElementById('pin-dots-row');
+  dotsEl.classList.remove('shake');
+  void dotsEl.offsetWidth;
+  dotsEl.classList.add('shake');
+}
+
+// ─── Navigation ───────────────────────────────────────────────────
+function navigateTo(view) {
+  state.view = view;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+
+  if (view === 'pin') {
+    document.getElementById('pin-screen').classList.add('active');
+    state.pin = '';
+    renderPinDots();
+    return;
+  }
+
+  if (view === 'fred') {
+    document.getElementById('fred-screen').classList.add('active');
+    renderFredView();
+    return;
+  }
+
+  if (view === 'holly') {
+    document.getElementById('holly-screen').classList.add('active');
+    renderHollyView();
+    return;
+  }
+}
+
+// ─── Content Loading ──────────────────────────────────────────────
+async function loadContent() {
+  try {
+    const [itin, gf, p, s, ent, t] = await Promise.all([
+      fetch('content/itinerary.json').then(r => r.json()),
+      fetch('content/gf-guide.json').then(r => r.json()),
+      fetch('content/ports.json').then(r => r.json()),
+      fetch('content/spa.json').then(r => r.json()),
+      fetch('content/entertainment.json').then(r => r.json()),
+      fetch('content/tips.json').then(r => r.json()),
+    ]);
+    itinerary = itin;
+    gfGuide = gf;
+    ports = p;
+    spa = s;
+    entertainment = ent;
+    tips = t;
+  } catch (err) {
+    console.warn('Content load error:', err);
+  }
+}
+
+// ─── Date Utilities ───────────────────────────────────────────────
+function getTodayDayIndex() {
+  const now = new Date();
+  const diff = Math.floor((now - SAIL_DATE) / (1000 * 60 * 60 * 24));
+  if (diff < 0 || diff > 7) return -1;
+  return diff;
+}
+
+function formatDate(dateStr) {
+  const parts = dateStr.match(/(\w+)\s+(\d+)/);
+  if (!parts) return dateStr;
+  const d = new Date(`${parts[1]} ${parts[2]}, 2026`);
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', weekday: 'long' });
+}
+
+function getSailing() {
+  const now = new Date();
+  const msUntil = SAIL_DATE - now;
+  if (msUntil <= 0) {
+    const msInto = now - SAIL_DATE;
+    const msRemaining = RETURN_DATE - now;
+    if (msRemaining <= 0) return { status: 'complete', text: 'Cruise complete — welcome home!' };
+    const daysRemaining = Math.ceil(msRemaining / (1000 * 60 * 60 * 24));
+    return { status: 'sailing', text: `Day ${getTodayDayIndex() + 1} of cruise · ${daysRemaining} day${daysRemaining !== 1 ? 's' : ''} remaining` };
+  }
+  const days = Math.floor(msUntil / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((msUntil % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (days > 0) return { status: 'upcoming', text: `${days} day${days !== 1 ? 's' : ''} until we sail` };
+  return { status: 'upcoming', text: `${hours} hour${hours !== 1 ? 's' : ''} until we sail!` };
+}
+
+function getTimeOfDay() {
+  const h = new Date().getHours();
+  if (h < 12) return 'morning';
+  if (h < 17) return 'afternoon';
+  return 'evening';
+}
+
+function formatTime(t) {
+  if (!t) return '';
+  if (t.includes('am') || t.includes('pm')) return t;
+  return t;
+}
+
+function getGFStatus(status) {
+  const map = {
+    safe:    { emoji: '✅', label: 'GF Safe',     cls: 'safe' },
+    caution: { emoji: '⚠️', label: 'Use Caution', cls: 'caution' },
+    avoid:   { emoji: '🚫', label: 'Avoid',       cls: 'avoid' },
+  };
+  return map[status] || map.caution;
+}
+
+// ─── Fred's View ──────────────────────────────────────────────────
+function renderFredView() {
+  const tabEl = document.getElementById('fred-tab-content');
+  switchFredTab(state.activeTab);
+}
+
+function switchFredTab(tab) {
+  state.activeTab = tab;
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === tab);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `tab-${tab}`);
+  });
+
+  const panel = document.getElementById(`tab-${tab}`);
+  if (!panel) return;
+
+  switch (tab) {
+    case 'today':     renderTodayTab(panel); break;
+    case 'itinerary': renderItineraryTab(panel); break;
+    case 'gf':        renderGFTab(panel); break;
+    case 'ports':     renderPortsTab(panel); break;
+    case 'spa':       renderSpaTab(panel); break;
+    case 'entertainment': renderEntertainmentTab(panel); break;
+    case 'tips':      renderTipsTab(panel); break;
+  }
+}
+
+function renderTodayTab(panel) {
+  const dayIdx = getTodayDayIndex();
+  const sailing = getSailing();
+  const day = (itinerary && dayIdx >= 0) ? itinerary.days[dayIdx] : null;
+
+  let html = `
+    <div class="dashboard-grid">
+      <div class="dashboard-stat">
+        <div class="dashboard-stat-label">Suite</div>
+        <div class="dashboard-stat-value" style="font-size:1rem">12846</div>
+        <div class="dashboard-stat-sub">Haven King H5</div>
+      </div>
+      <div class="dashboard-stat">
+        <div class="dashboard-stat-label">Status</div>
+        <div class="dashboard-stat-value" style="font-size:0.85rem;color:var(--text)">${sailing.status === 'sailing' ? '⚓' : '🗓'}</div>
+        <div class="dashboard-stat-sub">${sailing.text}</div>
+      </div>
+    </div>`;
+
+  if (day) {
+    html += `
+    <div class="section-header"><span class="section-title">Today · ${day.date}</span></div>
+    <div class="card card-gold">
+      <div class="card-header">
+        <span class="card-title">${day.port}</span>
+        <span class="gf-badge safe">Haven</span>
+      </div>
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65">${day.notes}</p>
+      ${day.reservations && day.reservations.length ? `
+      <div style="margin-top:0.75rem">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.4rem">Reservations</div>
+        ${day.reservations.map(r => `<div style="font-size:0.85rem;padding:0.2rem 0;color:var(--gold)">· ${r}</div>`).join('')}
+      </div>` : ''}
+    </div>`;
+  } else {
+    html += `
+    <div class="card">
+      <p style="color:var(--text-muted);font-size:0.9rem">${sailing.text}</p>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-top:0.5rem">Norwegian Luna · Miami departure April 4, 2026</p>
+    </div>`;
+  }
+
+  // Chat
+  html += `
+    <div class="section-header" style="margin-top:1.25rem"><span class="section-title">Ask Haven</span></div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div id="chat-messages" class="chat-messages" style="max-height:280px"></div>
+      <div class="chat-input-area">
+        <textarea id="chat-input" class="chat-input" placeholder="Ask about GF options, schedule, ports…" rows="1"></textarea>
+        <button class="chat-send" onclick="sendChat()" aria-label="Send">➤</button>
+      </div>
+    </div>
+    <div style="margin-top:0.75rem">
+      <button class="haven-ai-btn" onclick="openHavenAI()">
+        <span>✦</span> Connect to Haven AI
+      </button>
+    </div>`;
+
+  panel.innerHTML = html;
+  setupChatInput();
+  addChatMessage('assistant', `Good ${getTimeOfDay()}, Fred. ${day ? `Today is ${day.date} — ${day.port}.` : 'Your cruise to the Norwegian Luna awaits.'} How can I help?`);
+}
+
+function renderItineraryTab(panel) {
+  if (!itinerary) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+  const todayIdx = getTodayDayIndex();
+
+  let html = '';
+  itinerary.days.forEach((day, i) => {
+    const isToday = i === todayIdx;
+    html += `
+    <div class="itinerary-day${isToday ? ' today' : ''}">
+      <div class="day-header" onclick="toggleDayBody(this)">
+        <div>
+          <div class="day-name">${day.date} · ${day.day}</div>
+          <div class="day-port">${day.port}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          ${isToday ? '<span class="day-pill today-pill">Today</span>' : `<span class="day-pill">Day ${i + 1}</span>`}
+          <span style="color:var(--text-muted);font-size:0.8rem">${isToday ? '▲' : '▼'}</span>
+        </div>
+      </div>
+      <div class="day-body" style="${isToday ? '' : 'display:none'}">
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;margin-bottom:0.75rem">${day.notes}</p>
+        ${day.times ? `<div style="font-size:0.8rem;color:var(--gold);margin-bottom:0.5rem">🕐 ${day.times}</div>` : ''}
+        ${day.reservations && day.reservations.length ? `
+        <div style="margin-top:0.5rem">
+          ${day.reservations.map(r => `<div style="font-size:0.8rem;padding:0.15rem 0;color:var(--text-muted)">· ${r}</div>`).join('')}
+        </div>` : ''}
+      </div>
+    </div>`;
+  });
+
+  panel.innerHTML = html;
+}
+
+function toggleDayBody(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('span:last-child');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.textContent = isOpen ? '▼' : '▲';
+}
+
+function renderGFTab(panel) {
+  if (!gfGuide) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+
+  let html = `
+    <div class="card card-gold" style="margin-bottom:1rem">
+      <div class="card-title" style="margin-bottom:0.5rem">Holly's Profile</div>
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${gfGuide.holly_profile}</p>
+    </div>
+    <div class="section-header"><span class="section-title">Day 1 Checklist</span></div>
+    <div class="card" style="margin-bottom:1rem">
+      ${gfGuide.first_day_checklist.map((item, i) => `
+      <div style="display:flex;gap:0.75rem;padding:0.4rem 0;${i > 0 ? 'border-top:1px solid rgba(255,255,255,0.05)' : ''}">
+        <span style="color:var(--gold);font-size:0.8rem;margin-top:2px;flex-shrink:0">${i + 1}.</span>
+        <span style="font-size:0.875rem;color:var(--text-muted)">${item}</span>
+      </div>`).join('')}
+    </div>
+    <div class="section-header"><span class="section-title">Restaurants</span></div>`;
+
+  gfGuide.restaurants.forEach(r => {
+    const status = getGFStatus(r.gf_status);
+    html += `
+    <div class="restaurant-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.4rem">
+        <div>
+          <div class="restaurant-name">${r.name}</div>
+          <div class="restaurant-meta">${r.location}${r.hours ? ' · ' + r.hours : ''}</div>
+        </div>
+        <span class="gf-badge ${status.cls}">${status.emoji} ${status.label}</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${r.notes}</p>
+      ${r.safe_items && r.safe_items.length ? `
+      <div style="margin-bottom:0.4rem">
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--safe)">✓ Safe: </span>
+        <span style="font-size:0.8rem;color:var(--text-muted)">${r.safe_items.join(', ')}</span>
+      </div>` : ''}
+      ${r.avoid && r.avoid.length ? `
+      <div style="margin-bottom:0.4rem">
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--warn)">✗ Avoid: </span>
+        <span style="font-size:0.8rem;color:var(--text-muted)">${r.avoid.join(', ')}</span>
+      </div>` : ''}
+      ${r.ask_for ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.4rem;font-style:italic">"${r.ask_for}"</div>` : ''}
+      ${r.verdict ? `<div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem;font-weight:600">${r.verdict}</div>` : ''}
+    </div>`;
+  });
+
+  panel.innerHTML = html;
+}
+
+function renderPortsTab(panel) {
+  if (!ports) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+
+  const portList = ports.ports || ports;
+  let html = '';
+
+  (Array.isArray(portList) ? portList : Object.values(portList)).forEach(p => {
+    html += `
+    <div class="port-card">
+      <div class="port-card-header">
+        <div>
+          <div class="port-name">${p.name || p.port}</div>
+          <div class="port-country">${p.country || p.date || ''}</div>
+        </div>
+      </div>
+      <div class="port-card-body">
+        ${(p.arrival || p.departure) ? `
+        <div class="port-times">
+          ${p.arrival ? `<div class="port-time-item"><div class="port-time-label">Arrive</div><div class="port-time-value">${p.arrival}</div></div>` : ''}
+          ${p.departure ? `<div class="port-time-item"><div class="port-time-label">Depart</div><div class="port-time-value">${p.departure}</div></div>` : ''}
+        </div>` : ''}
+        ${p.notes ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${p.notes}</p>` : ''}
+        ${p.highlights && p.highlights.length ? `
+        <ul class="port-highlights">
+          ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>` : ''}
+        ${p.gf_tip ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.6rem">🍽 GF: ${p.gf_tip}</div>` : ''}
+      </div>
+    </div>`;
+  });
+
+  panel.innerHTML = html || '<p class="text-muted">Port information loading…</p>';
+}
+
+function renderSpaTab(panel) {
+  if (!spa) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+
+  let html = '';
+
+  // Booked treatments highlight
+  if (spa.booked) {
+    html += `
+    <div class="section-header"><span class="section-title">Holly's Booked</span></div>
+    <div class="card card-gold" style="margin-bottom:1rem">
+      ${spa.booked.map(b => `
+      <div style="padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+        <div style="font-weight:600;font-size:0.9rem">${b.name || b}</div>
+        ${b.time ? `<div style="font-size:0.8rem;color:var(--gold)">${b.time}</div>` : ''}
+        ${b.notes ? `<div style="font-size:0.8rem;color:var(--text-muted)">${b.notes}</div>` : ''}
+      </div>`).join('')}
+    </div>`;
+  }
+
+  const sections = spa.categories || spa.sections || (spa.treatments ? [{ title: 'Treatments', items: spa.treatments }] : []);
+
+  sections.forEach(sec => {
+    html += `<div class="section-header"><span class="section-title">${sec.title || sec.name}</span></div><div class="card" style="margin-bottom:0.75rem">`;
+    (sec.items || sec.treatments || []).forEach(t => {
+      html += `
+      <div class="spa-treatment">
+        <div>
+          <div class="spa-treatment-name">${t.name}</div>
+          ${t.duration ? `<div class="spa-treatment-duration">${t.duration}</div>` : ''}
+          ${t.notes ? `<div class="spa-treatment-duration">${t.notes}</div>` : ''}
+        </div>
+        ${t.price ? `<div class="spa-treatment-price">${t.price}</div>` : ''}
+      </div>`;
+    });
+    html += '</div>';
+  });
+
+  if (spa.thermal_suite) {
+    html += `
+    <div class="section-header"><span class="section-title">Thermal Suite</span></div>
+    <div class="card">
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${spa.thermal_suite}</p>
+    </div>`;
+  }
+
+  if (spa.tips) {
+    html += `
+    <div class="section-header"><span class="section-title">Spa Tips</span></div>`;
+    spa.tips.forEach(t => {
+      html += `<div class="tip-item">${t}</div>`;
+    });
+  }
+
+  panel.innerHTML = html || '<p class="text-muted">Spa information loading…</p>';
+}
+
+function renderEntertainmentTab(panel) {
+  if (!entertainment) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+
+  let html = '';
+  const shows = entertainment.shows || entertainment.events || (Array.isArray(entertainment) ? entertainment : []);
+
+  if (shows.length) {
+    html += `<div class="section-header"><span class="section-title">Shows & Events</span></div>`;
+    shows.forEach(show => {
+      const timeParts = (show.time || '').split(' ');
+      html += `
+      <div class="show-card">
+        <div class="show-time-block">
+          <div class="show-time">${timeParts[0] || show.time || ''}</div>
+          <div class="show-period">${timeParts[1] || ''}</div>
+        </div>
+        <div class="show-info">
+          <div class="show-name">${show.name || show.title}</div>
+          ${show.venue ? `<div class="show-venue">${show.venue}</div>` : ''}
+          ${show.description || show.desc ? `<div class="show-desc">${show.description || show.desc}</div>` : ''}
+          ${show.notes ? `<div class="show-desc" style="color:var(--gold)">${show.notes}</div>` : ''}
+        </div>
+      </div>`;
+    });
+  }
+
+  const venues = entertainment.venues || entertainment.bars || [];
+  if (venues.length) {
+    html += `<div class="section-header" style="margin-top:0.5rem"><span class="section-title">Venues & Bars</span></div>`;
+    venues.forEach(v => {
+      html += `
+      <div class="card" style="margin-bottom:0.75rem">
+        <div style="font-weight:600;margin-bottom:0.3rem">${v.name}</div>
+        ${v.description || v.desc ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.5">${v.description || v.desc}</p>` : ''}
+        ${v.hours ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.3rem">${v.hours}</div>` : ''}
+      </div>`;
+    });
+  }
+
+  panel.innerHTML = html || '<p class="text-muted">Entertainment information loading…</p>';
+}
+
+function renderTipsTab(panel) {
+  if (!tips) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+
+  const tipList = tips.tips || tips.items || (Array.isArray(tips) ? tips : []);
+  let html = '';
+
+  if (tips.categories) {
+    tips.categories.forEach(cat => {
+      html += `<div class="section-header"><span class="section-title">${cat.title}</span></div>`;
+      (cat.items || cat.tips || []).forEach(t => {
+        html += `<div class="tip-item">${typeof t === 'string' ? t : `<strong>${t.tip || t.title}</strong>${t.detail ? ' — ' + t.detail : ''}`}</div>`;
+      });
+    });
+  } else {
+    tipList.forEach(t => {
+      html += `<div class="tip-item">${typeof t === 'string' ? t : `<strong>${t.tip || t.title || ''}</strong>${t.detail ? ' — ' + t.detail : ''}`}</div>`;
+    });
+  }
+
+  panel.innerHTML = html || '<p class="text-muted">Tips loading…</p>';
+}
+
+// ─── Chat / KB Search ──────────────────────────────────────────────
+function setupChatInput() {
+  const input = document.getElementById('chat-input');
+  if (!input) return;
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendChat();
+    }
+  });
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+  });
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  if (!input) return;
+  const query = input.value.trim();
+  if (!query) return;
+  input.value = '';
+  input.style.height = 'auto';
+  addChatMessage('user', query);
+  const answer = searchKB(query);
+  setTimeout(() => addChatMessage('assistant', answer), 300);
+}
+
+function addChatMessage(role, text) {
+  const messages = document.getElementById('chat-messages');
+  if (!messages) return;
+
+  const now = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  const div = document.createElement('div');
+  div.className = `chat-message ${role}`;
+  div.innerHTML = `
+    <div class="chat-bubble">${text}</div>
+    <div class="chat-time">${now}</div>`;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function searchKB(query) {
+  const q = query.toLowerCase().trim();
+
+  // GF / celiac questions
+  if (q.includes('eat') || q.includes('gluten') || q.includes('gf') || q.includes('celiac') || q.includes('safe') || q.includes('food')) {
+    if (!gfGuide) return "GF guide is loading — try again in a moment.";
+
+    const restaurantMatches = gfGuide.restaurants.filter(r => {
+      const name = r.name.toLowerCase();
+      return name.split(' ').some(word => word.length > 3 && q.includes(word)) || q.includes(name);
+    });
+
+    if (restaurantMatches.length > 0) {
+      return formatGFAnswer(restaurantMatches[0]);
+    }
+    return formatGFGeneral();
+  }
+
+  // Today / schedule / port / dock
+  if (q.includes('today') || q.includes('schedule') || q.includes('dock') || q.includes('arrive') || q.includes('depart')) {
+    return formatTodayAnswer();
+  }
+
+  if (q.includes('port') || q.includes('excursion') || q.includes('belize') || q.includes('roatan') || q.includes('cozumel') || q.includes('costa maya')) {
+    return formatPortAnswer(q);
+  }
+
+  // Spa
+  if (q.includes('spa') || q.includes('facial') || q.includes('thermal') || q.includes('mani') || q.includes('pedi') || q.includes('massage') || q.includes('treatment')) {
+    return formatSpaAnswer(q);
+  }
+
+  // Entertainment
+  if (q.includes('show') || q.includes('rocket') || q.includes('syd') || q.includes('entertainment') || q.includes('tonight') || q.includes('music')) {
+    return formatEntertainmentAnswer(q);
+  }
+
+  // Suite / cabin
+  if (q.includes('suite') || q.includes('cabin') || q.includes('room') || q.includes('butler') || q.includes('haven') || q.includes('concierge')) {
+    return `You're in Suite 12846 — Haven King H5. Your Haven perks include priority embarkation, dedicated concierge, exclusive restaurant and pool deck, butler service, and priority show seating. Contact the Haven Concierge desk for reservations and requests.`;
+  }
+
+  // Anniversary
+  if (q.includes('anniversary') || q.includes('special') || q.includes('celebrate')) {
+    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa treatments in the morning, Onda at Sea balcony dinner in the evening, and Rocket Man show with Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
+  }
+
+  // PIN / reset
+  if (q.includes('holly') || q.includes('switch') || q.includes('logout') || q.includes('lock')) {
+    return `To switch to Holly's view, you can lock the app from the header. Holly's PIN is 1009.`;
+  }
+
+  return generalSearch(q);
+}
+
+function formatGFAnswer(restaurant) {
+  const status = getGFStatus(restaurant.gf_status);
+  let answer = `**${restaurant.name}** — ${status.emoji} ${status.label}\n\n${restaurant.notes}`;
+  if (restaurant.safe_items && restaurant.safe_items.length) {
+    answer += `\n\nSafe options: ${restaurant.safe_items.join(', ')}.`;
+  }
+  if (restaurant.avoid && restaurant.avoid.length) {
+    answer += `\n\nAvoid: ${restaurant.avoid.join(', ')}.`;
+  }
+  if (restaurant.ask_for) {
+    answer += `\n\nSay: "${restaurant.ask_for}"`;
+  }
+  return answer;
+}
+
+function formatGFGeneral() {
+  if (!gfGuide) return "GF guide unavailable — check the GF Guide tab.";
+  const safe = gfGuide.restaurants.filter(r => r.gf_status === 'safe').map(r => r.name);
+  return `Holly's safest options are the **Haven Restaurant** (dedicated staff, flag on day 1) and **Onda by Scarpetta** (GF pasta available). Also safe: ${safe.slice(2).join(', ')}. Always alert each restaurant to her celiac diagnosis and ask about cross-contamination.`;
+}
+
+function formatTodayAnswer() {
+  const dayIdx = getTodayDayIndex();
+  if (!itinerary) return "Itinerary loading — check the Itinerary tab.";
+  if (dayIdx < 0) {
+    const sailing = getSailing();
+    return `The cruise hasn't started yet — ${sailing.text}. Norwegian Luna departs Miami on April 4, 2026.`;
+  }
+  const day = itinerary.days[dayIdx];
+  return `Today is **${day.date}, ${day.day}** — ${day.port}. ${day.notes}${day.times ? ` Hours: ${day.times}.` : ''}`;
+}
+
+function formatPortAnswer(q) {
+  if (!ports) return "Port information is in the Ports tab.";
+  const portList = ports.ports || (Array.isArray(ports) ? ports : Object.values(ports));
+  const keywords = ['belize', 'roatan', 'cozumel', 'costa maya', 'maya', 'honduras', 'mexico'];
+  const matched = portList.find(p => {
+    const name = (p.name || p.port || '').toLowerCase();
+    return keywords.some(k => q.includes(k) && (name.includes(k) || k.includes(name.split(' ')[0].toLowerCase())));
+  });
+  if (matched) {
+    return `**${matched.name || matched.port}**: ${matched.notes || matched.description || 'See the Ports tab for details.'}${matched.gf_tip ? ` GF tip: ${matched.gf_tip}` : ''}`;
+  }
+  return "Check the Ports tab for detailed information on each stop — Belize, Roatán, Costa Maya, and Cozumel.";
+}
+
+function formatSpaAnswer(q) {
+  if (!spa) return "Spa details are in the Spa tab.";
+  if (q.includes('booked') || q.includes('holly') || q.includes('scheduled')) {
+    if (spa.booked && spa.booked.length) {
+      return `Holly's booked spa treatments: ${spa.booked.map(b => `${b.name || b}${b.time ? ' at ' + b.time : ''}`).join('; ')}.`;
+    }
+  }
+  if (q.includes('thermal')) {
+    return spa.thermal_suite ? `Thermal Suite: ${spa.thermal_suite}` : "See the Spa tab for Thermal Suite details.";
+  }
+  return `The spa on Norwegian Luna offers treatments including facials, massages, manicures, and access to the Thermal Suite. Holly has treatments booked for April 5 (Sea Day). See the Spa tab for the full menu and pricing.`;
+}
+
+function formatEntertainmentAnswer(q) {
+  if (!entertainment) return "Entertainment details are in the Entertainment tab.";
+  if (q.includes('rocket') || q.includes('rocket man')) {
+    const show = (entertainment.shows || []).find(s => (s.name || '').toLowerCase().includes('rocket'));
+    if (show) return `Rocket Man: ${show.description || show.desc || 'Live tribute show'}. ${show.time ? `Show time: ${show.time}.` : ''} ${show.notes || 'Request Haven priority seating via the concierge.'}`;
+    return "Rocket Man is a live Elton John tribute show on board. Book Haven priority seating through the concierge.";
+  }
+  if (q.includes('syd')) {
+    return "Syd Norman's Pour House is the signature live music bar on Norwegian Luna — rock, classic hits, nightly performances. Great for the last sea day (April 10).";
+  }
+  const shows = entertainment.shows || [];
+  if (shows.length) {
+    return `Entertainment highlights: ${shows.slice(0, 3).map(s => s.name || s.title).join(', ')}. Check the Entertainment tab for the full schedule.`;
+  }
+  return "See the Entertainment tab for shows, venues, and the nightly schedule.";
+}
+
+function generalSearch(q) {
+  const responses = [
+    { k: ['pin', 'password'], r: "Your PINs: Fred 1313, Holly 1009. Keep these private." },
+    { k: ['sail', 'depart', 'leave'], r: "Norwegian Luna departs Miami on April 4, 2026 at 11am (Haven priority boarding from 11am)." },
+    { k: ['return', 'arrive home', 'back'], r: "The cruise returns to Miami on April 11, 2026. Haven guests disembark first via priority." },
+    { k: ['reservation', 'booking', '#'], r: "NCL Reservation #64411979. Suite 12846 (Haven H5 King). Contact NCL at 1-866-234-7350 for booking changes." },
+    { k: ['wifi', 'internet'], r: "Norwegian Luna offers onboard Wi-Fi packages purchasable through the NCL app or Guest Services. Haven guests may receive a discount — ask the concierge." },
+    { k: ['casino'], r: "The casino is open at sea (closed in port per maritime law). Last sea day (April 10) is the final casino session before debarkation." },
+    { k: ['drink', 'bar', 'cocktail', 'beverage'], r: "The Haven Lounge has private bar service. Syd Norman's Pour House and other bars are fleet-wide. Beverage packages can be pre-purchased through NCL." },
+  ];
+
+  for (const { k, r } of responses) {
+    if (k.some(kw => q.includes(kw))) return r;
+  }
+
+  return "I didn't find a specific answer for that. Try the relevant tab above, or use the tabs: Itinerary, GF Guide, Ports, Spa, or Entertainment. For advanced questions, connect to Haven AI below.";
+}
+
+// ─── Holly's View ──────────────────────────────────────────────────
+function renderHollyView() {
+  const sailing = getSailing();
+  const greeting = document.getElementById('holly-greeting');
+  if (greeting) {
+    greeting.querySelector('h1').textContent = `Good ${getTimeOfDay()}, Holly`;
+    greeting.querySelector('.sail-countdown').innerHTML =
+      `Norwegian Luna · <span>${sailing.text}</span>`;
+  }
+  setupVoice();
+}
+
+// Voice
+let recognition = null;
+let isListening = false;
+
+function setupVoice() {
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRec) {
+    const btn = document.getElementById('voice-btn');
+    if (btn) {
+      btn.querySelector('.voice-label').textContent = 'Type Below';
+      btn.style.opacity = '0.6';
+    }
+    return;
+  }
+
+  recognition = new SpeechRec();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.onresult = e => {
+    const query = e.results[0][0].transcript;
+    stopListening();
+    processHollyQuery(query);
+  };
+
+  recognition.onerror = () => stopListening();
+  recognition.onend = () => stopListening();
+}
+
+function toggleVoice() {
+  if (isListening) {
+    stopListening();
+  } else {
+    startListening();
+  }
+}
+
+function startListening() {
+  if (!recognition) {
+    const query = prompt('Ask a question:');
+    if (query) processHollyQuery(query);
+    return;
+  }
+  isListening = true;
+  recognition.start();
+
+  const wrap = document.getElementById('voice-btn-wrap');
+  const btn = document.getElementById('voice-btn');
+  const status = document.getElementById('voice-status');
+  if (wrap) wrap.classList.add('listening');
+  if (btn) btn.classList.add('listening');
+  if (status) { status.textContent = 'Listening…'; status.classList.add('active'); }
+}
+
+function stopListening() {
+  isListening = false;
+  if (recognition) { try { recognition.stop(); } catch (e) {} }
+
+  const wrap = document.getElementById('voice-btn-wrap');
+  const btn = document.getElementById('voice-btn');
+  const status = document.getElementById('voice-status');
+  if (wrap) wrap.classList.remove('listening');
+  if (btn) btn.classList.remove('listening');
+  if (status) { status.textContent = 'Tap to ask'; status.classList.remove('active'); }
+}
+
+function processHollyQuery(query) {
+  const status = document.getElementById('voice-status');
+  if (status) status.textContent = `"${query}"`;
+
+  const answer = searchKB(query);
+  showHollyAnswer(answer);
+  speak(answer);
+}
+
+function showHollyAnswer(text) {
+  const el = document.getElementById('holly-answer');
+  if (!el) return;
+  // Strip markdown bold
+  const clean = text.replace(/\*\*([^*]+)\*\*/g, '$1');
+  el.querySelector('.answer-text').textContent = clean;
+  el.classList.add('visible');
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\n+/g, '. ');
+  const utterance = new SpeechSynthesisUtterance(clean);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.95;
+  utterance.pitch = 1;
+
+  // Prefer a natural female voice if available
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v => v.lang === 'en-US' && /samantha|karen|victoria|female/i.test(v.name))
+    || voices.find(v => v.lang.startsWith('en'));
+  if (preferred) utterance.voice = preferred;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function quickQuestion(q) {
+  const status = document.getElementById('voice-status');
+  if (status) status.textContent = `"${q}"`;
+  processHollyQuery(q);
+}
+
+// ─── Holly bottom nav ─────────────────────────────────────────────
+function switchHollySection(section) {
+  state.hollySection = section;
+  document.querySelectorAll('#holly-screen .bottom-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.section === section);
+  });
+  document.querySelectorAll('.holly-section').forEach(s => {
+    s.style.display = s.dataset.section === section ? 'flex' : 'none';
+  });
+}
+
+// ─── Haven AI ────────────────────────────────────────────────────
+function openHavenAI() {
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    showHavenAIModal();
+  } else {
+    window.open(HAVEN_AI_URL, '_blank', 'noopener');
+  }
+}
+
+function showHavenAIModal() {
+  const existing = document.getElementById('haven-ai-modal');
+  if (existing) { existing.remove(); }
+
+  const modal = document.createElement('div');
+  modal.id = 'haven-ai-modal';
+  modal.style.cssText = `
+    position:fixed;inset:0;z-index:1000;background:rgba(13,20,32,0.97);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:1.5rem;`;
+  modal.innerHTML = `
+    <div style="text-align:center;margin-bottom:2rem">
+      <div class="haven-wordmark-sm" style="margin-bottom:0.5rem">Haven AI</div>
+      <p style="color:var(--text-muted);font-size:0.875rem;max-width:280px">
+        Connect to the full AI assistant for advanced questions and personalized assistance.
+      </p>
+    </div>
+    <a href="${HAVEN_AI_URL}" target="_blank" rel="noopener"
+       style="display:flex;align-items:center;gap:0.6rem;background:var(--gold-gradient);color:var(--bg);
+              font-weight:700;font-size:1rem;padding:1rem 2rem;border-radius:var(--radius);
+              margin-bottom:1rem;width:100%;max-width:280px;justify-content:center;"
+       onclick="document.getElementById('haven-ai-modal').remove()">
+      Open Haven AI ↗
+    </a>
+    <button onclick="document.getElementById('haven-ai-modal').remove()"
+            style="color:var(--text-muted);font-size:0.875rem;padding:0.5rem 1rem">
+      Cancel
+    </button>`;
+  document.body.appendChild(modal);
+}
+
+// ─── Service Worker ───────────────────────────────────────────────
+function registerSW() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => {
+      console.warn('SW registration failed:', err);
+    });
+  }
+}
+
+// ─── Build DOM ────────────────────────────────────────────────────
+function buildApp() {
+  document.getElementById('app').innerHTML = `
+    <!-- PIN Screen -->
+    <div id="pin-screen" class="screen active">
+      <div class="pin-container">
+        <div class="pin-wordmark-wrap">
+          <div class="haven-wordmark">Haven</div>
+          <div class="pin-tagline">Norwegian Luna · April 4–11</div>
+        </div>
+        <div id="pin-dots-row" class="pin-dots" style="justify-content:center">
+          <div class="pin-dot"></div>
+          <div class="pin-dot"></div>
+          <div class="pin-dot"></div>
+          <div class="pin-dot"></div>
+        </div>
+        <div id="pin-error" class="pin-error"></div>
+        <div class="pin-keypad">
+          ${[1,2,3,4,5,6,7,8,9].map(n => `
+            <button class="pin-key" onclick="handlePinInput('${n}')">${n}</button>
+          `).join('')}
+          <div></div>
+          <button class="pin-key pin-zero" onclick="handlePinInput('0')">0</button>
+          <button class="pin-key pin-back" onclick="handlePinBack()">⌫</button>
+        </div>
+        <p style="font-size:0.7rem;color:var(--text-dim);text-align:center;margin-top:0.5rem">
+          Enter PIN to continue
+        </p>
+      </div>
+    </div>
+
+    <!-- Fred's Screen -->
+    <div id="fred-screen" class="screen">
+      <div class="app-header">
+        <div class="header-left">
+          <div class="header-avatar">F</div>
+          <div>
+            <div class="haven-wordmark-sm">Haven</div>
+            <div class="header-title">Norwegian Luna · Suite 12846</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" onclick="navigateTo('pin')" title="Lock">🔒</button>
+        </div>
+      </div>
+      <div class="nav-tabs" id="fred-tabs">
+        <button class="nav-tab active" data-tab="today" onclick="switchFredTab('today')">Today</button>
+        <button class="nav-tab" data-tab="itinerary" onclick="switchFredTab('itinerary')">Itinerary</button>
+        <button class="nav-tab" data-tab="gf" onclick="switchFredTab('gf')">GF Guide</button>
+        <button class="nav-tab" data-tab="ports" onclick="switchFredTab('ports')">Ports</button>
+        <button class="nav-tab" data-tab="spa" onclick="switchFredTab('spa')">Spa</button>
+        <button class="nav-tab" data-tab="entertainment" onclick="switchFredTab('entertainment')">Shows</button>
+        <button class="nav-tab" data-tab="tips" onclick="switchFredTab('tips')">Tips</button>
+      </div>
+      <div class="scroll-content">
+        <div id="tab-today" class="tab-panel active"></div>
+        <div id="tab-itinerary" class="tab-panel"></div>
+        <div id="tab-gf" class="tab-panel"></div>
+        <div id="tab-ports" class="tab-panel"></div>
+        <div id="tab-spa" class="tab-panel"></div>
+        <div id="tab-entertainment" class="tab-panel"></div>
+        <div id="tab-tips" class="tab-panel"></div>
+      </div>
+    </div>
+
+    <!-- Holly's Screen -->
+    <div id="holly-screen" class="screen">
+      <div class="app-header">
+        <div class="header-left">
+          <div class="header-avatar" style="color:#e0c068;border-color:#e0c068">H</div>
+          <div class="haven-wordmark-sm">Haven</div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" onclick="navigateTo('pin')" title="Lock">🔒</button>
+        </div>
+      </div>
+
+      <div class="holly-container">
+        <div class="holly-greeting" id="holly-greeting">
+          <h1>Good morning, Holly</h1>
+          <div class="sail-countdown">Norwegian Luna · <span>loading…</span></div>
+        </div>
+
+        <!-- Voice section -->
+        <div id="voice-btn-wrap" class="voice-btn-wrap">
+          <div class="voice-pulse-ring"></div>
+          <div class="voice-pulse-ring"></div>
+          <div class="voice-pulse-ring"></div>
+          <button id="voice-btn" class="voice-btn" onclick="toggleVoice()" aria-label="Ask a question">
+            <span class="mic-icon">🎤</span>
+            <span class="voice-label">Ask</span>
+          </button>
+        </div>
+        <div id="voice-status" class="voice-status">Tap to ask</div>
+
+        <div id="holly-answer" class="holly-answer">
+          <div class="answer-label">Haven says</div>
+          <div class="answer-text"></div>
+        </div>
+
+        <div style="height:1rem"></div>
+
+        <div class="section-header" style="width:100%;max-width:380px">
+          <span class="section-title">Quick questions</span>
+        </div>
+        <div class="quick-questions">
+          <button class="quick-q-btn" onclick="quickQuestion('What can I safely eat at Onda by Scarpetta?')">
+            <span class="quick-q-icon">🍝</span> What can I eat at Onda?
+          </button>
+          <button class="quick-q-btn" onclick="quickQuestion('What is today\\'s schedule and port?')">
+            <span class="quick-q-icon">📅</span> What's today's schedule?
+          </button>
+          <button class="quick-q-btn" onclick="quickQuestion('What time do we dock at port today?')">
+            <span class="quick-q-icon">⚓</span> What time do we dock?
+          </button>
+          <button class="quick-q-btn" onclick="quickQuestion('Tell me about the spa and my booked treatments')">
+            <span class="quick-q-icon">💆</span> Spa info & my treatments
+          </button>
+          <button class="quick-q-btn" onclick="quickQuestion('What gluten free options are safe for celiac on the ship?')">
+            <span class="quick-q-icon">🌿</span> GF safe options on ship
+          </button>
+          <button class="quick-q-btn" onclick="quickQuestion('What shows and entertainment are available tonight?')">
+            <span class="quick-q-icon">🎭</span> Tonight's entertainment
+          </button>
+        </div>
+
+        <div style="height:0.5rem"></div>
+        <div style="width:100%;max-width:380px">
+          <button class="haven-ai-btn" onclick="openHavenAI()">
+            <span>✦</span> Connect to Haven AI
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ─── Init ─────────────────────────────────────────────────────────
+async function init() {
+  buildApp();
+  registerSW();
+
+  // Restore session
+  const saved = sessionStorage.getItem('haven_view');
+  if (saved && (saved === 'fred' || saved === 'holly')) {
+    // Load content first, then navigate
+    await loadContent();
+    navigateTo(saved);
+  } else {
+    // Load content in background while showing PIN
+    loadContent();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);

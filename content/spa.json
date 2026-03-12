@@ -1,0 +1,155 @@
+{
+  "spa_name": "The Mandara Spa at Sea — Norwegian Luna",
+  "overview": "The onboard spa is operated by Mandara Spa, NCL's full-service spa partner. Located on the main ship (not within the Haven), it's accessible to all guests but Haven guests receive preferred booking access. The spa includes treatment rooms, a thermal suite complex, salon, and fitness center.",
+  "holly_booked_treatments": [
+    {
+      "treatment": "Ultimate Treatment Facial",
+      "date": "April 5 (Sunday — Anniversary Day)",
+      "time": "Morning (confirm exact time with spa)",
+      "duration": "~75-90 minutes",
+      "description": "A premium facial treatment combining deep cleansing, exfoliation, extractions (if needed), a customized masque, and hydrating finish. The 'Ultimate' level typically includes advanced techniques like microdermabrasion, ultrasound, or LED light therapy depending on the spa's current menu. Designed to leave skin deeply refreshed and glowing.",
+      "what_to_expect": [
+        "Consultation with aesthetician at start — mention any skin sensitivities",
+        "Full face and often décolletage treatment",
+        "Hot towels and aromatherapy elements",
+        "Relaxation table in a private treatment room",
+        "Product recommendations at end — feel free to decline sales pressure politely"
+      ],
+      "tips": [
+        "Arrive 30 minutes before your appointment — fill out health form and relax in thermal suite beforehand",
+        "Skip heavy makeup the day of — let your skin breathe",
+        "Don't wax or use harsh exfoliants 48 hours before the facial",
+        "You can use the thermal suite before and after your treatment (included with treatment on treatment day)",
+        "Let the aesthetician know it's your anniversary — they often add a small touch"
+      ],
+      "gf_notes": "Most skincare products are applied topically, not ingested, so gluten in products is not a concern. However, if Holly has any gluten skin sensitivity, mention it — oat-based products contain gluten."
+    },
+    {
+      "treatment": "Fire & Ice Mani/Pedi",
+      "date": "April 5 (Sunday — Anniversary Day)",
+      "time": "Afternoon (confirm exact time — leave at least 1 hour gap after facial)",
+      "duration": "~60-75 minutes",
+      "description": "A contrast therapy manicure and pedicure. 'Fire' elements warm and stimulate (warm paraffin wax, warm stone massage) while 'Ice' elements cool and refresh (cooling masks, cooling massage). Leaves hands and feet exceptionally soft and polished.",
+      "what_to_expect": [
+        "Pedicure tub soak with salts/aromatherapy",
+        "Callus treatment and nail shaping",
+        "Warm paraffin wax application on feet",
+        "Cooling mask on lower legs",
+        "Manicure with warm paraffin on hands",
+        "Gel or regular polish finish (confirm when booking — gel lasts longer for the cruise)",
+        "Completed in the spa's nail area — may be partially open to other clients"
+      ],
+      "tips": [
+        "Request gel polish if available — it will last the entire cruise without chipping",
+        "Bring your own polish color if you have a preference (OPI, Essie, etc.) — spa polish selection varies",
+        "Wear open-toed shoes or flip flops from the ship so wet nails don't get smudged",
+        "Book back-to-back with the facial if possible — spend the whole morning/afternoon at the spa for a full spa day",
+        "The pedicure chairs are massage chairs — enjoy"
+      ]
+    }
+  ],
+  "thermal_suite": {
+    "name": "Thermal Suite",
+    "overview": "The thermal suite is a self-guided wellness complex within the spa. Unlike individual treatments, the thermal suite requires a day pass or week pass and can be visited multiple times. It is not exclusive to Haven guests — all guests with a pass may use it — but it is generally less crowded than the main pools.",
+    "passes": {
+      "single_day": "~$35-45 per person per day",
+      "week_pass": "~$149-179 per person for the full cruise (best value if planning multiple visits)",
+      "tips": [
+        "Week passes often go on sale on embarkation day — check the spa promotions desk when boarding",
+        "Haven guests may receive a discount — ask the concierge before purchasing",
+        "The thermal suite is included on the day of any spa treatment — useful on April 5"
+      ]
+    },
+    "amenities": [
+      {
+        "feature": "Heated Tile Loungers",
+        "description": "Smooth stone heated loungers — these are the most in-demand feature. Arrive early (before 9am) to claim one. Heated to approximately body temperature, they're perfect for reading or napping. The heat has a mild therapeutic effect on muscles."
+      },
+      {
+        "feature": "Hydrotherapy Pool",
+        "description": "Warm seawater pool with jet therapy stations targeting different muscle groups — neck, back, legs. Usually heated to ~102-104°F (39-40°C). Excellent for post-sea-day muscle recovery. Views sometimes available depending on ship design."
+      },
+      {
+        "feature": "Finnish Dry Sauna",
+        "description": "Traditional dry sauna, typically 170-190°F (77-88°C). 10-15 minute sessions recommended. Excellent for detox and deep muscle relaxation. Rinse in the shower between sauna and steam room."
+      },
+      {
+        "feature": "Aroma Steam Room",
+        "description": "Wet steam room infused with eucalyptus or other aromatherapy scents, typically 110-120°F (43-49°C). Lower temperature than sauna but the steam makes it feel more intense. Great for clearing sinuses and skin hydration."
+      },
+      {
+        "feature": "Snow Room / Ice Room",
+        "description": "A cold contrast room — some ships have a snow room that generates snowflakes, others have an ice wall or cold chamber. Used between hot sessions for circulation benefits. Jarring but invigorating — try it at least once."
+      },
+      {
+        "feature": "Cold Plunge / Shower",
+        "description": "Cold water showers or plunge pool for contrast therapy. 30 seconds of cold water after a sauna session dramatically improves the experience and circulation."
+      },
+      {
+        "feature": "Relaxation Room",
+        "description": "Quiet room adjacent to the thermal suite with reclined chairs, dim lighting, and infused water. Often has warm blankets. Zero talking rule in most spas — a genuine quiet retreat."
+      }
+    ],
+    "best_times": [
+      "Early morning (7:30–9am) — least crowded, heated loungers available",
+      "During port days — most guests are ashore, thermal suite is nearly empty",
+      "Avoid: mid-morning on sea days when it gets busy (10am–noon)"
+    ],
+    "etiquette": [
+      "Bring flip flops — required footwear in most areas",
+      "Bathing suits required — not a clothing-optional spa",
+      "Towels provided at the spa desk",
+      "No phones or cameras in the thermal suite",
+      "Silence expected in relaxation rooms and heated lounger area",
+      "Rinse in shower before entering pools and between heat/cold cycles",
+      "Hydrate — bring a water bottle or use the infused water station",
+      "Limit sauna/steam to 15-20 minute sessions, then cool down"
+    ]
+  },
+  "additional_treatments": [
+    {
+      "treatment": "Hot Stone Massage",
+      "duration": "75-90 minutes",
+      "description": "Smooth basalt stones heated to ~130°F used in combination with traditional massage. The heat penetrates deeper than hands alone, making it exceptional for muscle tension. A romantic couple's option for a sea day.",
+      "recommendation": "Book as a couple's massage for a sea day — one of the most memorable cruise experiences."
+    },
+    {
+      "treatment": "Couples Massage",
+      "duration": "50-80 minutes",
+      "description": "Side-by-side massage in a couples suite. Swedish or deep tissue options. Haven guests can sometimes request this be set up with champagne or Champagne arranged through the butler.",
+      "recommendation": "Ask the Haven concierge if a couples treatment can be arranged with suite amenities (rose petals, champagne) for anniversary."
+    },
+    {
+      "treatment": "Body Wrap (Seaweed or Detox)",
+      "duration": "50-75 minutes",
+      "description": "Full-body exfoliation followed by a mineral or seaweed wrap application, then cocooned in heated blankets. Deeply hydrating — skin feels exceptional afterward.",
+      "recommendation": "A good option for the second sea day (April 10) if spa time is desired on the last full day."
+    },
+    {
+      "treatment": "Elemis Resurfacing Facial",
+      "duration": "50 minutes",
+      "description": "Shorter, targeted facial using Elemis products — good option for a mid-week treatment without committing to a full-length session.",
+      "recommendation": "Good secondary option if the Ultimate Treatment Facial results inspire more spa time."
+    },
+    {
+      "treatment": "Salon: Blowout / Hair Styling",
+      "duration": "30-60 minutes",
+      "description": "Full-service salon on the ship for blowouts, updos, color touch-ups, and styling. Good for the anniversary evening look.",
+      "recommendation": "Consider a blowout the afternoon of April 5 before the Rocket Man show — makes the anniversary evening feel especially special."
+    }
+  ],
+  "booking_tips": [
+    "Book treatments as soon as you board — April 5 is already booked, but other days fill up fast",
+    "The spa offers discounts during port days (when fewer guests are onboard) — ask at the desk",
+    "Embarkation day (April 4) often has spa open house promotions — check when boarding",
+    "Haven concierge can assist with spa reservations if the spa desk has a line",
+    "Confirm your April 5 appointment times at the spa desk on embarkation day",
+    "Read treatment descriptions carefully — some treatments include add-ons at extra cost, easy to accidentally agree to"
+  ],
+  "hours": {
+    "spa_and_salon": "8:00am – 10:00pm (treatments by appointment)",
+    "thermal_suite": "8:00am – 10:00pm (pass holders, self-guided)",
+    "fitness_center": "6:00am – 10:00pm (free for all guests)"
+  },
+  "location": "Main ship — accessible from all guest areas. Not within the Haven but close to Haven elevator banks."
+}

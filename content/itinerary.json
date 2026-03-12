@@ -1,0 +1,19 @@
+{
+  "trip": {
+    "ship": "Norwegian Luna",
+    "reservation": "#64411979",
+    "cabin": "Suite 12846 (H5, Haven King)",
+    "dates": "April 4-11, 2026",
+    "homeport": "Miami, FL"
+  },
+  "days": [
+    { "date": "April 4", "day": "Saturday", "port": "Miami (Embarkation)", "times": "Board from 11am (Haven priority)", "notes": "Haven guests board from 11am via priority. Suite 12846. Request suite decoration for anniversary from concierge at boarding. Muster drill required.", "reservations": ["Haven priority embarkation", "Suite decoration request"] },
+    { "date": "April 5", "day": "Sunday", "port": "Sea Day", "times": "At sea", "notes": "ANNIVERSARY DAY. Holly spa: Ultimate Treatment Facial (morning) + Fire & Ice Mani/Pedi (afternoon). Balcony dinner from Onda at Sea (order to suite). Rocket Man show evening — book Haven priority seating via concierge. Suite décor already up.", "reservations": ["Spa: Ultimate Treatment Facial", "Spa: Fire & Ice Mani/Pedi", "Onda dinner to balcony", "Rocket Man show (Haven seating)"] },
+    { "date": "April 6", "day": "Monday", "port": "Harvest Caye, Belize", "times": "7:00am - 5:00pm", "notes": "NCL's private island. Beach club, pool, water sports, zip line. GF dining available at the island restaurant — confirm with staff. Great snorkeling.", "reservations": [] },
+    { "date": "April 7", "day": "Tuesday", "port": "Roatán, Honduras", "times": "8:00am - 5:00pm", "notes": "EXCURSION BOOKED: Monkeys, Sloths & Macaws — Noon departure. Pre-noon: explore port area. Post-excursion: back to ship, Haven pool. GF tip: ship food much safer than port street food.", "reservations": ["Excursion: Monkeys, Sloths & Macaws (Noon)"] },
+    { "date": "April 8", "day": "Wednesday", "port": "Costa Maya, Mexico", "times": "TBD", "notes": "Explore Chacchoben Mayan ruins or beach day at Mahahual. No major excursion booked — decide onboard. Short cab ride to ruins (~40 min).", "reservations": [] },
+    { "date": "April 9", "day": "Thursday", "port": "Cozumel, Mexico", "times": "TBD", "notes": "Likely stay onboard or quick souvenir shopping at port. San Miguel waterfront shops walkable from pier. Ship options: Haven pool, casino, spa.", "reservations": [] },
+    { "date": "April 10", "day": "Friday", "port": "Sea Day", "times": "At sea", "notes": "Last full day at sea. Haven deck and pool, casino (final session), packing begins tonight. Syd Norman's for evening entertainment. Butler gratuity.", "reservations": [] },
+    { "date": "April 11", "day": "Saturday", "port": "Miami (Debarkation)", "times": "Arrive ~7am", "notes": "Haven guests disembark first — concierge will arrange priority disembarkation. Collect checked luggage. Arrange transport to airport/hotel in advance.", "reservations": ["Haven priority debarkation"] }
+  ]
+}

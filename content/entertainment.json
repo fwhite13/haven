@@ -1,0 +1,230 @@
+{
+  "entertainment_overview": "Norwegian Luna features Broadway-caliber production shows, intimate live music venues, a rock bar, comedy, magic, and nightly pool deck activities. Haven guests get priority access to main theater shows via the concierge. Check the Freestyle Daily newsletter (delivered to your suite the evening before) for exact times and booking requirements.",
+  "shows": [
+    {
+      "name": "Rocket Man",
+      "type": "Production Show — Elton John Tribute",
+      "status": "BOOKED — April 5 (Anniversary Evening)",
+      "venue": "Main theater (Stardust Theater or equivalent)",
+      "duration": "~75 minutes",
+      "description": "A full production tribute to Elton John featuring his greatest hits — 'Tiny Dancer,' 'Crocodile Rock,' 'Your Song,' 'Bennie and the Jets,' 'Rocket Man,' and more. Elaborate costumes, full band, choreography, and spectacular lighting. One of NCL's signature production shows and perfectly suited as an anniversary evening show.",
+      "haven_access": {
+        "how_to_book": "Ask the Haven concierge to arrange priority seating — they hold a reserved section for Haven guests in the main theater",
+        "when_to_arrange": "On embarkation day (April 4) or the morning of April 5 at the latest",
+        "seating": "Haven priority section is typically center-front or designated premium seats",
+        "tip": "Confirm the exact showtime with the concierge — there are usually two performances (early ~7pm and late ~9:30pm). For anniversary dinner on the balcony first, the late show works well."
+      },
+      "tips": [
+        "Dress up slightly for the show — it's a special evening and the theater atmosphere elevates it",
+        "Arrive 15 minutes before showtime even with priority seating",
+        "Cocktails are available at the theater bar before the show and during intermission",
+        "The Haven concierge should be contacted Day 1 to secure Haven seats"
+      ]
+    },
+    {
+      "name": "Lunatique",
+      "type": "Production Show — Cirque-Style",
+      "status": "No reservation — check schedule onboard",
+      "venue": "Main theater or specialty venue",
+      "duration": "~60-75 minutes",
+      "description": "NCL's cirque-style aerial and acrobatic production show — Norwegian Luna's signature show featuring the ship's name. Aerial performers, contortionists, acrobats, dancers, and live music. Visually spectacular and unlike traditional musical theater. Typically performed earlier in the cruise (Days 2-3).",
+      "haven_access": {
+        "how_to_book": "Request Haven priority seating through the concierge, same as any main theater show",
+        "tip": "This is one of the shows that tends to sell out — have the concierge secure seats on embarkation day"
+      },
+      "tips": [
+        "This show often has a pre-show interaction with performers — arrive early",
+        "Center seats have the best view for aerial acts",
+        "Typically performed on a sea day or the first/second port day evening"
+      ]
+    },
+    {
+      "name": "HIKO",
+      "type": "Magic & Illusion Show",
+      "status": "No reservation — check schedule onboard",
+      "venue": "Main theater",
+      "duration": "~60-75 minutes",
+      "description": "A Japanese-inspired magic and illusion show featuring grand-scale illusions, close-up magic, and theatrical storytelling. Combines traditional Japanese aesthetics with Las Vegas-style magic. A unique and surprising production.",
+      "haven_access": {
+        "how_to_book": "Haven concierge priority seating available",
+        "tip": "Magic shows often invite audience participation — sit closer if you want to be selected"
+      },
+      "tips": [
+        "Front rows are great for close-up magic elements",
+        "The grand illusions are best appreciated from mid-theater",
+        "This show typically runs once or twice during the 7-night cruise — don't miss it"
+      ]
+    }
+  ],
+  "live_music_venues": [
+    {
+      "name": "Syd Norman's Pour House",
+      "type": "Rock Bar — Live Music Nightly",
+      "location": "Main ship (check ship deck plan)",
+      "hours": "Live music typically 9pm – midnight/1am",
+      "description": "NCL's signature rock and roll bar concept. Named after a fictional rock impresario, the Pour House features live rock tribute bands performing nightly. Multiple themed nights throughout the cruise: Eagles tribute, Fleetwood Mac tribute, classic rock anthems, 70s/80s nights. The most energetic bar on the ship.",
+      "notable_nights": [
+        "Eagles Tribute Night — Hotel California, Take It Easy, Desperado",
+        "Fleetwood Mac Tribute Night — Go Your Own Way, The Chain, Dreams",
+        "Classic Rock Night — mix of 60s-80s hits",
+        "80s Night — expect a full dance floor"
+      ],
+      "tips": [
+        "Gets crowded after 10pm — arrive early to get a table or bar seat",
+        "Standing room only is common during Eagles/Fleetwood Mac nights",
+        "Drink prices same as rest of ship — drink packages apply",
+        "The band takes requests — tip the bartender and ask nicely",
+        "Great for April 10 (last full evening) — go out with a bang",
+        "No cover charge — just order a drink and enjoy"
+      ],
+      "vibe": "High-energy, singalong-friendly. Dress casually. Average age skews 40+ which means everyone knows the words."
+    },
+    {
+      "name": "Haven Lounge",
+      "type": "Private Bar — Haven Guests Only",
+      "location": "Haven complex, deck 17/18",
+      "hours": "Opens 11am (per Haven policy). Evening cocktail hours vary.",
+      "description": "The Haven's private bar and lounge — accessible exclusively to Haven guests. Staffed by Haven bar team who will learn your preferences by Day 2. Used for pre-dinner cocktails, late-night nightcaps, and quiet relaxation away from the main ship crowd.",
+      "features": [
+        "Full bar with premium spirits",
+        "Quieter and more intimate than main ship bars",
+        "Haven butler can serve drinks at the Haven pool deck as well",
+        "Concierge desk typically adjacent to the Haven Lounge for easy access",
+        "Small plates and snacks often available during cocktail hour"
+      ],
+      "tips": [
+        "The Haven bar team gets to know regulars — tell them your drink preferences on Day 1",
+        "Pre-dinner cocktails here before heading to specialty restaurants is a great routine",
+        "Late-night spot if you want quiet after Syd Norman's energy",
+        "Drink packages typically include Haven bar — confirm with concierge on Day 1"
+      ]
+    },
+    {
+      "name": "Atrium Bar / Main Atrium",
+      "type": "Central Bar — All Guests",
+      "location": "Main ship atrium (center of ship)",
+      "description": "The heart of the main ship. Live music during the day and early evening — jazz, solo performers, acoustic sets. Great for people-watching and a midday drink. Transitions to DJ or trivia host in the evenings.",
+      "hours": "All day — varies by programming"
+    },
+    {
+      "name": "Casino Bar",
+      "type": "Bar within Casino",
+      "location": "Casino floor",
+      "description": "Bar integrated into the casino. Complimentary drinks for active players (ask the dealer/pit boss). Open as long as the casino is running.",
+      "hours": "Casino opens once ship is in international waters — typically Day 1 evening. Open late."
+    }
+  ],
+  "casino": {
+    "name": "Casino at Sea — Norwegian Luna",
+    "overview": "Full Las Vegas-style casino with slots, table games, and poker. The casino is one of the largest entertainment spaces on the ship. Games available most evenings and during sea days. Must be in international waters to open (closes while in port).",
+    "signup": {
+      "program": "Casinos at Sea (NCL's own rewards program)",
+      "also_register": "Caesars Rewards (NCL's partner program)",
+      "how": "Visit the casino desk or players club booth on Day 1 — takes 5 minutes",
+      "benefits": [
+        "Earn Tier Credits toward future cruise discounts and free play",
+        "Caesars Rewards points redeemable at Caesars properties worldwide (hotels, casinos)",
+        "Free drinks while actively playing (ask the dealer)",
+        "Access to casino promotions and tournaments"
+      ],
+      "tip": "Sign up for both programs — they are separate and both valuable. The Caesars partnership is especially useful if you visit Caesars properties on land."
+    },
+    "games": [
+      {
+        "game": "Blackjack",
+        "notes": "Holly's game. Tables typically $10-25 minimum. Basic strategy: always split Aces and 8s, never split 10s, double down on 11 vs dealer 2-10, stand on 17+. Don't take insurance.",
+        "basic_strategy_reminders": [
+          "Always: Split Aces and 8s",
+          "Never: Split 10s or 5s",
+          "Always: Stand on hard 17+",
+          "Double down: on 11 (vs dealer 2-10), on 10 (vs dealer 2-9)",
+          "Double down: on 9 (vs dealer 3-6)",
+          "Stand: on hard 12-16 vs dealer 2-6 (let dealer bust)",
+          "Hit: on hard 12-16 vs dealer 7-Ace",
+          "Never take insurance"
+        ]
+      },
+      {
+        "game": "Slots",
+        "notes": "Wide variety — penny to $5+ machines. Good for casual play. Casinos at Sea points accrue from slot play."
+      },
+      {
+        "game": "Roulette",
+        "notes": "American roulette standard (double zero). Better odds on European/single zero if available. Even-money bets (red/black, odd/even) are casual-play friendly."
+      },
+      {
+        "game": "Poker",
+        "notes": "Texas Hold'em typically available. Check for poker tournaments posted at the casino — buy-ins usually $25-65 with modest prize structures."
+      },
+      {
+        "game": "Three Card Poker / Let It Ride",
+        "notes": "Table game variants with lower skill requirements. Fun for casual play. House edge is higher than blackjack but rules are simple."
+      }
+    ],
+    "tournaments": {
+      "blackjack_tournament": "Daily blackjack tournaments — check Freestyle Daily for schedule and buy-in amounts. Typically $20-30 entry.",
+      "slots_tournament": "Slots tournaments sometimes run on sea days — watch the casino bulletin board.",
+      "tip": "Register for tournaments at the casino desk early in the day — they fill up"
+    },
+    "budget_guidance": {
+      "recommended_total": "$300 for casual play across 7 nights",
+      "approach": "Bring $50-75 to the casino per session. Walk away when you hit your loss limit. A winning session is a bonus.",
+      "free_drinks": "You'll receive complimentary drinks while actively playing at table games — pace your drinking accordingly",
+      "when_to_play": [
+        "First evening (April 4) — light warm-up session after dinner",
+        "Sea days (April 5, 10) — extended sessions when nothing else is scheduled",
+        "Port evenings when you return to the ship — relaxed play after a day out"
+      ]
+    }
+  },
+  "pool_deck_activities": {
+    "overview": "The main pool deck hosts a full daytime and evening activity program. The Haven pool is private and quiet — the main pool deck is where the action is for those who want it.",
+    "activities": [
+      {
+        "activity": "Trivia",
+        "description": "Multiple trivia sessions daily — music trivia, general knowledge, pop culture. Usually hosted by cruise staff in the atrium or poolside. Low-stakes, fun social activity.",
+        "tip": "Team up with other guests — better with 4-6 people"
+      },
+      {
+        "activity": "Game Shows",
+        "description": "NCL runs game show formats poolside and in the atrium — Family Feud-style, Newlywed Game, Price is Right parody. Audience participation encouraged.",
+        "tip": "Sign up at the cruise director's desk or at the event if you want to be a contestant"
+      },
+      {
+        "activity": "Belly Flop Contest",
+        "description": "Classic cruise pool contest judged by splash and crowd reaction. Usually mid-cruise sea day afternoon.",
+        "tip": "Great spectator sport even if not participating"
+      },
+      {
+        "activity": "Live Music at Pool Deck",
+        "description": "Daytime live music on the main pool deck — typically a Caribbean/reggae or pop duo. Sets usually 11am–2pm.",
+        "tip": "Main pool gets crowded fast on sea days — Haven pool is the quiet alternative"
+      },
+      {
+        "activity": "Movie Under the Stars",
+        "description": "Movies projected on the giant screen on the pool deck at night. First-run films and classics. Bring a blanket if it cools down at sea.",
+        "tip": "Check Freestyle Daily — usually a family film early and a more adult film later"
+      }
+    ]
+  },
+  "freestyle_daily": {
+    "what_it_is": "The Freestyle Daily is NCL's daily newsletter/activity guide. It lists every event, show time, dining hour, activity, and ship announcement for the following day.",
+    "when_delivered": "Delivered to your suite the evening before (by 8-9pm usually)",
+    "how_to_use": [
+      "Review it each evening before bed to plan the next day",
+      "Circle shows and activities you want — times fill up",
+      "Note any booking requirements (some shows require advance reservations even for Haven guests)",
+      "Check casino tournament times and any special events",
+      "GF tip: check any special dining events that may need advance notice for dietary restrictions"
+    ],
+    "also_available": "Digital version available on the NCL app — can view next day's schedule in the evening"
+  },
+  "daily_schedule_tips": [
+    "Get the Freestyle Daily the night before — plan your day over a Haven nightcap",
+    "Book show reservations the morning of or the day before — Haven concierge can hold Haven seats",
+    "Syd Norman's doesn't require reservations — just show up",
+    "Sea days fill up fast with activities — prioritize what matters most",
+    "Haven concierge knows the entertainment schedule in advance — ask them on Day 1 for the full week overview",
+    "Don't over-schedule — this is a vacation, not an itinerary sprint"
+  ]
+}

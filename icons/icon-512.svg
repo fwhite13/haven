@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="64" fill="#1a2340"/>
+  <!-- Anchor -->
+  <g transform="translate(256,256)">
+    <!-- Ring at top -->
+    <circle cx="0" cy="-138" r="24" fill="none" stroke="#c9a84c" stroke-width="13"/>
+    <!-- Vertical shaft -->
+    <line x1="0" y1="-114" x2="0" y2="96" stroke="#c9a84c" stroke-width="13" stroke-linecap="round"/>
+    <!-- Crossbar -->
+    <line x1="-74" y1="-64" x2="74" y2="-64" stroke="#c9a84c" stroke-width="13" stroke-linecap="round"/>
+    <!-- Anchor head left curve -->
+    <path d="M -58 96 Q -100 96 -100 54 Q -100 10 -48 10" fill="none" stroke="#c9a84c" stroke-width="13" stroke-linecap="round"/>
+    <!-- Anchor head right curve -->
+    <path d="M 58 96 Q 100 96 100 54 Q 100 10 48 10" fill="none" stroke="#c9a84c" stroke-width="13" stroke-linecap="round"/>
+    <!-- Bottom tips -->
+    <circle cx="-58" cy="96" r="13" fill="#c9a84c"/>
+    <circle cx="58" cy="96" r="13" fill="#c9a84c"/>
+  </g>
+  <!-- HAVEN wordmark -->
+  <text x="256" y="450" font-family="Georgia, serif" font-size="48" font-weight="700" fill="#c9a84c" text-anchor="middle" letter-spacing="16" opacity="0.85">HAVEN</text>
+</svg>

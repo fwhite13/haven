@@ -1,0 +1,81 @@
+const CACHE_NAME = 'haven-v1';
+const CONTENT_CACHE = 'haven-content-v1';
+
+const APP_SHELL = [
+  '/',
+  '/index.html',
+  '/app.js',
+  '/style.css',
+  '/manifest.json',
+  '/icons/icon-192.svg',
+  '/icons/icon-512.svg',
+];
+
+const CONTENT_FILES = [
+  '/content/itinerary.json',
+  '/content/gf-guide.json',
+  '/content/ports.json',
+  '/content/spa.json',
+  '/content/entertainment.json',
+  '/content/tips.json',
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    Promise.all([
+      caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)),
+      caches.open(CONTENT_CACHE).then(cache => cache.addAll(CONTENT_FILES)),
+    ]).then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(k => k !== CACHE_NAME && k !== CONTENT_CACHE)
+          .map(k => caches.delete(k))
+      )
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+
+  // Cache-first for content JSON
+  if (url.pathname.startsWith('/content/')) {
+    event.respondWith(
+      caches.open(CONTENT_CACHE).then(cache =>
+        cache.match(event.request).then(cached => {
+          if (cached) return cached;
+          return fetch(event.request).then(res => {
+            cache.put(event.request, res.clone());
+            return res;
+          });
+        })
+      )
+    );
+    return;
+  }
+
+  // Cache-first for static assets (icons, fonts cached by browser)
+  if (url.pathname.startsWith('/icons/') || url.pathname.match(/\.(svg|png|ico)$/)) {
+    event.respondWith(
+      caches.match(event.request).then(cached => cached || fetch(event.request))
+    );
+    return;
+  }
+
+  // Network-first for app shell
+  event.respondWith(
+    fetch(event.request)
+      .then(res => {
+        const clone = res.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        return res;
+      })
+      .catch(() => caches.match(event.request).then(cached => cached || caches.match('/index.html')))
+  );
+});

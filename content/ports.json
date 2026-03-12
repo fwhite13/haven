@@ -1,0 +1,275 @@
+{
+  "ports": [
+    {
+      "name": "Harvest Caye, Belize",
+      "date": "April 6 (Monday)",
+      "times": "7:00am – 5:00pm",
+      "type": "NCL Private Island",
+      "booked_excursions": [],
+      "overview": "NCL's private island destination in southern Belize. A purpose-built resort island with a beautiful beach, large pool complex, water sports, and a zip line over the water. Much calmer and more controlled than a typical port stop — perfect for a relaxed beach day.",
+      "top_activities": [
+        {
+          "activity": "Beach & Lagoon",
+          "description": "White sand beach and calm lagoon water — excellent for swimming and snorkeling. Snorkel gear rentable on the island. Reef close to shore.",
+          "cost": "Free (beach access included)"
+        },
+        {
+          "activity": "Pool Complex",
+          "description": "Large multi-level pool with swim-up bar. Usually less crowded than the main ship pool on port days since many guests stay on island.",
+          "cost": "Free"
+        },
+        {
+          "activity": "Zip Line",
+          "description": "Zip line over the water from the island — one of Harvest Caye's signature attractions. Book early in the day as slots fill up.",
+          "cost": "~$35-50 per person (book onboard or at the island activity desk)"
+        },
+        {
+          "activity": "Water Sports",
+          "description": "Kayaks, paddleboards, wave runners available for rent. Calm lagoon water ideal for paddleboarding.",
+          "cost": "Varies — ~$20-40 per rental"
+        },
+        {
+          "activity": "Wildlife Sanctuary",
+          "description": "Small Belize Wildlife Sanctuary on the island with local animals — good preview of Belize wildlife if not doing excursions.",
+          "cost": "Small fee or included depending on NCL package"
+        },
+        {
+          "activity": "Hammocks & Cabanas",
+          "description": "Overwater hammocks and beach cabana rentals available. Book a cabana early — they sell out.",
+          "cost": "Cabanas ~$75-150/day reserved through NCL"
+        }
+      ],
+      "dining": {
+        "overview": "Multiple dining options on the island — a restaurant/bar, beach bar, and food stands.",
+        "gf_notes": "The main island restaurant (Toucan's Bar & Grill) can accommodate GF requests — alert staff to celiac. Grilled proteins, rice, and salads are generally safe. Avoid fried items. The dedicated GF phrase in Spanish is useful here even though Belize is English-speaking — many kitchen staff are bilingual.",
+        "safe_choices": ["grilled fish or chicken", "rice and beans (confirm no wheat additive)", "fresh fruit", "salads (dressing on the side)", "plain grilled shrimp"],
+        "avoid": ["fried items (shared fryer risk)", "sauces of unknown composition", "anything breaded"],
+        "tip": "Haven Restaurant on the ship remains open during port days — safest fallback is returning to the ship for lunch."
+      },
+      "practical_tips": [
+        "Bring reef-safe sunscreen — required on the island and better for snorkeling",
+        "Water shoes recommended — some areas have rocky entry points",
+        "The ship tenders or docks directly at Harvest Caye — no tender anxiety",
+        "All-inclusive drink package works on the island",
+        "Get off the ship early for the best beach chairs and hammock spots",
+        "The island is small enough to walk everywhere — no need for the tram",
+        "Cell service is spotty — enjoy the disconnect"
+      ],
+      "weather": {
+        "expected": "Hot and humid, 82-88°F (28-31°C). Mostly sunny with possible afternoon showers — typical for Belize in April.",
+        "what_to_bring": ["sunscreen (reef-safe)", "hat", "sunglasses", "water shoes", "light cover-up"]
+      },
+      "currency": "USD widely accepted on the private island. No need for Belize dollars (BZD) on Harvest Caye specifically.",
+      "return_to_ship": "All aboard: 5:00pm. Be back by 4:30pm to be safe."
+    },
+    {
+      "name": "Roatán, Honduras",
+      "date": "April 7 (Tuesday)",
+      "times": "8:00am – 5:00pm",
+      "type": "Port of Call",
+      "booked_excursions": [
+        {
+          "name": "Monkeys, Sloths & Macaws",
+          "departure": "Noon",
+          "duration": "~2-3 hours",
+          "description": "Wildlife sanctuary tour featuring interactive experiences with spider monkeys, two-toed sloths, and scarlet macaws. Typically includes a guide-led walk through the sanctuary and photo opportunities with the animals. One of Roatán's most popular shore excursions.",
+          "meeting_point": "Check Freestyle Daily or excursion ticket for exact meeting point — usually at the pier or ship's gangway",
+          "tips": [
+            "Wear closed-toe shoes or sturdy sandals — uneven paths",
+            "Don't wear loose dangling jewelry — monkeys are curious",
+            "Bring small bills for optional tips to guides (~$5-10 USD per person)",
+            "Apply bug spray before departing — jungle setting",
+            "Monkeys may climb on you — don't resist, it's part of the experience",
+            "Sloths are slow movers — morning sessions sometimes more active",
+            "Leave time to return to ship — noon departure means back by ~3-3:30pm"
+          ]
+        }
+      ],
+      "pre_excursion": {
+        "time_available": "8:00am – 11:30am",
+        "suggestions": [
+          "Explore the port shopping area near the pier — jewelry, crafts, souvenirs",
+          "West Bay Beach is Roatán's famous beach (~20 min taxi from port) — stunning turquoise water",
+          "West End Village has local restaurants and shops if you want a quick explore",
+          "The pier at Mahogany Bay (NCL's port area) has its own beach and chair lift"
+        ]
+      },
+      "post_excursion": {
+        "time_available": "~3:30pm – 5:00pm",
+        "suggestions": [
+          "Return to ship and decompress at the Haven pool",
+          "Quick shower and order Haven room service",
+          "Haven bar for a late afternoon cocktail"
+        ]
+      },
+      "top_activities": [
+        {
+          "activity": "West Bay Beach",
+          "description": "Consistently ranked one of the best beaches in the Caribbean. Calm, clear water with excellent snorkeling off the beach. 15-20 min taxi ride from Mahogany Bay pier.",
+          "cost": "Taxi ~$5-10 each way per person"
+        },
+        {
+          "activity": "Mahogany Bay Beach",
+          "description": "NCL's beach at the port — accessible via a short chair lift. Calmer option if not venturing to West Bay.",
+          "cost": "Chair lift: small fee or included with NCL package"
+        },
+        {
+          "activity": "Snorkeling",
+          "description": "Roatán is part of the Mesoamerican Barrier Reef — world-class snorkeling. Multiple spots accessible from West Bay Beach.",
+          "cost": "Gear rental ~$10-15"
+        }
+      ],
+      "dining": {
+        "overview": "Port area has restaurants and food stalls. Ship is the safest GF option.",
+        "gf_notes": "Holly should strongly prefer ship food on this port day. Street food and local restaurants have unpredictable cross-contamination. If dining ashore, choose a sit-down restaurant, not food stalls. Use the Spanish GF phrase even though English is widely spoken — kitchen staff may speak more Spanish.",
+        "safe_port_choices": ["grilled fish at a sit-down restaurant (confirm GF prep)", "fresh coconut water (naturally GF)", "fresh fruit from reputable vendor"],
+        "avoid": ["street food stalls", "anything fried at port", "baleadas (flour tortilla-based local food)", "pan de coco (bread)"],
+        "tip": "NCL's Mahogany Bay port area has a restaurant with NCL oversight — safer than independent port restaurants for celiac concerns."
+      },
+      "practical_tips": [
+        "USD is accepted everywhere in Roatán — no need for Honduran Lempira",
+        "Taxis are shared (collectivos) — negotiate price before getting in",
+        "Mahogany Bay is NCL's dedicated port — security is good, very tourist-friendly",
+        "Don't display expensive jewelry or electronics in the port area",
+        "Sunscreen and bug spray essential",
+        "The excursion meets at noon — don't stray too far from port in the morning"
+      ],
+      "weather": {
+        "expected": "Hot and sunny, 84-90°F (29-32°C). April is dry season in Roatán — low rain probability.",
+        "what_to_bring": ["sunscreen", "bug spray (for jungle excursion)", "closed-toe shoes (for excursion)", "hat", "camera or phone in waterproof case"]
+      },
+      "currency": "USD universally accepted. Honduran Lempira not needed.",
+      "return_to_ship": "All aboard: 5:00pm. Excursion should return by ~3:30pm."
+    },
+    {
+      "name": "Costa Maya, Mexico",
+      "date": "April 8 (Wednesday)",
+      "times": "TBD (typically 8:00am – 5:00pm)",
+      "type": "Port of Call",
+      "booked_excursions": [],
+      "overview": "A Mexican Caribbean port on the southern Yucatán coast. The port itself is a purpose-built tourist complex with shops and restaurants. The main draw is proximity to the Chacchoben Mayan ruins (~40 min away) and the laid-back beach town of Mahahual (~5 min from port). A good day to decide based on energy levels — ruins for history, beach for relaxation.",
+      "top_activities": [
+        {
+          "activity": "Chacchoben Mayan Ruins",
+          "description": "Well-preserved Mayan ceremonial site in the jungle, dating to around 200 AD. Smaller and less touristy than Chichen Itza. Taxis run directly from the port — negotiate a round-trip fare including wait time. A licensed guide at the ruins enhances the experience significantly.",
+          "cost": "Taxi round-trip ~$40-60 for the car (split between 2 = $20-30 each). Site admission ~$5 USD. Optional guide ~$10-15 per person.",
+          "duration": "~2.5-3.5 hours total including transport",
+          "tips": [
+            "Go early — gets very hot and crowded by midday",
+            "Wear comfortable walking shoes — uneven jungle terrain",
+            "Bring bug spray — jungle setting",
+            "Negotiate taxi price firmly before departing (round-trip with wait time)",
+            "The ruins are climbable — great photo ops",
+            "Cash only at the site — bring small USD bills"
+          ]
+        },
+        {
+          "activity": "Mahahual Beach Town",
+          "description": "Charming laid-back beach village just 5 minutes from the port. Pedestrian-friendly malecón (boardwalk) lined with restaurants and shops. Great for a casual morning stroll, fresh ceviche (check GF), or renting a beach chair.",
+          "cost": "Free to explore. Beach chair rentals ~$5-10. Food varies.",
+          "tips": [
+            "Very walkable — taxi or walk from port",
+            "Less commercial than the port complex",
+            "Good spot for souvenir shopping — local crafts, hammocks, textiles"
+          ]
+        },
+        {
+          "activity": "Port Shopping Complex",
+          "description": "The Costa Maya port has a large open-air shopping area with jewelry, tequila, souvenirs, and a pool. If energy is low, easy to spend the morning here without leaving the port.",
+          "cost": "Free entry. Shopping at your budget."
+        },
+        {
+          "activity": "Port Pool",
+          "description": "Costa Maya port complex has a large infinity pool available to cruise passengers. Good option for a relaxed beach-free swim.",
+          "cost": "Usually free for cruise passengers"
+        }
+      ],
+      "dining": {
+        "overview": "Port complex has restaurants. Mahahual has local seafood spots.",
+        "gf_notes": "Mexico is generally manageable for GF — corn is the staple starch, not wheat. However, cross-contamination is still a concern in smaller kitchens. Use the Spanish GF phrase. Corn tortillas are naturally GF but may share fryers with flour tortillas.",
+        "safe_port_choices": ["grilled fish tacos on corn tortillas (confirm no flour)", "ceviche (naturally GF — confirm no soy sauce)", "grilled shrimp", "guacamole with corn chips (confirm no wheat chips mixed in)", "fresh fruit"],
+        "avoid": ["flour tortillas", "anything with mole sauce (often contains wheat)", "shared fryer items", "enchiladas (check sauce)", "breaded seafood"],
+        "tip": "The port complex restaurants cater heavily to cruise passengers and are more likely to understand GF requests than small local spots."
+      },
+      "decision_guide": {
+        "choose_ruins_if": "You have energy and interest in Mayan history. Go early — depart by 8:30am for best experience.",
+        "choose_beach_if": "You want a low-key day. Mahahual beach is beautiful and relaxing.",
+        "choose_stay_onboard_if": "Energy is low after two consecutive port days. Haven pool with few people on port days is a genuine luxury."
+      },
+      "practical_tips": [
+        "Confirm port arrival time the night before via Freestyle Daily",
+        "Negotiate all taxi prices upfront — agree on round-trip with wait time for ruins",
+        "Port is walking distance from Mahahual — about 15-20 min walk or quick taxi",
+        "USD widely accepted; pesos fine too but not required",
+        "The port complex is modern and safe",
+        "Bring cash for ruins admission, taxi, and tips"
+      ],
+      "weather": {
+        "expected": "Hot and sunny, 82-88°F (28-31°C). Low humidity compared to Belize. April is dry season.",
+        "what_to_bring": ["sunscreen", "bug spray (for ruins)", "comfortable walking shoes", "hat", "cash (USD)", "water bottle"]
+      },
+      "currency": "USD accepted everywhere. Mexican Pesos (MXN) also accepted but not required.",
+      "return_to_ship": "All aboard: check Freestyle Daily. Typically 5:00pm. Ruins trip: depart by 8:30am, back by noon easily."
+    },
+    {
+      "name": "Cozumel, Mexico",
+      "date": "April 9 (Thursday)",
+      "times": "TBD (typically 8:00am – 5:00pm)",
+      "type": "Port of Call",
+      "booked_excursions": [],
+      "overview": "Mexico's largest Caribbean island and one of the world's top diving and snorkeling destinations. The port is in San Miguel de Cozumel, a lively town with excellent shopping and restaurants. For this trip, the plan leans toward staying onboard or a short port walk — after three consecutive port days, a lighter day at sea or the Haven deck is a reasonable and luxurious choice.",
+      "plan_recommendation": "Consider staying onboard. The Haven pool is virtually empty while the ship is docked. This is a rare opportunity for a quiet, private Haven pool day. If going ashore, keep it to a 2-3 hour shopping/lunch trip.",
+      "top_activities": [
+        {
+          "activity": "Haven Pool Day (Stay Onboard)",
+          "description": "With most passengers ashore, the Haven deck becomes exceptionally quiet. Take over the pool and deck chairs. Butler service at full attention. Casino may have good action with fewer people.",
+          "cost": "Free — already part of Haven"
+        },
+        {
+          "activity": "San Miguel Waterfront Shopping",
+          "description": "The International Pier and San Miguel malecón are walkable from the dock. Duty-free jewelry shops (especially silver and gemstones), local artisan markets, tequila tastings, and souvenir shops line the waterfront. Very walkable and safe.",
+          "cost": "Free to browse. Shopping at your budget.",
+          "tips": [
+            "Silver jewelry is a Cozumel specialty — good quality at fair prices",
+            "Duty-free shops are competitive — compare before buying",
+            "Los Cinco Soles is a well-known crafts market with quality items",
+            "Tequila and vanilla are popular purchases"
+          ]
+        },
+        {
+          "activity": "Mr. Sancho's Beach Club",
+          "description": "Popular beach club about 10 minutes from port by taxi. All-inclusive day pass available. Pool, beach, water sports, open bar.",
+          "cost": "Day pass ~$40-60 per person",
+          "tips": ["Reserve in advance if considering this option", "NCL drink packages generally don't extend to off-ship venues"]
+        },
+        {
+          "activity": "Snorkeling",
+          "description": "Cozumel's reefs (Palancar, Columbia, Santa Rosa) are world-famous. If motivated, a 2-hour snorkel boat tour is easy to book independently at the pier.",
+          "cost": "~$25-40 per person for basic snorkel tour"
+        }
+      ],
+      "dining": {
+        "overview": "Cozumel has excellent restaurants. For a quick port trip, focus on the waterfront.",
+        "gf_notes": "Same Mexico GF guidelines apply as Costa Maya — corn-based cuisine is your friend, confirm preparation. If staying onboard, Haven Restaurant and Haven pool food service are safest.",
+        "safe_port_choices": ["fish tacos on corn tortillas (confirm at restaurant)", "ceviche (confirm GF)", "grilled lobster or shrimp (popular in Cozumel)", "fresh coconut water"],
+        "avoid": ["flour tortillas", "mole sauces", "shared fryer items", "anything with soy sauce"],
+        "recommended_port_restaurant": "La Cocay (upscale, GF-friendly, walk from pier) or Kinta (Mexican cuisine, known for accommodating dietary restrictions) — ask about celiac when seated.",
+        "tip": "If dining onboard, today is a great day to try a specialty restaurant at lunch (check if open during port days) or order a Haven balcony lunch."
+      },
+      "practical_tips": [
+        "The pier area in Cozumel is very tourist-friendly and walkable",
+        "Taxis are readily available and set-rate — no negotiation needed (rates posted)",
+        "The island is very safe for tourists in the shopping/port district",
+        "Many shops are duty-free — good for jewelry, vanilla, and spirits",
+        "Sunrise direction from the ship is typically east-facing in Cozumel — great balcony morning",
+        "NCL drink packages work on the ship all day even while docked"
+      ],
+      "weather": {
+        "expected": "Warm and sunny, 82-87°F (28-30°C). April is peak dry season — excellent conditions.",
+        "what_to_bring": ["comfortable walking shoes", "sunscreen", "light bag for purchases", "small amount of USD cash"]
+      },
+      "currency": "USD universally accepted in tourist areas. Pesos fine but not necessary.",
+      "return_to_ship": "All aboard: check Freestyle Daily. Typically 5:00pm. Port is very close to the pier — easy to return quickly."
+    }
+  ]
+}
