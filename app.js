@@ -25,6 +25,34 @@ const SAIL_DATE = new Date('2026-04-04T11:00:00-05:00');  // Miami ET
 const RETURN_DATE = new Date('2026-04-11T07:00:00-05:00');
 const FAIT_URL = 'https://fait.dev.fortressam.ai';
 
+// ─── Venue Locations ──────────────────────────────────────────────
+const VENUE_LOCATIONS = {
+  'Haven Restaurant': 'Deck 17, Forward',
+  'Haven Pool': 'Deck 17, Forward',
+  'Haven Lounge': 'Deck 17, Forward',
+  'Haven Sundeck': 'Deck 18, Forward',
+  'Onda by Scarpetta': 'Deck 8, Midship',
+  'Onda': 'Deck 8, Midship',
+  'Los Lobos': 'Deck 8, Midship',
+  "Syd Norman's": 'Deck 6, Midship',
+  'Casino': 'Deck 7, Midship',
+  'Thermal Suite': 'Deck 15, Forward',
+  'Mandara Spa': 'Deck 15, Forward',
+  'Main Pool': 'Deck 15, Midship'
+};
+
+function linkVenueNames(html) {
+  // Sort by length desc so longer names match first ("Onda by Scarpetta" before "Onda")
+  const sorted = Object.keys(VENUE_LOCATIONS).sort((a, b) => b.length - a.length);
+  for (const venue of sorted) {
+    const loc = VENUE_LOCATIONS[venue];
+    const escaped = venue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    html = html.replace(new RegExp(escaped, 'g'),
+      `<span class="venue-link" data-location="${loc}">${venue} 📍</span>`);
+  }
+  return html;
+}
+
 // ─── PIN Auth ─────────────────────────────────────────────────────
 const PINS = { '1313': 'main', '1009': 'main' };
 
@@ -288,7 +316,7 @@ function renderItineraryTab(panel) {
     </div>`;
   });
 
-  panel.innerHTML = html;
+  panel.innerHTML = linkVenueNames(html);
 }
 
 function toggleDayBody(header) {
@@ -344,7 +372,7 @@ function renderGFTab(panel) {
     </div>`;
   });
 
-  panel.innerHTML = html;
+  panel.innerHTML = linkVenueNames(html);
 }
 
 function renderPortsTab(panel) {
@@ -378,7 +406,7 @@ function renderPortsTab(panel) {
     </div>`;
   });
 
-  panel.innerHTML = html || '<p class="text-muted">Port information loading…</p>';
+  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Port information loading…</p>';
 }
 
 function renderSpaTab(panel) {
@@ -434,7 +462,7 @@ function renderSpaTab(panel) {
     });
   }
 
-  panel.innerHTML = html || '<p class="text-muted">Spa information loading…</p>';
+  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Spa information loading…</p>';
 }
 
 function renderEntertainmentTab(panel) {
@@ -476,7 +504,7 @@ function renderEntertainmentTab(panel) {
     });
   }
 
-  panel.innerHTML = html || '<p class="text-muted">Entertainment information loading…</p>';
+  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Entertainment information loading…</p>';
 }
 
 function renderTipsTab(panel) {
@@ -546,8 +574,8 @@ function addChatMessage(role, text) {
 function searchKB(query) {
   const q = query.toLowerCase().trim();
 
-  // GF / celiac questions — NOTE: spa check runs first above to avoid false matches on "safe"
-  if ((q.includes('eat') || q.includes('gluten') || q.includes('gf') || q.includes('celiac') || q.includes('safe') || q.includes('food')) && !(q.includes('spa') || q.includes('treatment') || q.includes('facial') || q.includes('massage') || q.includes('thermal'))) {
+  // GF / gluten-free questions — NOTE: spa check runs first above to avoid false matches on "safe"
+  if ((q.includes('eat') || q.includes('gluten') || q.includes('gf') || q.includes('safe') || q.includes('food')) && !(q.includes('spa') || q.includes('treatment') || q.includes('facial') || q.includes('massage') || q.includes('thermal'))) {
     if (!gfGuide) return "GF guide is loading — try again in a moment.";
 
     const restaurantMatches = gfGuide.restaurants.filter(r => {
@@ -593,6 +621,19 @@ function searchKB(query) {
   // PIN / reset
   if (q.includes('switch') || q.includes('logout') || q.includes('lock')) {
     return `You can lock the app from the header and re-enter your PIN to return.`;
+  }
+
+  // Navigation / directions questions
+  const navKeywords = ['how do i get', 'where is', 'directions', 'navigate to', 'find the', 'how to get to', 'deck'];
+  if (navKeywords.some(kw => q.includes(kw))) {
+    // Check if a specific venue is mentioned
+    const mentionedVenue = Object.keys(VENUE_LOCATIONS).find(v => q.includes(v.toLowerCase()));
+    if (mentionedVenue) {
+      const loc = VENUE_LOCATIONS[mentionedVenue];
+      return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the midship elevator to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Forward') ? 'forward (toward the bow)' : 'to the midship area'}.`;
+    }
+    // General navigation answer
+    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, midship-starboard. Use the midship elevator bank for most venues:\n\n• Haven Restaurant/Pool/Lounge → Deck 17, forward\n• Haven Sundeck → Deck 18, forward\n• Mandara Spa/Thermal Suite → Deck 15, forward\n• Onda & Los Lobos → Deck 8, midship\n• Casino → Deck 7, midship\n• Syd Norman's → Deck 6, midship\n\nTip: Forward = bow (front), Aft = stern (back).`;
   }
 
   return generalSearch(q);
@@ -781,9 +822,18 @@ async function processQuery(query) {
     showMainAnswer('Searching Haven AI…');
     try {
       await fetch(FAIT_URL, { method: 'HEAD', signal: AbortSignal.timeout(3000) });
-      const faitAnswer = 'Haven AI is available but direct search is coming soon — try rephrasing or ask more specifically.';
+      const resp = await fetch('https://fait.dev.fortressam.ai/api/haven/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-api-key': 'ed9b529c93fd15a56cc060fa5de37f33d1e8fcb9248c98c37574a0c3deaa5623' },
+        body: JSON.stringify({ message: query, projectId: 'ac79d2db-165a-49b2-b36f-01489e568efc' }),
+        signal: AbortSignal.timeout(15000)
+      });
+      if (!resp.ok) throw new Error(`FAIT ${resp.status}`);
+      const data = await resp.json();
+      const faitAnswer = data.message ?? data.answer ?? data.content ?? 'Haven AI could not find an answer.';
       showMainAnswer(faitAnswer);
       speak(faitAnswer);
+      return; // don't fall through to searchKB
     } catch {
       const fallback = 'Full AI search unavailable right now — try rephrasing your question.';
       showMainAnswer(fallback);
@@ -843,6 +893,69 @@ function stopSpeaking() {
   if (sb) sb.style.display = 'none';
 }
 
+
+// ─── Upcoming Events Alert ────────────────────────────────────────
+function checkUpcomingEvents() {
+  const dayIdx = getTodayDayIndex();
+  if (!itinerary || dayIdx < 0) return;
+  const today = itinerary.days[dayIdx];
+  if (!today || !today.reservations) return;
+
+  const now = new Date();
+  const timeRegex = /(\d+):(\d+)(am|pm)/i;
+
+  for (const reservation of today.reservations) {
+    const match = reservation.match(timeRegex);
+    if (!match) continue;
+
+    let hours = parseInt(match[1]);
+    const minutes = parseInt(match[2]);
+    const ampm = match[3].toLowerCase();
+    if (ampm === 'pm' && hours !== 12) hours += 12;
+    if (ampm === 'am' && hours === 12) hours = 0;
+
+    const eventTime = new Date(now);
+    eventTime.setHours(hours, minutes, 0, 0);
+
+    const diffMs = eventTime - now;
+    const diffMin = diffMs / 60000;
+
+    if (diffMin > 0 && diffMin <= 60) {
+      // Remove any existing alert
+      const existing = document.getElementById('upcoming-alert');
+      if (existing) existing.remove();
+
+      const alert = document.createElement('div');
+      alert.id = 'upcoming-alert';
+      alert.innerHTML = `<span>⏰ Coming up: ${reservation}</span><button onclick="document.getElementById('upcoming-alert').remove()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#1a2332;">✕</button>`;
+      alert.style.cssText = 'background:#d4af37;color:#1a2332;padding:12px 16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;';
+
+      const navTabs = document.querySelector('.nav-tabs');
+      if (navTabs) navTabs.insertAdjacentElement('beforebegin', alert);
+
+      setTimeout(() => { const el = document.getElementById('upcoming-alert'); if (el) el.remove(); }, 30000);
+      break; // show only the soonest upcoming event
+    }
+  }
+}
+
+// ─── Venue Tooltip Click Handler ──────────────────────────────────
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('venue-link')) {
+    const loc = e.target.getAttribute('data-location');
+    // Remove existing tooltip
+    document.querySelectorAll('.venue-tooltip').forEach(t => t.remove());
+    const tip = document.createElement('div');
+    tip.className = 'venue-tooltip';
+    tip.textContent = `📍 ${loc}`;
+    tip.style.cssText = 'position:fixed;background:#d4af37;color:#1a2332;padding:6px 12px;border-radius:4px;font-weight:600;font-size:0.85rem;z-index:1000;pointer-events:none;';
+    // Position near click
+    tip.style.left = Math.min(e.clientX, window.innerWidth - 160) + 'px';
+    tip.style.top = (e.clientY - 40) + 'px';
+    document.body.appendChild(tip);
+    setTimeout(() => tip.remove(), 3000);
+  }
+});
 
 // ─── Service Worker ───────────────────────────────────────────────
 function registerSW() {
@@ -953,9 +1066,10 @@ async function init() {
     // Load content first, then navigate
     await loadContent();
     navigateTo(saved);
+    checkUpcomingEvents();
   } else {
     // Load content in background while showing PIN
-    loadContent();
+    loadContent().then(() => checkUpcomingEvents());
   }
 }
 

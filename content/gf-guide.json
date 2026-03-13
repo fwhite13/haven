@@ -1,8 +1,8 @@
 {
   "guide_title": "Gluten-Free Dining Guide — Norwegian Luna",
-  "holly_profile": "Strictly celiac. No gluten whatsoever. Cross-contamination is a serious concern. Alert every restaurant on day 1.",
+  "holly_profile": "Strictly gluten-free. No gluten whatsoever. Cross-contamination is a serious concern. Alert every restaurant on day 1.",
   "first_day_checklist": [
-    "Visit Haven Restaurant maître d' at embarkation — flag celiac allergy on reservation",
+    "Visit Haven Restaurant maître d' at embarkation — flag gluten sensitivity on reservation",
     "Visit Haven Concierge — request fleet-wide allergy note on cabin 12846",
     "Ask concierge to connect with NCL allergy coordinator",
     "For specialty restaurants: call ahead or alert host at door"
@@ -15,17 +15,17 @@
       "hours": "Breakfast 7:30-10am, Dinner 5:30-9pm",
       "notes": "Chef-attended, private Haven-only restaurant. Speak to maître d' on embarkation day. Almost everything can be made GF. Confirm each dish. Breakfast and dinner daily.",
       "safe_items": ["eggs any style", "fresh fruit", "grilled proteins", "salads with GF dressing", "most desserts with notice", "smoked salmon", "cheese plate"],
-      "ask_for": "Tell the maître d' Holly is strictly celiac on day 1 — they will flag the reservation. They are experienced with dietary restrictions.",
+      "ask_for": "Tell the maître d' Holly has severe gluten sensitivity on day 1 — they will flag the reservation. They are experienced with dietary restrictions.",
       "verdict": "✅ Best and safest option on ship"
     },
     {
       "name": "Onda by Scarpetta",
       "location": "Main ship, specialty (deck varies)",
       "gf_status": "safe",
-      "notes": "GF pasta confirmed available. Italian focus. Alert the server to celiac. Do NOT assume pasta is GF without asking — they have a dedicated GF pasta option. Risotto available.",
+      "notes": "GF pasta confirmed available. Italian focus. Alert the server to gluten sensitivity. Do NOT assume pasta is GF without asking — they have a dedicated GF pasta option. Risotto available.",
       "safe_items": ["GF pasta (request specifically)", "grilled fish", "risotto (confirm no barley stock)", "most proteins", "branzino", "scallops"],
       "avoid": ["regular pasta", "bread service (decline)", "tiramisu (contains wheat)"],
-      "ask_for": "We have a guest with celiac disease — please ensure no cross-contamination on the GF pasta.",
+      "ask_for": "We have a guest with severe gluten sensitivity — please ensure no cross-contamination on the GF pasta.",
       "verdict": "✅ Safe with communication — Holly's top choice"
     },
     {
@@ -35,7 +35,7 @@
       "notes": "Naturally GF-friendly. Steakhouse — proteins are safe. Watch sauces and sides. Great ribeye. Ask about compound butters.",
       "safe_items": ["all steaks and proteins (unsauced)", "baked potato (plain)", "grilled vegetables", "GF bread available on request", "lobster tail", "shrimp cocktail"],
       "avoid": ["sauces with unknown thickeners", "onion rings", "regular bread", "au gratin potatoes"],
-      "ask_for": "Alert server to celiac; ask which sauces are GF-safe.",
+      "ask_for": "Alert server to gluten sensitivity; ask which sauces are GF-safe.",
       "verdict": "✅ Safe — steaks are naturally GF"
     },
     {
@@ -45,7 +45,7 @@
       "notes": "Mexican. Corn tortillas are GF but cross-contamination risk is high. Alert server. Better for Fred than Holly unless the kitchen confirms GF preparation.",
       "safe_items": ["corn tortilla dishes (if confirmed GF kitchen)", "grilled proteins", "guacamole", "salsa", "rice and beans (confirm no wheat in seasoning)"],
       "avoid": ["flour tortillas", "anything fried in shared fryer", "mole sauces (often contain wheat)", "chimichanga", "churros"],
-      "ask_for": "Does this kitchen have a dedicated GF prep area? Holly has celiac disease.",
+      "ask_for": "Does this kitchen have a dedicated GF prep area? Holly has severe gluten sensitivity.",
       "verdict": "⚠️ Proceed with caution — confirm with kitchen"
     },
     {
@@ -55,7 +55,7 @@
       "notes": "Teppanyaki/Japanese. Soy sauce contains gluten. Must request tamari (GF soy sauce). Alert chef — teppanyaki is tableside so cross-contamination is visible. Watch for shared cooking surfaces.",
       "safe_items": ["proteins cooked with tamari (request specifically)", "rice", "vegetables (confirm no soy sauce prep)"],
       "avoid": ["regular soy sauce", "teriyaki sauce", "tempura (battered)", "gyoza (wheat wrapper)", "ramen"],
-      "ask_for": "Holly needs tamari instead of soy sauce — she has celiac disease. Please use a clean section of the grill.",
+      "ask_for": "Holly needs tamari instead of soy sauce — she has severe gluten sensitivity. Please use a clean section of the grill.",
       "verdict": "⚠️ Manageable but requires active management"
     },
     {
@@ -65,7 +65,7 @@
       "notes": "French. Rich sauces often contain wheat (roux-thickened). Alert server and ask for GF options — they usually accommodate but requires communication. French onion soup has croutons.",
       "safe_items": ["grilled proteins (ask about sauce)", "salads (dressing separate)", "crème brûlée", "cheese plate", "charcuterie (check cured meats)"],
       "avoid": ["crêpes", "bread-based dishes", "most classic sauces without confirmation", "French onion soup", "onion tart"],
-      "ask_for": "Holly has celiac disease — which dishes can be prepared without wheat or wheat-thickened sauces?",
+      "ask_for": "Holly has severe gluten sensitivity — which dishes can be prepared without wheat or wheat-thickened sauces?",
       "verdict": "⚠️ Can work — requires communication"
     },
     {
@@ -76,7 +76,7 @@
       "notes": "High cross-contamination risk in buffet settings. Holly should avoid self-serve lines. Ask crew to plate directly from clean serving area or use attended stations.",
       "safe_items": ["fresh fruit (from attended station)", "eggs made to order", "carved meats (confirm no marinade)", "salad bar (attendant-served)"],
       "avoid": ["self-serve buffet lines (cross-contamination)", "baked goods", "anything near bread/pasta stations", "sauces from shared containers"],
-      "ask_for": "Holly has celiac — can staff plate from a clean area?",
+      "ask_for": "Holly has gluten sensitivity — can staff plate from a clean area?",
       "verdict": "⚠️ Last resort — too much cross-contamination risk"
     },
     {
@@ -86,7 +86,7 @@
       "hours": "24 hours via Haven concierge",
       "notes": "Haven suite room service. Alert to GF requirement when ordering — Haven butler can facilitate. Good for breakfast and late-night snacks. Butler knows Holly's needs.",
       "safe_items": ["eggs any style", "fresh fruit", "smoked salmon", "yogurt (plain, confirm)", "grilled chicken", "cheese plate"],
-      "ask_for": "For room service, call Haven concierge (not main room service line) and specify celiac — they route to Haven kitchen.",
+      "ask_for": "For room service, call Haven concierge (not main room service line) and specify gluten-free requirement — they route to Haven kitchen.",
       "verdict": "✅ Safe — direct from Haven kitchen"
     }
   ],
@@ -100,6 +100,6 @@
     "The NCL app lists allergy-friendly options — check before ordering at specialty restaurants",
     "Avoid buffet self-service — spoons cross between dishes constantly"
   ],
-  "emergency_phrase_spanish": "Soy celiaca y tengo alergia severa al gluten. Por favor, asegúrese de que mi comida no contenga trigo, cebada, centeno ni ningún producto con gluten. La contaminación cruzada también es peligrosa para mí.",
-  "emergency_phrase_english": "I have celiac disease — a severe gluten allergy. I cannot eat anything containing wheat, barley, rye, or gluten. Cross-contamination is dangerous. Please ensure my food is prepared separately."
+  "emergency_phrase_spanish": "Tengo sensibilidad al gluten severa. Por favor, asegúrese de que mi comida no contenga trigo, cebada, centeno ni ningún producto con gluten. La contaminación cruzada también es peligrosa para mí.",
+  "emergency_phrase_english": "I have severe gluten sensitivity — a severe gluten allergy. I cannot eat anything containing wheat, barley, rye, or gluten. Cross-contamination is dangerous. Please ensure my food is prepared separately."
 }

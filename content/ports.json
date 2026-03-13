@@ -41,7 +41,7 @@
       ],
       "dining": {
         "overview": "Multiple dining options on the island — a restaurant/bar, beach bar, and food stands.",
-        "gf_notes": "The main island restaurant (Toucan's Bar & Grill) can accommodate GF requests — alert staff to celiac. Grilled proteins, rice, and salads are generally safe. Avoid fried items. The dedicated GF phrase in Spanish is useful here even though Belize is English-speaking — many kitchen staff are bilingual.",
+        "gf_notes": "The main island restaurant (Toucan's Bar & Grill) can accommodate GF requests — alert staff to gluten sensitivity. Grilled proteins, rice, and salads are generally safe. Avoid fried items. The dedicated GF phrase in Spanish is useful here even though Belize is English-speaking — many kitchen staff are bilingual.",
         "safe_choices": ["grilled fish or chicken", "rice and beans (confirm no wheat additive)", "fresh fruit", "salads (dressing on the side)", "plain grilled shrimp"],
         "avoid": ["fried items (shared fryer risk)", "sauces of unknown composition", "anything breaded"],
         "tip": "Haven Restaurant on the ship remains open during port days — safest fallback is returning to the ship for lunch."
@@ -124,7 +124,7 @@
         "gf_notes": "Holly should strongly prefer ship food on this port day. Street food and local restaurants have unpredictable cross-contamination. If dining ashore, choose a sit-down restaurant, not food stalls. Use the Spanish GF phrase even though English is widely spoken — kitchen staff may speak more Spanish.",
         "safe_port_choices": ["grilled fish at a sit-down restaurant (confirm GF prep)", "fresh coconut water (naturally GF)", "fresh fruit from reputable vendor"],
         "avoid": ["street food stalls", "anything fried at port", "baleadas (flour tortilla-based local food)", "pan de coco (bread)"],
-        "tip": "NCL's Mahogany Bay port area has a restaurant with NCL oversight — safer than independent port restaurants for celiac concerns."
+        "tip": "NCL's Mahogany Bay port area has a restaurant with NCL oversight — safer than independent port restaurants for gluten-free dietary restriction concerns."
       },
       "practical_tips": [
         "USD is accepted everywhere in Roatán — no need for Honduran Lempira",
@@ -253,7 +253,7 @@
         "gf_notes": "Same Mexico GF guidelines apply as Costa Maya — corn-based cuisine is your friend, confirm preparation. If staying onboard, Haven Restaurant and Haven pool food service are safest.",
         "safe_port_choices": ["fish tacos on corn tortillas (confirm at restaurant)", "ceviche (confirm GF)", "grilled lobster or shrimp (popular in Cozumel)", "fresh coconut water"],
         "avoid": ["flour tortillas", "mole sauces", "shared fryer items", "anything with soy sauce"],
-        "recommended_port_restaurant": "La Cocay (upscale, GF-friendly, walk from pier) or Kinta (Mexican cuisine, known for accommodating dietary restrictions) — ask about celiac when seated.",
+        "recommended_port_restaurant": "La Cocay (upscale, GF-friendly, walk from pier) or Kinta (Mexican cuisine, known for accommodating dietary restrictions) — ask about gluten sensitivity when seated.",
         "tip": "If dining onboard, today is a great day to try a specialty restaurant at lunch (check if open during port days) or order a Haven balcony lunch."
       },
       "practical_tips": [

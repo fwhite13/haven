@@ -940,6 +940,13 @@ h3 { font-size: 1rem; }
 
 .search-input::placeholder { color: var(--text-dim); }
 
+/* ─── Venue Links ────────────────────────────────────────────── */
+.venue-link {
+  border-bottom: 1px dotted var(--haven-gold, #d4af37);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 /* ─── Tips ───────────────────────────────────────────────────── */
 .tip-item {
   background: var(--card);

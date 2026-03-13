@@ -96,7 +96,7 @@ Fred's View          Holly's View
 ```
 
 **KB Search routing:**
-- "eat" / "gluten" / "celiac" → GF guide search
+- "eat" / "gluten" / "gf" → GF guide search
 - "today" / "schedule" / "port" / "dock" → itinerary
 - "spa" / "facial" / "thermal" / "mani" → spa guide
 - "show" / "rocket" / "syd" / "entertainment" → entertainment
