@@ -526,7 +526,7 @@ function renderTipsTab(panel) {
     });
   }
 
-  panel.innerHTML = html || '<p class="text-muted">Tips loading…</p>';
+  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Tips loading…</p>';
 }
 
 // ─── Chat / KB Search ──────────────────────────────────────────────
