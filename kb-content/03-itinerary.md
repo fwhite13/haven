@@ -298,15 +298,54 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 
 ---
 
+## Concierge Pre-Cruise Response — March 12, 2026
+
+NCL Pre-Cruise Concierge replied to Fred's pre-cruise request email. Key confirmed details:
+
+### Cabin / Tub Question
+- **Cabin 12846 (H5) has a shower/tub combination** — this is standard for all H5 cabins, not a jetted tub
+- **H4 upgrade options:** 2 H4 rooms are currently available, but **neither of those two have a hot tub** either
+- To discuss upgrade costs: call **1-855-625-4283**, Mon–Fri 9am–6pm ET
+
+### Anniversary Requests
+- **Sparkling wine:** A complimentary bottle will be waiting in the suite on embarkation day ✅
+- **Flowers:** NCL does not carry flowers onboard; guests may bring their own
+- **Balloons:** NOT permitted onboard
+- **Cabin décor package:** Available for purchase — includes decorations + a 6-inch cake
+- **In-suite balcony dinner (Onda by Scarpetta):** NCL cannot pre-arrange White Tablecloth In-Suite Dining — speak with the butler upon boarding; the butler will arrange it for that evening
+- **Show schedule for April 5:** Not available pre-cruise; check Freestyle Daily onboard
+
+### Spa Reservations
+- **Must call to book** — payment is taken at time of booking — **1-855-625-4283**, Mon–Fri 9am–6pm ET
+- Cannot be booked via email
+
+### Specialty Dining
+- NCL will send dining requests directly to the ship internally (not visible to Fred/Holly on the app)
+- Provide: dates, times, restaurant names, party sizes
+- Confirmation comes from the onboard Concierge after boarding
+- **Action needed:** Send dining request list to NorwegianConciergeDesk@ncl.com
+
+### Suite Setup
+- Suite preferences have been noted on the reservation ✅
+- **Energy drinks** will be an **additional charge** (not complimentary)
+- **Complimentary liquor/wine selection:** Fred & Holly receive **3 bottles** from the ship's liquor/wine list (see full list in KB)
+
+### Entertainment
+- Pre-booking entertainment is **not available** for this sailing
+- Onboard Concierge will handle show reservations once aboard
+
+---
+
 ## Key Reservations Summary
 
 | Date | Reservation | Notes |
 |---|---|---|
-| April 5 | Mandara Spa — Ultimate Facial, 9:00 AM | Booked |
-| April 5 | Mandara Spa — Fire & Ice Mani/Pedi, 2:00 PM | Booked |
+| April 5 | Mandara Spa — Ultimate Facial, 9:00 AM | **Must call to book: 1-855-625-4283** |
+| April 5 | Mandara Spa — Fire & Ice Mani/Pedi, 2:00 PM | **Must call to book: 1-855-625-4283** |
 | April 5 | Anniversary Dinner | Book Day 1 via concierge |
-| TBD | Specialty Restaurants (remaining nights) | Book Day 1 via concierge |
-| TBD | Show reservations (Rocket Man, HIKO, Lunatique) | Book Day 1 via concierge |
+| April 5 | In-Suite Balcony Dinner (Onda) | Arrange with butler onboard — cannot pre-book |
+| TBD | Specialty Restaurants (remaining nights) | Send request to NorwegianConciergeDesk@ncl.com |
+| TBD | Show reservations (Rocket Man, HIKO, Lunatique) | Book Day 1 via onboard concierge only |
 
 ---
 

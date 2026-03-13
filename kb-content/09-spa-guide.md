@@ -8,9 +8,24 @@ The spa is a ship-wide amenity, not Haven-exclusive — any guest can book treat
 
 ---
 
-## Holly's Booked Treatments — April 5, 2026
+## ⚠️ Spa Booking Status — Action Required
 
-Holly has two treatments already confirmed for the sea day on April 5 — the anniversary day.
+Per NCL Concierge reply (March 12, 2026): **Spa reservations cannot be booked by email.** Payment is required at time of booking.
+
+**To book Holly's treatments, Fred must call:**
+📞 **1-855-625-4283** — Mon–Fri, 9am–6pm ET
+
+**Treatments to request:**
+- April 5, 9:00 AM — Ultimate Treatment Facial
+- April 5, 2:00 PM — Fire & Ice Manicure/Pedicure
+
+Until the call is made, these are **not booked** — just requested.
+
+---
+
+## Holly's Requested Treatments — April 5, 2026
+
+*(Status: PENDING — call required to confirm)*
 
 ### Treatment 1: Ultimate Treatment Facial
 **Time:** 9:00 AM
