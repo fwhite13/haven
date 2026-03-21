@@ -9,7 +9,7 @@ Norwegian Luna's Western Caribbean itinerary visits four ports across three coun
 ## Port 1: Harvest Caye, Belize
 
 ### Arrival: Day 3 — Monday, April 6, 2026
-**All Aboard: 4:00 PM | Return by: 3:30 PM**
+**Arrives: 10:30 AM | Departs: 6:00 PM | All Aboard: 5:30 PM | Return by: 5:00 PM**
 
 ### Overview & Character
 Harvest Caye is Norwegian Cruise Line's private island development located off the southern coast of Belize. Unlike the other ports, this is entirely NCL-controlled territory — meaning the food, activities, and infrastructure are all managed to NCL standards. It was developed specifically for Norwegian ships and opened in 2016. The island features a pristine beach, a large pool complex with a waterfall feature, a wildlife sanctuary with local animals, a zip line, and multiple food and beverage outlets.
@@ -49,14 +49,14 @@ Because it's private, Harvest Caye is one of the safest and most low-stress port
 - **Water:** Do not drink tap water even on the island; stick to sealed bottles
 
 ### Back-on-Ship Reminder
-> **All Aboard: 4:00 PM. Return by 3:30 PM.** The walk back to the pier takes 5–10 minutes from most parts of the island. Don't cut it close — the ship will sail without you.
+> **All Aboard: 5:30 PM. Return by 5:00 PM.** The walk back to the pier takes 5–10 minutes from most parts of the island. Don't cut it close — the ship will sail without you.
 
 ---
 
 ## Port 2: Roatán, Honduras
 
 ### Arrival: Day 4 — Tuesday, April 7, 2026
-**All Aboard: 4:00 PM | Return by: 3:30 PM**
+**Arrives: 8:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
 
 ### Overview & Character
 Roatán is a 77km-long island off the northern coast of Honduras, part of the Bay Islands. It sits directly atop the Mesoamerican Barrier Reef — the second largest coral reef system in the world — making it one of the best snorkeling and diving destinations in the Western Hemisphere. Beyond the water, the island has a lush jungle interior, a laid-back Caribbean vibe, and an interesting mix of English-speaking Afro-Caribbean culture (the Bay Islands were historically British-influenced) alongside Spanish-speaking Honduran culture.
@@ -94,14 +94,14 @@ The port area (Mahogany Bay or Coxen Hole depending on the ship's dock that day 
 - **Swimming:** West Bay Beach has gentle conditions, ideal for snorkeling. Watch for boat traffic in the channel.
 
 ### Back-on-Ship Reminder
-> **All Aboard: 4:00 PM. Return by 3:30 PM.** Taxi from West Bay takes 20-25 minutes — leave West Bay no later than 3:00 PM. Do not get caught waiting for taxis with 500 other cruise passengers at 3:15 PM.
+> **All Aboard: 4:30 PM. Return by 4:00 PM.** Taxi from West Bay takes 20-25 minutes — leave West Bay no later than 3:30 PM. Do not get caught waiting for taxis with 500 other cruise passengers at 4:00 PM.
 
 ---
 
 ## Port 3: Costa Maya, Mexico
 
-### Arrival: Day 6 — Thursday, April 9, 2026
-**All Aboard: 4:00 PM | Return by: 3:30 PM**
+### Arrival: Day 5 — Wednesday, April 8, 2026
+**Arrives: 8:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
 
 ### Overview & Character
 Costa Maya is a purpose-built cruise port on Mexico's southern Yucatán coast, near the town of Mahahual. Unlike Cozumel, it was purpose-built specifically to accommodate cruise ships and features a large pier complex with restaurants, shops, pools, entertainment, and a beach — all within walking distance of the ship. Mahahual is a small, charming coastal town about 1km from the pier, worth a brief walk if you want to experience authentic local life.
@@ -128,14 +128,14 @@ The surrounding region has several spectacular Mayan archaeological sites within
 - **Weather in April:** Hot and humid; high 80s°F. Apply sunscreen liberally.
 
 ### Back-on-Ship Reminder
-> **All Aboard: 4:00 PM. Return by 3:30 PM.** If doing Chacchoben ruins, verify the excursion return time — NCL will get you back in time, but be aware of the schedule. If independently exploring Mahahual, leave time for the taxi back to the pier.
+> **All Aboard: 4:30 PM. Return by 4:00 PM.** If doing Chacchoben ruins, verify the excursion return time — NCL will get you back in time, but be aware of the schedule. If independently exploring Mahahual, leave time for the taxi back to the pier.
 
 ---
 
 ## Port 4: Cozumel, Mexico
 
-### Arrival: Day 7 — Friday, April 10, 2026
-**All Aboard: 5:00 PM | Return by: 4:30 PM**
+### Arrival: Day 6 — Thursday, April 9, 2026
+**Arrives: 7:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
 
 ### Overview & Character
 Cozumel is the crown jewel of this itinerary. The island sits in the heart of the Mesoamerican Barrier Reef and has long been recognized as one of the world's top ten dive destinations. The water clarity, coral diversity, and sheer quantity of marine life visible from the surface while snorkeling is extraordinary.
@@ -173,7 +173,7 @@ Norwegian Luna docks at the **Punta Langosta Pier** or the **International Pier*
 - **Duty-free:** Liquor prices at Cozumel duty-free shops near the pier are excellent — good place to pick up tequila or rum before re-boarding.
 
 ### Back-on-Ship Reminder
-> **All Aboard: 5:00 PM. Return by 4:30 PM.** Cozumel has a one-hour later all-aboard than the other ports — enjoy it. But taxis can queue up at the pier in the late afternoon — plan to leave Mr. Sanchos or downtown by 4:00 PM at the latest.
+> **All Aboard: 4:30 PM. Return by 4:00 PM.** Plan to leave Mr. Sanchos or downtown by 3:30 PM at the latest to allow time for the taxi queue at the pier.
 
 ---
 

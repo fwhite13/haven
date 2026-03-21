@@ -6,25 +6,25 @@
 - **Cruise:** 7-Night Western Caribbean
 - **Occasion:** Fred & Holly's Anniversary
 - **Accommodation:** The Haven Suite
-- **Embarkation:** New Orleans, Louisiana
-- **Disembarkation:** New Orleans, Louisiana
+- **Embarkation:** Miami, Florida
+- **Disembarkation:** Miami, Florida
 
 ---
 
-## Day 1 — Saturday, April 4, 2026 | New Orleans → Embarkation
+## Day 1 — Saturday, April 4, 2026 | Miami → Embarkation
 
 ### Schedule
 
 | Time | Activity |
 |---|---|
-| Morning | Travel to New Orleans cruise terminal |
+| Morning | Travel to Miami cruise terminal |
 | 11:00 AM | Haven priority check-in opens — proceed to Haven-designated line |
 | 11:30 AM–12:30 PM | Board ship via Haven priority access |
 | 12:00 PM | Haven Restaurant open for lunch — first meal onboard |
 | 12:00–2:00 PM | Complete Day 1 Action Plan (see GF Dining Guide) |
 | 2:00 PM | Haven concierge desk opens — make all specialty dining/show reservations now |
 | 3:00 PM | Lifeboat drill (muster drill — mandatory) |
-| 4:00 PM | **Sailaway from New Orleans** |
+| 4:00 PM | **Sailaway from Miami** |
 | 4:30 PM | Haven Sundeck sailaway party — great views of the Mississippi River |
 | 7:00 PM | **Dinner: Haven Restaurant** (safe, low-stress first night) |
 | 9:00 PM | Explore the ship — Syd Norman's, Atrium Bar, casino walk-through |
@@ -43,7 +43,7 @@
 ### Holly's Highlights
 - First look at the Haven suite — unpack and explore
 - Meet your butler
-- Sailaway from New Orleans down the Mississippi
+- Sailaway from Miami — beautiful views of the city and Port of Miami
 - Sunset cocktails in the Haven Lounge
 
 ---
@@ -90,8 +90,9 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 ## Day 3 — Monday, April 6, 2026 | Harvest Caye, Belize
 
 ### Port Overview
-- **Arrival:** ~8:00 AM
-- **All Aboard:** **4:00 PM** (be back by 3:30 PM to be safe)
+- **Arrival:** 10:30 AM
+- **Departure:** 6:00 PM
+- **All Aboard:** **5:30 PM** (be back by 5:00 PM to be safe)
 - **Port Type:** NCL Private Island
 - **Currency:** US Dollars accepted; Belize Dollar is local currency but USD works everywhere on the island
 
@@ -126,8 +127,9 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 ## Day 4 — Tuesday, April 7, 2026 | Roatán, Honduras
 
 ### Port Overview
-- **Arrival:** ~8:00 AM
-- **All Aboard:** **4:00 PM** (be back by 3:30 PM)
+- **Arrival:** 8:00 AM
+- **Departure:** 5:00 PM
+- **All Aboard:** **4:30 PM** (be back by 4:00 PM)
 - **Currency:** Honduran Lempira; USD widely accepted at tourist areas
 - **Character:** Lush island, excellent snorkeling/diving, zip lines through jungle canopy
 
@@ -161,7 +163,93 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 
 ---
 
-## Day 5 — Wednesday, April 8, 2026 | Day at Sea
+## Day 5 — Wednesday, April 8, 2026 | Costa Maya, Mexico
+
+### Port Overview
+- **Arrival:** 8:00 AM
+- **Departure:** 5:00 PM
+- **All Aboard:** **4:30 PM** (be back by 4:00 PM)
+- **Dock:** Yes — no tender required
+- **Currency:** Mexican Pesos; USD widely accepted
+- **Character:** Purpose-built cruise port, Mayan ruins nearby, beach clubs at the pier complex
+
+### Schedule
+
+| Time | Activity |
+|---|---|
+| 7:30 AM | Breakfast onboard |
+| 8:30 AM | Disembark |
+| 9:00 AM–3:30 PM | Excursion / beach club / ruins |
+| 4:00 PM | Return to ship |
+| 4:30 PM | **All Aboard deadline** |
+| 6:00 PM | Dinner onboard |
+| 9:00 PM | Syd Norman's Pour House — live music night |
+
+### Recommended Activities
+- **Chacchoben Mayan Ruins** — well-preserved ruins, NCL excursion available, approximately 2.5 hours roundtrip
+- **Costa Maya Beach Club** — right at the pier, pool and beach, day pass available
+- **Explore the port village** — handicrafts, local shops (bargaining expected)
+
+### GF Dining Notes
+- Carry Spanish allergy card
+- NCL beach club venues at the pier are safer than independent restaurants
+- Ceviche from reputable pier restaurant can be safe (verify preparation)
+
+### Fred's Checklist
+- [ ] Bring pesos or small USD bills for tipping and shopping
+- [ ] Holly: allergy card in bag
+
+---
+
+## Day 6 — Thursday, April 9, 2026 | Cozumel, Mexico
+
+### Port Overview
+- **Arrival:** 7:00 AM
+- **Departure:** 5:00 PM
+- **All Aboard:** **4:30 PM** (be back by 4:00 PM)
+- **Dock:** Yes — no tender required
+- **Currency:** Mexican Pesos; USD universally accepted
+- **Character:** Cozumel is a world-famous dive destination, vibrant town, excellent shopping near the pier
+
+### ✅ Booked Excursion
+**CZMN42 — Exclusive VIP Dolphin Swim at Dolphinaris**
+**Departure:** 9:30 AM | **Price:** Fred $139.99 / Holly $189.99
+**Note:** No phones/cameras in the water — Dolphinaris photographers cover it. Budget for photo purchase (~$40 each or ~$350 full set).
+
+### Schedule
+
+| Time | Activity |
+|---|---|
+| 7:30 AM | Breakfast at Haven Restaurant |
+| 8:30 AM | Disembark — meet excursion group at pier |
+| 9:30 AM | **✅ VIP Dolphin Swim — Dolphinaris** |
+| 12:30 PM | Return to ship / downtown San Miguel for shopping |
+| 2:00 PM | Cozumel town — silver jewelry, vanilla, local crafts |
+| 4:00 PM | Return to ship |
+| 4:30 PM | **All Aboard deadline** |
+| 6:00 PM | **Farewell Dinner — specialty restaurant** |
+| 9:00 PM | HIKO show or Syd Norman's final night |
+
+### GF Dining Notes
+- Cozumel has more tourist-savvy restaurants than Honduras or Belize
+- Downtown restaurants accustomed to cruise passengers with dietary needs
+- Use the Spanish allergy card every time
+
+### Fred's Checklist
+- [ ] This is the last port — enjoy it fully
+- [ ] Cash for Dolphinaris photo purchase (may get discount vs. card)
+- [ ] Final evening: tip the butler and concierge tonight or first thing tomorrow
+- [ ] Pack tip envelopes for butler and concierge
+- [ ] Check Freestyle Daily for any farewell events onboard tonight
+
+### Holly's Highlights
+- VIP dolphin swim — once-in-a-lifetime experience
+- Cozumel silver jewelry shopping
+- Final farewell dinner together
+
+---
+
+## Day 7 — Friday, April 10, 2026 | Day at Sea
 
 ### Schedule
 
@@ -183,94 +271,13 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 - [ ] Book any remaining specialty restaurants through concierge
 
 ### Holly's Highlights
-- Thermal Suite morning
+- Thermal Suite morning — last chance for the full experience
 - Sea day relaxation — Haven pool and lounge
-- Big show night
+- Final big show night
 
 ---
 
-## Day 6 — Thursday, April 9, 2026 | Costa Maya, Mexico
-
-### Port Overview
-- **Arrival:** ~8:00 AM
-- **All Aboard:** **4:00 PM** (be back by 3:30 PM)
-- **Currency:** Mexican Pesos; USD widely accepted
-- **Character:** Purpose-built cruise port, Mayan ruins nearby, beach clubs at the pier complex
-
-### Schedule
-
-| Time | Activity |
-|---|---|
-| 7:30 AM | Breakfast onboard |
-| 8:30 AM | Disembark |
-| 9:00 AM–3:00 PM | Excursion / beach club / ruins |
-| 3:00 PM | Return to ship |
-| 3:30 PM | **All Aboard deadline** |
-| 6:00 PM | Dinner onboard |
-| 9:00 PM | Syd Norman's Pour House — live music night |
-
-### Recommended Activities
-- **Chacchoben Mayan Ruins** — well-preserved ruins, NCL excursion available, approximately 2.5 hours roundtrip
-- **Costa Maya Beach Club** — right at the pier, pool and beach, day pass available
-- **Explore the port village** — handicrafts, local shops (bargaining expected)
-
-### GF Dining Notes
-- Carry Spanish allergy card
-- NCL beach club venues at the pier are safer than independent restaurants
-- Ceviche from reputable pier restaurant can be safe (verify preparation)
-
-### Fred's Checklist
-- [ ] Confirm excursion booking for Chacchoben or beach club
-- [ ] Bring pesos or small USD bills for tipping and shopping
-- [ ] Holly: allergy card in bag
-
----
-
-## Day 7 — Friday, April 10, 2026 | Cozumel, Mexico
-
-### Port Overview
-- **Arrival:** ~9:00 AM
-- **All Aboard:** **5:00 PM** (be back by 4:30 PM) — *Cozumel typically has a later all-aboard*
-- **Currency:** Mexican Pesos; USD universally accepted
-- **Character:** Cozumel is a world-famous dive destination, vibrant town, excellent shopping near the pier
-
-### Schedule
-
-| Time | Activity |
-|---|---|
-| 8:00 AM | Breakfast at Haven Restaurant |
-| 9:30 AM | Disembark |
-| 10:00 AM–4:00 PM | Excursion / shopping / beach |
-| 4:00 PM | Return to ship |
-| 4:30 PM | **All Aboard deadline** |
-| 6:00 PM | **Farewell Dinner — specialty restaurant** |
-| 9:00 PM | HIKO show or Syd Norman's final night |
-
-### Recommended Activities
-- **Mr. Sanchos Beach Club** — popular all-inclusive day beach club, approximately $40-60/person
-- **Snorkeling at Palancar Reef** — world-class, book through NCL or at the pier
-- **Cozumel town stroll** — authentic local market near the ferry terminal, jewelry stores, pottery
-- **Carlos'n Charlie's** — classic cruise port institution if you want a beer at the pier
-
-### GF Dining Notes
-- Cozumel has more tourist-savvy restaurants than Honduras or Belize
-- Mr. Sanchos Beach Club can accommodate GF with Spanish allergy card
-- Carry the card for every meal
-
-### Fred's Checklist
-- [ ] This is the last port — enjoy it fully
-- [ ] Final evening: tip the butler and concierge tonight or first thing tomorrow
-- [ ] Pack tip envelopes for butler and concierge
-- [ ] Check Freestyle Daily for any farewell events onboard tonight
-
-### Holly's Highlights
-- Beach club day
-- Shopping for Mexican artisan goods
-- Final farewell dinner together
-
----
-
-## Day 8 — Saturday, April 11, 2026 | New Orleans → Disembarkation
+## Day 8 — Saturday, April 11, 2026 | Miami → Disembarkation
 
 ### Schedule
 
@@ -293,7 +300,7 @@ This is Fred & Holly's designated anniversary celebration day, featuring Holly's
 - [ ] Tip concierge (cash in envelope)
 - [ ] Settle any remaining onboard account charges
 - [ ] Retrieve any duty-free purchases held at guest services
-- [ ] Confirm transportation from New Orleans port to airport/hotel
+- [ ] Confirm transportation from Miami port to airport/hotel
 - [ ] Check all drawers, safes, and charging spots in the suite before leaving
 
 ---
@@ -340,8 +347,8 @@ NCL Pre-Cruise Concierge replied to Fred's pre-cruise request email. Key confirm
 
 | Date | Reservation | Notes |
 |---|---|---|
-| April 5 | Mandara Spa — Ultimate Facial, 9:00 AM | **Must call to book: 1-855-625-4283** |
-| April 5 | Mandara Spa — Fire & Ice Mani/Pedi, 2:00 PM | **Must call to book: 1-855-625-4283** |
+| April 4 | Holly: Thermal Suite 7-Day Pass activates — 8:00 PM | ✅ Confirmed |
+| April 5 | Holly: Targeted Technology Facial (50 min) — 2:00 PM | ✅ Confirmed |
 | April 5 | Anniversary Dinner | Book Day 1 via concierge |
 | April 5 | In-Suite Balcony Dinner (Onda) | Arrange with butler onboard — cannot pre-book |
 | TBD | Specialty Restaurants (remaining nights) | Send request to NorwegianConciergeDesk@ncl.com |
@@ -353,9 +360,9 @@ NCL Pre-Cruise Concierge replied to Fred's pre-cruise request email. Key confirm
 
 | Port | All Aboard | Return by |
 |---|---|---|
-| Harvest Caye, Belize | 4:00 PM | 3:30 PM |
-| Roatán, Honduras | 4:00 PM | 3:30 PM |
-| Costa Maya, Mexico | 4:00 PM | 3:30 PM |
-| Cozumel, Mexico | 5:00 PM | 4:30 PM |
+| Harvest Caye, Belize | 5:30 PM | 5:00 PM |
+| Roatán, Honduras | 4:30 PM | 4:00 PM |
+| Costa Maya, Mexico | 4:30 PM | 4:00 PM |
+| Cozumel, Mexico | 4:30 PM | 4:00 PM |
 
 > **The ship will not wait.** If you miss all-aboard, you are responsible for catching up to the ship at the next port at your own expense.
