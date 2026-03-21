@@ -8,29 +8,34 @@ The spa is a ship-wide amenity, not Haven-exclusive — any guest can book treat
 
 ---
 
-## ⚠️ Spa Booking Status — Action Required
+## ✅ Spa Booking Status — CONFIRMED
 
-Per NCL Concierge reply (March 12, 2026): **Spa reservations cannot be booked by email.** Payment is required at time of booking.
+Confirmed March 21, 2026. Reservation #64411979.
 
-**To book Holly's treatments, Fred must call:**
-📞 **1-855-625-4283** — Mon–Fri, 9am–6pm ET
+**Holly's Booked Services:**
+- April 4 (Embarkation Day), 8:00 PM — Thermal Suite 7-Day Cruise Pass — $349.00
+- April 5 (Sea Day / Anniversary), 2:00 PM — Facial: Targeted Technology Treatment 50 min — $229.00
 
-**Treatments to request:**
-- April 5, 9:00 AM — Ultimate Treatment Facial
-- April 5, 2:00 PM — Fire & Ice Manicure/Pedicure
-
-Until the call is made, these are **not booked** — just requested.
+**Total charged:** $623.80 (includes 20% service fee of $45.80)
 
 ---
 
-## Holly's Requested Treatments — April 5, 2026
+## Holly's Confirmed Treatments
 
-*(Status: PENDING — call required to confirm)*
+### Thermal Suite 7-Day Cruise Pass
+**Activates:** April 4, 2026 (Embarkation Day, 8:00 PM)
+**Valid:** Full 7-day cruise
+**Price:** $349.00
+**Description:** Unlimited access to the Thermal Suite for the entire cruise — heated tile loungers, hydrotherapy pool, steam room, fog shower, and sauna. Boards April 4 so Holly can start using it from the first evening.
 
-### Treatment 1: Ultimate Treatment Facial
-**Time:** 9:00 AM
-**Duration:** Approximately 75–90 minutes
-**Description:** NCL's signature premier facial, combining deep cleansing, exfoliation, extraction, mask, massage, and targeted serum application. The "Ultimate" designation means it's the most comprehensive facial in the Mandara menu — often includes a combination of several techniques (microcurrent, LED light therapy, lymphatic drainage massage) depending on the specific Luna menu.
+---
+
+### Treatment: Facial — Targeted Technology Treatment
+**Date:** April 5, 2026 (Sea Day — Anniversary Day)
+**Time:** 2:00 PM
+**Duration:** 50 minutes
+**Price:** $229.00 (before service fee)
+**Description:** A results-focused facial using advanced technology (LED light therapy, microcurrent, or similar modalities depending on the specific Luna spa menu). Targeted to specific skin concerns rather than a general relaxation facial.
 
 **What to Expect:**
 - Arrive at the spa at **8:30 AM** — 30 minutes before your appointment

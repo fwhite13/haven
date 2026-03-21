@@ -16,11 +16,20 @@ Harvest Caye is Norwegian Cruise Line's private island development located off t
 
 Because it's private, Harvest Caye is one of the safest and most low-stress ports — there's no need to navigate an unfamiliar city, haggle with taxi drivers, or worry about scams. Everything is steps from the pier.
 
-### What's Booked / Top Activities
-- **Beach and pool complex** — free to access for all ship passengers; sun loungers, umbrella rentals available
-- **Zip line** — five lines at varying heights, views of the jungle and ocean; book at the activity desk on the island
-- **Wildlife Sanctuary** — home to howler monkeys, tapirs, parrots, and other Belizean wildlife; walkthrough tours available
-- **Kayaking & paddleboarding** — rentals available at the beach
+### ✅ Booked Excursion
+**BPIN11 — Howler Monkey River Expedition**
+**Time:** 11:00 AM departure
+**Price:** Fred $99.99 (after $50 discount) + Holly $149.99 = $249.98
+**Duration:** ~3.5 hours
+**Description:** Boat cruise up the Monkey River through undeveloped rainforest, followed by a naturalist-guided hike. Wildlife includes black howler monkeys (heard frequently, spotted in canopy), crocodiles, iguanas, turtles, herons, toucans, and parrots. Guide provides commentary on history and medicinal plants.
+**What to bring:** Closed-toe shoes, long pants, bug spray. Leave valuables on the ship.
+**Note:** Monkeys stay high in the canopy — you'll hear them for sure; seeing them up close is luck of the draw. Tour guides are consistently praised.
+
+### Other Island Activities
+- **Beach and pool complex** — free to access; sun loungers, umbrella rentals available
+- **Zip line** — five lines at varying heights; book at the activity desk
+- **Wildlife Sanctuary** — walkthrough with Belizean wildlife near the pier
+- **Kayaking & paddleboarding** — rentals at the beach
 - **Wave pool & waterslides** — included in island access
 
 ### GF Dining Notes
@@ -54,12 +63,21 @@ Roatán is a 77km-long island off the northern coast of Honduras, part of the Ba
 
 The port area (Mahogany Bay or Coxen Hole depending on the ship's dock that day — Norwegian typically uses **Mahogany Bay**, an NCL-developed pier) features shops, restaurants, a short gondola chair lift to a private beach, and easy access to taxis.
 
-### What's Booked / Top Activities
-- **West Bay Beach** — Considered one of the most beautiful beaches in Central America; long stretch of white sand, calm turquoise water, bars and restaurants with hammocks in the water; $8-12 USD taxi each way
-- **Snorkeling the Reef** — The reef is just 50–100 meters offshore at West Bay; snorkel gear rentals available on the beach for $10-15
-- **Victor Bodden Wildlife Connection** — Meet Roatán's native wildlife including parrots, green iguanas, white-faced monkeys, and sloths; located near Mahogany Bay
-- **Zip Lining** — Multiple canopy operators offer jungle zip line tours departing from the pier area
-- **Mahogany Bay Beach (NCL)** — NCL's private beach at the pier; smaller and more developed, but accessible without taxi
+### ✅ Booked Excursion
+**RTBN01 — Monkeys, Sloths and Macaws at Daniel Johnson's**
+**Time:** 12:00 PM departure
+**Price:** Fred $49.99 (after $50 discount) + Holly $99.99 = $149.98
+**Location:** French Cay, Roatán
+**Duration:** ~2–3 hours
+**Description:** Hands-on wildlife encounter at Daniel Johnson's Monkey & Sloth Hangout. Meet Capuchin monkeys, two-toed sloths, and Scarlet Macaws up close — animals come to you, sit on your shoulders, and interact directly. Very different from a wild-spotting excursion; this is a curated wildlife sanctuary. Consistently rated as one of Roatán's top experiences.
+**What to bring:** Camera/phone for photos (animals on your shoulder = great shots). Comfortable clothes — animals may grab/sit on you.
+**Note:** Departs at noon — plan accordingly; ship arrives around 8–9 AM so you have the morning free.
+
+### Other Port Activities
+- **West Bay Beach** — One of the most beautiful beaches in Central America; $8-12 taxi each way
+- **Snorkeling the Reef** — 50–100m offshore at West Bay; gear rentals ~$10-15
+- **Mahogany Bay Beach (NCL)** — Private beach at pier; free, no transport needed
+- **Zip lining** — Multiple canopy operators departing from pier area
 
 ### GF Dining Notes
 - **At West Bay Beach restaurants:** Carry the Spanish allergy card and use it. Grilled fish, rice and beans (plain), and fresh fruit are typically safe options.
@@ -126,11 +144,20 @@ Beyond the reef, Cozumel has a lively downtown (San Miguel), one of the best cra
 
 Norwegian Luna docks at the **Punta Langosta Pier** or the **International Pier** — both are centrally located near downtown San Miguel.
 
-### What's Booked / Top Activities
-- **Mr. Sanchos Beach Club:** One of Cozumel's most popular all-inclusive beach clubs. Located 6km south of downtown, 10-minute taxi ride. Day pass typically $40-60/person and includes food, drinks, use of beach and pool, hammocks in the water, kayaks, and snorkel gear. Great value and a spectacular setting. Reservation recommended (can book directly online or through NCL).
-- **Snorkeling at Palancar Reef:** World-famous reef with spectacular coral formations and abundant sea life — angelfish, parrotfish, sea turtles, eagle rays. Book through NCL or with operators at the pier ($25-40/person for 2-hour snorkel trip including gear).
-- **Downtown San Miguel:** Walk from the pier to the main plaza, shop for silver jewelry (Cozumel is known for excellent Mexican silver), vanilla, Kahlúa, local handicrafts.
-- **El Cedral Ruins:** Small Mayan ruins within Cozumel island, often combined with beach time. Less impressive than mainland ruins but convenient.
+### ✅ Booked Excursion
+**CZMN42 — Exclusive VIP Dolphin Swim at Dolphinaris**
+**Time:** 9:30 AM departure
+**Price:** Fred $139.99 (after $50 discount) + Holly $189.99 = $329.98
+**Duration:** ~3–4 hours
+**Description:** VIP dolphin swim experience at Dolphinaris Cozumel. The VIP tier includes a private/priority group, separate from the standard cruise ship crowd — shorter wait times, private relaxation area, shuttle back to ship when ready. Actual dolphin interaction is exceptional — kisses, dorsal fin rides, and other trained behaviors. Food and drinks included.
+**Photo note:** No phones/cameras allowed in the water. Dolphinaris photographers capture everything; photos available for purchase afterward (~$40 each or ~$350 for the full set). Budget for photos — they're the only record of the experience. Cash may get you a discount.
+**Timing:** 9:30 AM departure — early morning, which is good (cooler, less crowded). Plan to be back on the ship or in town by early afternoon for lunch and shopping.
+
+### Other Port Activities
+- **Downtown San Miguel:** Walk from the pier; excellent silver jewelry, vanilla, Kahlúa
+- **Snorkeling at Palancar Reef:** World-class reef; operators at the pier (~$25-40/person)
+- **Mr. Sanchos Beach Club:** All-inclusive day pass (~$40-60/person); hammocks, pool, food, drinks
+- **El Cedral Ruins:** Small Mayan ruins on the island
 
 ### GF Dining Notes
 - **Mr. Sanchos Beach Club:** Has restaurant staff who are accustomed to allergy requests from cruise ship passengers. Present the Spanish allergy card; their grilled fish, guacamole, corn-based dishes, and fresh salsas are generally safe. Confirm everything with the all-inclusive server.
