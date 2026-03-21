@@ -2,224 +2,126 @@
 
 ## Overview
 
-The Mandara Spa is Norwegian Cruise Line's signature spa brand, found aboard all major NCL vessels. On Norwegian Luna, the spa occupies a substantial portion of Deck 16 forward, featuring a full treatment menu, Thermal Suite, hair salon, nail salon, and fitness connection. The aesthetic is influenced by Balinese spa traditions (Mandara Spa originated in Bali) — warm tones, natural materials, an emphasis on holistic relaxation and ritual.
+The onboard spa is operated by Mandara Spa, NCL's full-service spa partner. Located on the main ship (not within the Haven), accessible to all guests but Haven guests receive preferred booking access via concierge. The spa includes treatment rooms, thermal suite, salon, and fitness center.
 
-The spa is a ship-wide amenity, not Haven-exclusive — any guest can book treatments or the Thermal Suite. However, Haven concierge can assist with priority booking and timing to ensure Holly gets the slots she wants without hassle.
-
----
-
-## ✅ Spa Booking Status — CONFIRMED
-
-Confirmed March 21, 2026. Reservation #64411979.
-
-**Holly's Booked Services:**
-- April 4 (Embarkation Day), 8:00 PM — Thermal Suite 7-Day Cruise Pass — $349.00
-- April 5 (Sea Day / Anniversary), 2:00 PM — Facial: Targeted Technology Treatment 50 min — $229.00
-
-**Total charged:** $623.80 (includes 20% service fee of $45.80)
+**Hours:**
+- Spa and Salon: 8:00am–10:00pm (treatments by appointment)
+- Thermal Suite: 8:00am–10:00pm (pass holders, self-guided)
+- Fitness Center: 6:00am–10:00pm (free for all guests)
 
 ---
 
-## Holly's Confirmed Treatments
+## ✅ Holly's Confirmed Bookings
 
 ### Thermal Suite 7-Day Cruise Pass
-**Activates:** April 4, 2026 (Embarkation Day, 8:00 PM)
-**Valid:** Full 7-day cruise
-**Price:** $349.00
-**Description:** Unlimited access to the Thermal Suite for the entire cruise — heated tile loungers, hydrotherapy pool, steam room, fog shower, and sauna. Boards April 4 so Holly can start using it from the first evening.
+- **Date:** April 4 (Embarkation Day)
+- **Activates:** 8:00pm
+- **Valid:** Entire cruise (all 7 days)
+- **Price:** $349.00
+- **Code:** 1096582
+- **Status:** ✅ CONFIRMED — Reservation #64411979
+- **What:** Unlimited access to the Thermal Suite complex: heated tile loungers, hydrotherapy pool, steam room, fog shower, sauna. Use it every morning, between treatments, whenever.
 
----
+**Tips:**
+- Best time: early morning (7–8am) — often have the whole space to yourself
+- Great post-excursion recovery
+- Port days — most guests are ashore, thermal suite is nearly empty
+- Avoid: mid-morning on sea days (10am–noon) when it gets busy
+- Pass is non-refundable once used — use it on Day 1
 
-### Treatment: Facial — Targeted Technology Treatment
-**Date:** April 5, 2026 (Sea Day — Anniversary Day)
-**Time:** 2:00 PM
-**Duration:** 50 minutes
-**Price:** $229.00 (before service fee)
-**Description:** A results-focused facial using advanced technology (LED light therapy, microcurrent, or similar modalities depending on the specific Luna spa menu). Targeted to specific skin concerns rather than a general relaxation facial.
-
-**What to Expect:**
-- Arrive at the spa at **8:30 AM** — 30 minutes before your appointment
-- A locker will be assigned; change into a spa robe and sandals provided
-- Consultation form may be required (skin sensitivities, allergies, health conditions)
-- The treatment room is private; music and lighting set a relaxed atmosphere
-- After the treatment, you'll be returned to the relaxation area or Thermal Suite if applicable
-
-**Skin Sensitivity Note:**
-- Inform the aesthetician of any known skin sensitivities, current skincare products, or medications that affect skin (retinol, Accutane, etc.)
-- Post-facial, skin may be slightly flushed — this is normal and settles within a few hours
-
----
-
-### Treatment 2: Fire & Ice Mani/Pedi
-**Time:** 2:00 PM
-**Duration:** Approximately 75–90 minutes
-**Description:** The Fire & Ice Manicure and Pedicure is a signature NCL service that alternates between warming and cooling sensations through the treatment. Typically includes a hot paraffin or warm scrub element ("fire") and a cooling mask or gel element ("ice"), combined with full nail care, shaping, and polish.
+### Facial — Targeted Technology Treatment
+- **Date:** April 5 (Sea Day — Anniversary Day)
+- **Time:** 2:00pm
+- **Duration:** 50 minutes
+- **Price:** $229.00 (+ 20% service fee = $45.80)
+- **Code:** 1097653
+- **Status:** ✅ CONFIRMED — Reservation #64411979
+- **What:** Results-focused facial using advanced technology modalities (LED light therapy, microcurrent, or similar — confirm specific tech with spa on Day 1). Targeted to specific skin concerns rather than a general relaxation facial.
 
 **What to Expect:**
-- Arrive at the spa at **1:45 PM** — 15 minutes before
-- Polish selection: bring inspiration photos if you have a specific color/design in mind for the anniversary evening
-- The treatment is performed in the nail salon area — comfortable pedicure chairs
-- Book your nail polish choice with long wear in mind — gel options may be available for an additional charge
+- Consultation with aesthetician at start — mention any skin sensitivities
+- Technology-based treatment (LED, microcurrent, or ultrasound)
+- Private treatment room, relaxing environment
+- Thermal Suite access included on treatment day — use before and after
+- Product recommendations at end — politely decline if not interested
 
-**Anniversary Evening Consideration:**
-- Freshly polished nails for the anniversary dinner — plan the color choice accordingly
-- Allow at least 45–60 minutes post-appointment for nails to be fully set before handling items (especially if not gel)
+**Tips:**
+- Arrive 15–20 minutes early — check in, change into robe, settle into Thermal Suite beforehand
+- It's the anniversary — let the aesthetician know, they often add a small touch
+- Skip heavy makeup the morning of — let skin breathe
+- Come straight from the Thermal Suite heated loungers for maximum relaxation
 
----
-
-## Between Treatments: The Morning
-
-With the facial ending around 10:30–11:00 AM and the mani/pedi starting at 2:00 PM, Holly has approximately 2.5–3 hours between treatments. Options:
-
-1. **Stay in the Thermal Suite** — use the rest of the spa morning in the heated loungers, steam room, or hydrotherapy pool
-2. **Return to the Haven Suite** — room service lunch, rest on the balcony
-3. **Haven Lounge** — quiet seating, light lunch with Fred before the afternoon treatment
+**Total spa charges:** $578.00 + $45.80 service fee = **$623.80**
 
 ---
 
 ## The Thermal Suite
 
-### Access
-- Sold as a **day pass** or a **week pass**
-- Week pass for 7-night cruise is the best value if you plan to use it more than 2–3 times
-- Pricing (approximate): Day pass ~$30–40 per person; Week pass ~$120–150 per person
-- Book through Haven concierge on Day 1 to secure week passes before they sell out (they often do mid-cruise)
-
-### What's Included in the Thermal Suite
+### What's Inside
 
 | Feature | Description |
 |---|---|
-| **Heated Stone Loungers** | Warm ceramic tile loungers that heat from below; ideal for back relaxation |
-| **Hydrotherapy Pool** (Thalassotherapy) | Warm saltwater pool with massage jets targeting back, legs, neck, and feet; deeply relaxing |
-| **Steam Rooms** | Traditional steam; some ships have eucalyptus-infused steam — highly therapeutic for sinuses and skin |
-| **Finnish Sauna** | Dry heat sauna; classic Nordic sauna experience at approximately 80–90°C |
-| **Fog Shower** | Fine mist shower that activates between other thermal experiences; extremely refreshing contrast |
-| **Snow Room** | Small room chilled to near-freezing, sometimes with "snow" effect; used after sauna for a hot/cold contrast that dramatically improves circulation |
-| **Experience Showers** | Multi-function showers with tropical rain, storm, and mist settings |
+| **Heated Tile Loungers** | Smooth stone heated loungers — most in-demand feature. Arrive early (before 9am). Heated to approximately body temperature, perfect for reading or napping. |
+| **Hydrotherapy Pool** | Warm seawater pool with jet therapy stations targeting neck, back, legs. ~102–104°F. Excellent for muscle recovery. |
+| **Finnish Dry Sauna** | Traditional dry sauna, ~170–190°F. 10–15 minute sessions recommended. |
+| **Aroma Steam Room** | Wet steam with eucalyptus aromatherapy, ~110–120°F. Great for sinuses and skin hydration. |
+| **Snow Room / Ice Room** | Cold contrast room — snowflakes or ice wall. Used between hot sessions for circulation. Jarring but invigorating. |
+| **Cold Plunge / Shower** | Cold water for contrast therapy. 30 seconds after sauna dramatically improves the experience. |
+| **Relaxation Room** | Quiet room with reclined chairs, dim lighting, infused water. Zero talking rule. |
 
-### Thermal Suite Circuit
-The optimal way to use the Thermal Suite is to cycle through heat and cold:
-1. **Start with heated loungers** — warm up gradually (10–15 min)
-2. **Move to steam room** — open the pores (10–12 min)
-3. **Fog shower or cool rinse** — brief contrast (2–3 min)
-4. **Hydrotherapy pool** — soak with jets (15–20 min)
-5. **Sauna** — deep dry heat (8–10 min)
-6. **Snow room** — cold contrast (2–3 min)
-7. **Return to heated loungers** — cool down and relax
+### Optimal Thermal Suite Circuit
+1. Start with heated loungers — warm up gradually (10–15 min)
+2. Move to steam room (10–12 min)
+3. Fog shower or cool rinse (2–3 min)
+4. Hydrotherapy pool with jets (15–20 min)
+5. Sauna (8–10 min)
+6. Snow room (2–3 min)
+7. Return to heated loungers — cool down and relax
 
-This circuit takes approximately 60–90 minutes and leaves you feeling thoroughly rested and rejuvenated. It's one of the best experiences available on the ship.
+Full circuit: ~60–90 minutes. One of the best experiences on the ship.
 
-### Best Times to Use the Thermal Suite
-| Time | Crowd Level | Notes |
-|---|---|---|
-| **7:00–9:00 AM** | Very quiet | Best time — often nearly empty |
-| 9:00–11:00 AM | Light to moderate | Still manageable |
-| 11:00 AM–2:00 PM | Moderate to busy | Peak time, especially on sea days |
-| 2:00–4:00 PM | Moderate | Afternoon lull |
-| After 7:00 PM | Building again | Pre-dinner quiet period |
+### Best Times
 
-**Pro tip:** Early morning Thermal Suite visits — around 7:00–7:30 AM — are among the most peaceful experiences on the ship. You may have the entire space to yourself while the sun rises over the ocean.
-
----
-
-## Additional Treatments Available
-
-Beyond Holly's booked services, the Mandara Spa offers a comprehensive treatment menu:
-
-### Massage Therapy
-| Treatment | Duration | Approx. Price |
-|---|---|---|
-| Swedish Massage | 50 or 80 min | $120–175 |
-| Deep Tissue Massage | 50 or 80 min | $140–185 |
-| **Hot Stone Massage** | 80 min | $160–200 |
-| **Couples Massage** | 80 min | $280–360 for two |
-| Reflexology (feet) | 25 or 50 min | $70–110 |
-| Back, Neck & Shoulder | 25 min | $65–80 |
-| Prenatal Massage | 50 min | $120–150 |
-
-**Highly Recommended:** The **Hot Stone Massage** is a signature Mandara treatment and genuinely exceptional — heated basalt stones are used to work deep muscle tension while the heat provides a penetrating warmth. Booking this on a sea day afternoon is a perfect post-lunch treat.
-
-**Couples Massage Idea:** Consider booking a couples massage for Fred and Holly on the Day 5 sea day — side-by-side treatment rooms in the same session. It's a deeply relaxing shared experience and a natural anniversary celebration continuation.
-
-### Body Treatments
-| Treatment | Description |
+| Time | Crowd Level |
 |---|---|
-| Coconut Exfoliation Scrub | Full-body exfoliation with warm coconut oil |
-| Aloe After-Sun Treatment | Cooling aloe body wrap — excellent after a port day in the sun |
-| Body Wrap | Various options: detoxifying, hydrating, slimming |
-| Seaweed Wrap | Marine minerals for skin nourishment |
+| 7:30–9:00am | Least crowded — often nearly empty |
+| During port days | Most guests ashore — nearly empty |
+| 10:00am–noon on sea days | Avoid — busiest time |
 
-### Facial Menu (Beyond Holly's Booked Ultimate Facial)
-| Treatment | Notes |
-|---|---|
-| Hydrating Facial | 50 min; good for dry skin from ship air conditioning |
-| Anti-Aging Facial | Targeting fine lines and firmness |
-| Men's Facial | Tailored for Fred if interested |
+### Etiquette
+- Bring flip flops — required footwear
+- Bathing suits required
+- Towels provided at spa desk
+- No phones or cameras
+- Silence expected in relaxation rooms and lounger area
+- Rinse in shower before pools and between heat/cold cycles
+- Hydrate — bring water bottle or use infused water station
+- Limit sauna/steam to 15–20 min, then cool down
 
-### Hair Salon
-
-The Mandara Spa includes a full-service hair salon offering:
-- **Blowout / Blow-Dry & Style:** Perfect for the anniversary dinner on April 5 — book this for between the two spa treatments or immediately after the mani/pedi
-- Cut and Style
-- Color (partial or full — not typically recommended on a cruise due to timing constraints)
-- Updo and special occasion styling
-- Deep conditioning treatment
-
-**For April 5:** Consider booking a **blowout and style** at approximately 5:00–5:30 PM — after the mani/pedi finishes — so Holly looks polished for the anniversary dinner at 6:30–7:00 PM. Ask the Haven concierge to check availability.
+### Fred's Access
+Fred may purchase day passes onboard if desired. Check with spa desk for pricing.
 
 ---
 
-## Practical Spa Tips
+## Additional Treatment Options (Not Booked — Available Onboard)
 
-### Before You Go
-- **Arrive 30 minutes early** for all treatments — complete intake forms, change into robe, and begin the calming transition from cruise activity to spa mode
-- **Bring:** Swimsuit (required for Thermal Suite pool), flip flops (lockers provide spa sandals but your own are more comfortable)
-- **Lockers provided:** Leave jewelry and valuables in your suite rather than the spa locker — safe and simpler
-- **Hydrate:** Drink a full glass of water before and after any massage or body treatment
-- **Don't eat a heavy meal** immediately before a massage — wait at least 90 minutes after eating
-- **Alcohol:** Avoid alcohol immediately before treatments — it can cause adverse reactions and reduce the benefit of the treatment
-
-### During Treatments
-- **Communication is welcome:** If the pressure is too strong or too light during a massage, say so — therapists prefer feedback
-- **Phone off or silent** — this is true relaxation time
-- For the facial: avoid wearing heavy makeup to the appointment (though the therapist will cleanse thoroughly)
-
-### After Treatments
-- **Drink water:** Massage especially releases toxins into the bloodstream — hydration helps flush them
-- **Rest:** If possible, spend 20–30 minutes in the relaxation area after a massage before returning to activity
-- **Sun sensitivity:** After any facial exfoliation treatment, skin is more sensitive to UV — apply SPF before going outside, especially on port days
+| Treatment | Duration | Notes |
+|---|---|---|
+| Hot Stone Massage | 75–90 min | Heated basalt stones + traditional massage. Great for muscle tension. Consider as couples massage on a sea day. |
+| Couples Massage | 50–80 min | Side-by-side in couples suite. Haven guests can request champagne arranged through butler. Good anniversary option. |
+| Body Wrap (Seaweed/Detox) | 50–75 min | Exfoliation + mineral/seaweed wrap. Good option for April 10 (last sea day). |
+| Elemis Resurfacing Facial | 50 min | Shorter facial using Elemis products. Good mid-week option. |
+| Salon: Blowout / Hair Styling | 30–60 min | Full-service salon for blowouts, updos. Consider for anniversary evening (April 5). |
 
 ---
 
-## The Upsell — Handling It Gracefully
+## Booking Tips
 
-Mandara Spa therapists and aestheticians are trained to recommend retail products during and after treatments. This is standard at virtually all spa brands worldwide and is not aggressive — just part of the business model. You will likely be shown products used during your treatment and invited to purchase them.
-
-**The graceful no:** "Thank you so much — I'll think about it" is completely sufficient. You will never be pressured to buy, and it has no impact on the quality of service you receive. The therapist is paid on a commission basis for product sales and will not take it personally.
-
-If you genuinely enjoyed a specific product used during a treatment and want to continue using it at home, the spa retail area carries it — sometimes at duty-free pricing that's competitive.
-
----
-
-## Booking Additional Treatments
-
-### Timing
-- **Book on Day 1** via the Haven concierge — the most popular time slots (especially on the two sea days) fill quickly
-- **Sea Day 2 (April 5) and Sea Day 5 (April 8)** are the highest-demand spa days
-- Port day treatments (mornings on Days 3, 4, 6, 7) are easier to book last-minute and tend to be slightly discounted
-
-### Method
-- Ask the Haven concierge to book through the spa on your behalf
-- Alternatively: call the spa directly (extension posted in your suite) or visit the spa reception desk in person on Day 1
-- **Don't wait:** The week passes for the Thermal Suite sell out most cruises — buy them on Day 1
-
----
-
-## Haven Guests and the Spa
-
-The spa is ship-wide — all guests book from the same appointment pool. However, Haven concierge can:
-- Make calls on your behalf before the spa desk gets overwhelmed on Day 1
-- Potentially secure time slots that aren't shown as available to walk-in guests
-- Communicate any special needs (health conditions, allergies, sensitivities) in advance to the spa team
-
-There is no dedicated "Haven Spa" area — but the attentiveness of the Haven concierge system effectively gives you priority access when you use it proactively.
+- Book additional treatments on Day 1 — sea day time slots fill up fast
+- Port day treatments are easier to book and sometimes discounted
+- Haven concierge can assist with spa reservations if the desk has a line
+- Confirm April 5 appointments at the spa desk on embarkation day
+- Read treatment descriptions carefully — some include add-ons at extra cost
+- The spa offers open house promotions on embarkation day — check when boarding
+- 20% service fee is automatically added to salon, fitness, and spa services (excluding Thermal Suite)
+- Thermal Suite passes can only be cancelled on Day 1 if the service has not been used

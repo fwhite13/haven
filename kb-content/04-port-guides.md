@@ -1,200 +1,216 @@
-# Port Guide — Harvest Caye, Roatán, Costa Maya & Cozumel
+# Port Guides — Norwegian Luna Caribbean Cruise
 
-## Overview
+## Port Overview
 
-Norwegian Luna's Western Caribbean itinerary visits four ports across three countries: NCL's private island in Belize, Roatán (Honduras), and two Mexican destinations on the Yucatán Peninsula. Each port has a distinct character, and each requires slightly different preparation for Holly's gluten-free needs, excursion planning, and safety awareness.
+| Day | Date | Port | Arrive | Depart | All Aboard | Excursion |
+|---|---|---|---|---|---|---|
+| 3 | Apr 6 (Mon) | Harvest Caye, Belize | 10:30am | 6:00pm | 5:30pm | ✅ Howler Monkey River Expedition (11:00am) |
+| 4 | Apr 7 (Tue) | Roatán, Honduras | 8:00am | 5:00pm | 5:00pm | ✅ Monkeys, Sloths & Macaws (12:00pm) |
+| 5 | Apr 8 (Wed) | Costa Maya, Mexico | 8:00am | 5:00pm | 4:30pm | No excursion booked |
+| 6 | Apr 9 (Thu) | Cozumel, Mexico | 7:00am | 5:00pm | 4:30pm | ✅ VIP Dolphin Swim (9:30am) |
 
----
-
-## Port 1: Harvest Caye, Belize
-
-### Arrival: Day 3 — Monday, April 6, 2026
-**Arrives: 10:30 AM | Departs: 6:00 PM | All Aboard: 5:30 PM | Return by: 5:00 PM**
-
-### Overview & Character
-Harvest Caye is Norwegian Cruise Line's private island development located off the southern coast of Belize. Unlike the other ports, this is entirely NCL-controlled territory — meaning the food, activities, and infrastructure are all managed to NCL standards. It was developed specifically for Norwegian ships and opened in 2016. The island features a pristine beach, a large pool complex with a waterfall feature, a wildlife sanctuary with local animals, a zip line, and multiple food and beverage outlets.
-
-Because it's private, Harvest Caye is one of the safest and most low-stress ports — there's no need to navigate an unfamiliar city, haggle with taxi drivers, or worry about scams. Everything is steps from the pier.
-
-### ✅ Booked Excursion
-**BPIN11 — Howler Monkey River Expedition**
-**Time:** 11:00 AM departure
-**Price:** Fred $99.99 (after $50 discount) + Holly $149.99 = $249.98
-**Duration:** ~3.5 hours
-**Description:** Boat cruise up the Monkey River through undeveloped rainforest, followed by a naturalist-guided hike. Wildlife includes black howler monkeys (heard frequently, spotted in canopy), crocodiles, iguanas, turtles, herons, toucans, and parrots. Guide provides commentary on history and medicinal plants.
-**What to bring:** Closed-toe shoes, long pants, bug spray. Leave valuables on the ship.
-**Note:** Monkeys stay high in the canopy — you'll hear them for sure; seeing them up close is luck of the draw. Tour guides are consistently praised.
-
-### Other Island Activities
-- **Beach and pool complex** — free to access; sun loungers, umbrella rentals available
-- **Zip line** — five lines at varying heights; book at the activity desk
-- **Wildlife Sanctuary** — walkthrough with Belizean wildlife near the pier
-- **Kayaking & paddleboarding** — rentals at the beach
-- **Wave pool & waterslides** — included in island access
-
-### GF Dining Notes
-- All food on Harvest Caye is NCL-operated — similar protocols to the ship itself
-- Grilled items from the island BBQ stations (fish, chicken) are the safest choices
-- Fresh fruit is available and safe
-- Ask staff about cross-contamination at the buffet stations
-- **Safest approach:** Eat a substantial GF breakfast on the ship before going ashore
-- Carry the Spanish allergy card even on the NCL island — staff rotates and may not all be fully briefed
-
-### Practical Information
-- **Currency:** US Dollars accepted everywhere on Harvest Caye; no need for Belize Dollars on the private island
-- **Tender vs. Dock:** Harvest Caye has a dock — no tender required; Haven guests have priority gangway access
-- **Distance from ship:** The island complex is a short walk from the pier
-- **Safety:** Very safe — fully controlled NCL environment; no outside vendors
-- **Sun:** Caribbean sun is strong in April — reapply reef-safe sunscreen every 90 minutes
-- **Water:** Do not drink tap water even on the island; stick to sealed bottles
-
-### Back-on-Ship Reminder
-> **All Aboard: 5:30 PM. Return by 5:00 PM.** The walk back to the pier takes 5–10 minutes from most parts of the island. Don't cut it close — the ship will sail without you.
+All ports are dock (no tender required).
 
 ---
 
-## Port 2: Roatán, Honduras
+## Harvest Caye, Belize — April 6
 
-### Arrival: Day 4 — Tuesday, April 7, 2026
-**Arrives: 8:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
+**Type:** NCL Private Island
+**Hours:** 10:30am arrival / 6:00pm departure | All aboard 5:30pm
 
-### Overview & Character
-Roatán is a 77km-long island off the northern coast of Honduras, part of the Bay Islands. It sits directly atop the Mesoamerican Barrier Reef — the second largest coral reef system in the world — making it one of the best snorkeling and diving destinations in the Western Hemisphere. Beyond the water, the island has a lush jungle interior, a laid-back Caribbean vibe, and an interesting mix of English-speaking Afro-Caribbean culture (the Bay Islands were historically British-influenced) alongside Spanish-speaking Honduran culture.
+NCL's purpose-built resort island in southern Belize. Beautiful beach, pool complex, water sports, and zip line. Entirely NCL-controlled — safe, low-stress, no need to navigate an unfamiliar city. Note the late arrival at 10:30am.
 
-The port area (Mahogany Bay or Coxen Hole depending on the ship's dock that day — Norwegian typically uses **Mahogany Bay**, an NCL-developed pier) features shops, restaurants, a short gondola chair lift to a private beach, and easy access to taxis.
+### ✅ Confirmed Excursion: Howler Monkey River Expedition (BPIN11)
+- **Departure:** 11:00am
+- **What:** Boat cruise up Monkey River through undeveloped rainforest
+- **Wildlife:** Howler monkeys, crocodiles, iguanas, herons
+- **Bring:** Closed-toe shoes, bug spray. Leave valuables on the ship.
+- **Both guests booked**
 
-### ✅ Booked Excursion
-**RTBN01 — Monkeys, Sloths and Macaws at Daniel Johnson's**
-**Time:** 12:00 PM departure
-**Price:** Fred $49.99 (after $50 discount) + Holly $99.99 = $149.98
-**Location:** French Cay, Roatán
-**Duration:** ~2–3 hours
-**Description:** Hands-on wildlife encounter at Daniel Johnson's Monkey & Sloth Hangout. Meet Capuchin monkeys, two-toed sloths, and Scarlet Macaws up close — animals come to you, sit on your shoulders, and interact directly. Very different from a wild-spotting excursion; this is a curated wildlife sanctuary. Consistently rated as one of Roatán's top experiences.
-**What to bring:** Camera/phone for photos (animals on your shoulder = great shots). Comfortable clothes — animals may grab/sit on you.
-**Note:** Departs at noon — plan accordingly; ship arrives around 8–9 AM so you have the morning free.
+### Island Activities (If Time Permits)
+- **Beach & Lagoon** — White sand, calm water, snorkel gear rentable. Free.
+- **Pool Complex** — Multi-level pool with swim-up bar. Free.
+- **Zip Line** — Over the water, Harvest Caye's signature attraction. Book early.
+- **Water Sports** — Kayaks, paddleboards, wave runners.
+- **Wildlife Sanctuary** — Small on-island sanctuary with local Belize animals.
+- **Hammocks & Cabanas** — Overwater hammocks, cabana rentals available.
 
-### Other Port Activities
-- **West Bay Beach** — One of the most beautiful beaches in Central America; $8-12 taxi each way
-- **Snorkeling the Reef** — 50–100m offshore at West Bay; gear rentals ~$10-15
-- **Mahogany Bay Beach (NCL)** — Private beach at pier; free, no transport needed
-- **Zip lining** — Multiple canopy operators departing from pier area
+### Dining (GF Notes)
+- All food on Harvest Caye is NCL-operated — similar protocols to the ship
+- Safe: grilled fish/chicken, rice and beans (confirm), fresh fruit, salads, plain grilled shrimp
+- Avoid: fried items (shared fryer), unknown sauces, anything breaded
+- **Safest option: return to the ship — Haven Restaurant stays open during port days**
 
-### GF Dining Notes
-- **At West Bay Beach restaurants:** Carry the Spanish allergy card and use it. Grilled fish, rice and beans (plain), and fresh fruit are typically safe options.
-- **Ceviche:** Honduran ceviche is fresh and often naturally GF — confirm no hidden flour thickeners in the sauce.
-- **Avoid:** Street food, fried food from shared fryers, anything with tortillas (could be flour), sauces with unknown ingredients.
-- **Strong recommendation:** Eat breakfast on the ship. Have a snack/light lunch at West Bay, not a full meal, minimizing GF risk.
-- NCL-operated Mahogany Bay restaurants follow ship-similar standards — safer than independent West Bay restaurants.
+### Practical Tips
+- Bring reef-safe sunscreen (required on the island)
+- Water shoes recommended for rocky entry points
+- Ship docks directly — no tender needed
+- Drink package works on the island
+- Get off early for best beach chairs and hammock spots
+- Cell service is spotty
 
-### Practical Information
-- **Currency:** Honduran Lempira (HNL) is the official currency; USD is widely accepted and preferred in tourist areas. Current rate approximately 25 HNL per $1 USD. No need to exchange currency.
-- **Taxi from Pier to West Bay:** ~$8-12 USD per person each way (negotiate before getting in). Takes about 20-25 minutes. Taxis gather just outside the Mahogany Bay entrance.
-- **Safety:** Mahogany Bay and West Bay are generally safe tourist zones. Exercise normal caution with valuables — don't bring expensive jewelry ashore. Stay in tourist areas.
-- **Language:** English is widely spoken in Roatán's tourist areas — it's a historically English Bay Island. Spanish is also spoken.
-- **Swimming:** West Bay Beach has gentle conditions, ideal for snorkeling. Watch for boat traffic in the channel.
+### Weather
+Hot and humid, 82–88°F (28–31°C). Mostly sunny with possible afternoon showers.
+**Bring:** Reef-safe sunscreen, hat, sunglasses, water shoes, light cover-up
 
-### Back-on-Ship Reminder
-> **All Aboard: 4:30 PM. Return by 4:00 PM.** Taxi from West Bay takes 20-25 minutes — leave West Bay no later than 3:30 PM. Do not get caught waiting for taxis with 500 other cruise passengers at 4:00 PM.
-
----
-
-## Port 3: Costa Maya, Mexico
-
-### Arrival: Day 5 — Wednesday, April 8, 2026
-**Arrives: 8:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
-
-### Overview & Character
-Costa Maya is a purpose-built cruise port on Mexico's southern Yucatán coast, near the town of Mahahual. Unlike Cozumel, it was purpose-built specifically to accommodate cruise ships and features a large pier complex with restaurants, shops, pools, entertainment, and a beach — all within walking distance of the ship. Mahahual is a small, charming coastal town about 1km from the pier, worth a brief walk if you want to experience authentic local life.
-
-The surrounding region has several spectacular Mayan archaeological sites within 2–3 hours drive, including Chacchoben — one of the lesser-visited but impressive ruins that still retains its jungle setting.
-
-### What's Booked / Top Activities
-- **Chacchoben Mayan Ruins (NCL Excursion):** Located approximately 90 minutes from the pier, Chacchoben features well-preserved Classic Maya pyramids and temples surrounded by jungle. The site is less crowded than Tulum or Chichen Itza, making for a more intimate experience. Book through NCL for air-conditioned transportation and a guide. ~3-4 hours total excursion time.
-- **Costa Maya Beach Club (Pier Complex):** Large beach club right at the pier with pool, beach, lounge chairs, food, and drinks — perfect if you want a low-key day without traveling far.
-- **Mahahual Town Walk:** Short walk (15 min) or inexpensive taxi to the real town; mellow, colorful Caribbean Mexican town with local restaurants and shops. Very safe.
-- **Kayaking / Snorkeling:** Rentals available at the pier beach club and through operators at Mahahual.
-
-### GF Dining Notes
-- **At the pier complex:** NCL-affiliated restaurants — Spanish allergy card and standard approach. Grilled fish and chicken are safe; rice; corn chips with guacamole (confirm no flour).
-- **In Mahahual:** Small local restaurants require more vigilance. Corn tortillas, fresh ceviche, and grilled seafood are safest. Present the allergy card.
-- **Avoid:** Any restaurants near the pier that serve flour tortillas (many do — confirm corn only), fried items, sauces of uncertain composition.
-- **Margaritas and cocktails:** Most are naturally GF (tequila, lime, salt), but confirm no beer mixers.
-
-### Practical Information
-- **Currency:** Mexican Pesos (MXN); USD universally accepted at the pier complex and in Mahahual.
-- **Taxis:** Available at the pier entrance; short fare to Mahahual (~$3-5 USD per person). Fixed rates posted at the taxi stand.
-- **Shopping:** Excellent selection of Mexican handicrafts, silver jewelry, embroidered goods, hammocks, and Mayan-themed items in the pier complex market. Bargaining is expected and part of the culture — start at 40-50% of the asking price and meet in the middle.
-- **Safety:** The pier complex is very safe. Mahahual is a calm, low-crime town. Exercise normal caution.
-- **Weather in April:** Hot and humid; high 80s°F. Apply sunscreen liberally.
-
-### Back-on-Ship Reminder
-> **All Aboard: 4:30 PM. Return by 4:00 PM.** If doing Chacchoben ruins, verify the excursion return time — NCL will get you back in time, but be aware of the schedule. If independently exploring Mahahual, leave time for the taxi back to the pier.
+### Currency
+USD accepted everywhere on the private island. No need for Belize dollars.
 
 ---
 
-## Port 4: Cozumel, Mexico
+## Roatán, Honduras — April 7
 
-### Arrival: Day 6 — Thursday, April 9, 2026
-**Arrives: 7:00 AM | Departs: 5:00 PM | All Aboard: 4:30 PM | Return by: 4:00 PM**
+**Type:** Port of Call (Mahogany Bay — NCL's dedicated port)
+**Hours:** 8:00am arrival / 5:00pm departure | All aboard 5:00pm
 
-### Overview & Character
-Cozumel is the crown jewel of this itinerary. The island sits in the heart of the Mesoamerican Barrier Reef and has long been recognized as one of the world's top ten dive destinations. The water clarity, coral diversity, and sheer quantity of marine life visible from the surface while snorkeling is extraordinary.
+Roatán sits on the Mesoamerican Barrier Reef — world-class snorkeling and diving. Lush jungle interior, laid-back Caribbean vibe. Mahogany Bay is NCL's developed pier with shops, restaurants, beach, and chair lift.
 
-Beyond the reef, Cozumel has a lively downtown (San Miguel), one of the best craft shopping scenes in the Mexican Caribbean, excellent restaurants, and an easygoing island vibe. The pier is within walking distance of downtown San Miguel, making this an excellent port for independent exploration.
+### ✅ Confirmed Excursion: Monkeys, Sloths & Macaws (RTBN01)
+- **Departure:** 12:00pm (Noon)
+- **Duration:** ~2–3 hours
+- **What:** Wildlife sanctuary tour — spider monkeys, two-toed sloths, scarlet macaws. Hands-on interaction — animals sit on your shoulders.
+- **Meeting Point:** Check Freestyle Daily or excursion ticket — usually at pier or gangway
+- **Both guests booked**
 
-Norwegian Luna docks at the **Punta Langosta Pier** or the **International Pier** — both are centrally located near downtown San Miguel.
+### Excursion Tips
+- Wear closed-toe shoes or sturdy sandals — uneven paths
+- Don't wear loose dangling jewelry — monkeys are curious
+- Bring small bills for guide tips (~$5–10/person)
+- Apply bug spray before departing — jungle setting
+- Monkeys may climb on you — don't resist, it's part of the experience
+- Noon departure means return by ~3:00–3:30pm
 
-### ✅ Booked Excursion
-**CZMN42 — Exclusive VIP Dolphin Swim at Dolphinaris**
-**Time:** 9:30 AM departure
-**Price:** Fred $139.99 (after $50 discount) + Holly $189.99 = $329.98
-**Duration:** ~3–4 hours
-**Description:** VIP dolphin swim experience at Dolphinaris Cozumel. The VIP tier includes a private/priority group, separate from the standard cruise ship crowd — shorter wait times, private relaxation area, shuttle back to ship when ready. Actual dolphin interaction is exceptional — kisses, dorsal fin rides, and other trained behaviors. Food and drinks included.
-**Photo note:** No phones/cameras allowed in the water. Dolphinaris photographers capture everything; photos available for purchase afterward (~$40 each or ~$350 for the full set). Budget for photos — they're the only record of the experience. Cash may get you a discount.
-**Timing:** 9:30 AM departure — early morning, which is good (cooler, less crowded). Plan to be back on the ship or in town by early afternoon for lunch and shopping.
+### Pre-Excursion (8:00am – 11:30am)
+- Explore port shopping area — jewelry, crafts, souvenirs
+- West Bay Beach (~20 min taxi, ~$5–10 each way/person) — stunning turquoise water, excellent snorkeling
+- West End Village — local restaurants and shops
+- Mahogany Bay pier has its own beach and chair lift
+- Don't stray too far — excursion meets at noon
 
-### Other Port Activities
-- **Downtown San Miguel:** Walk from the pier; excellent silver jewelry, vanilla, Kahlúa
-- **Snorkeling at Palancar Reef:** World-class reef; operators at the pier (~$25-40/person)
-- **Mr. Sanchos Beach Club:** All-inclusive day pass (~$40-60/person); hammocks, pool, food, drinks
-- **El Cedral Ruins:** Small Mayan ruins on the island
+### Post-Excursion (~3:30pm – 5:00pm)
+- Return to ship, Haven pool
+- Quick shower and Haven room service
+- Haven bar for a late afternoon cocktail
 
-### GF Dining Notes
-- **Mr. Sanchos Beach Club:** Has restaurant staff who are accustomed to allergy requests from cruise ship passengers. Present the Spanish allergy card; their grilled fish, guacamole, corn-based dishes, and fresh salsas are generally safe. Confirm everything with the all-inclusive server.
-- **Downtown San Miguel restaurants:** Cozumel is more tourist-sophisticated than Honduras or Costa Maya — many restaurants have English menus and staff with allergy awareness. Still use the allergy card every time.
-- **Safest downtown choices:** La Choza (local favorite, excellent fresh Mexican food), or any restaurant where you can see the kitchen and observe clean preparation. Grilled fish tacos on corn tortillas, fish ceviche, guacamole.
-- **Beer:** Mexican beers contain gluten — stick to margaritas (confirm no beer mixer) or bring Fred a cerveza and have Holly stick to tequila-based cocktails.
+### Dining (GF Notes)
+- **Holly should strongly prefer ship food.** Port street food has unpredictable cross-contamination.
+- If dining ashore: choose a sit-down restaurant only, not food stalls
+- NCL's Mahogany Bay area has a restaurant with NCL oversight — safer than independent restaurants
+- Avoid: street food stalls, baleadas (flour tortilla), pan de coco (bread)
 
-### Practical Information
-- **Currency:** Mexican Pesos; USD universally accepted. ATMs available in downtown San Miguel.
-- **Taxis:** Abundant and relatively cheap; fixed rate system posted at official taxi stands. Downtown to Mr. Sanchos: ~$10-15 USD each way.
-- **Shopping:** Cozumel is excellent for silver jewelry — shops near the pier have competitive prices; bargaining is acceptable but these are more formal stores than open markets. Los Cinco Soles (near downtown) is a well-known craft store with fixed prices and good quality.
-- **Safety:** San Miguel and the main tourist areas are very safe. Normal precautions with valuables — don't display expensive items unnecessarily.
-- **Duty-free:** Liquor prices at Cozumel duty-free shops near the pier are excellent — good place to pick up tequila or rum before re-boarding.
+### Practical Tips
+- USD accepted everywhere — no Honduran Lempira needed
+- Taxis are shared (collectivos) — negotiate price before getting in
+- Mahogany Bay is secure and tourist-friendly
+- Don't display expensive jewelry or electronics
+- Sunscreen and bug spray essential
 
-### Back-on-Ship Reminder
-> **All Aboard: 4:30 PM. Return by 4:00 PM.** Plan to leave Mr. Sanchos or downtown by 3:30 PM at the latest to allow time for the taxi queue at the pier.
+### Weather
+Hot and sunny, 84–90°F (29–32°C). April is dry season — low rain.
+**Bring:** Sunscreen, bug spray, closed-toe shoes (excursion), hat, camera in waterproof case
+
+### Currency
+USD universally accepted. Honduran Lempira not needed.
+
+---
+
+## Costa Maya, Mexico — April 8
+
+**Type:** Port of Call
+**Hours:** 8:00am arrival / 5:00pm departure | All aboard 4:30pm
+
+Purpose-built cruise port on Mexico's southern Yucatán coast. Large pier complex with shops, restaurants, pool. Nearby: Chacchoben Mayan ruins (~40 min) and Mahahual beach town (~5 min). No excursion booked — decide onboard based on energy levels.
+
+### Decision Guide
+- **Choose ruins if:** You have energy and interest in Mayan history. Depart by 8:30am.
+- **Choose beach if:** You want a low-key day. Mahahual is beautiful and relaxing.
+- **Choose stay onboard if:** Energy is low after two consecutive port days. Haven pool with few people on port days is a genuine luxury.
+
+### Top Activities
+
+**Chacchoben Mayan Ruins**
+- Well-preserved Mayan ceremonial site, ~200 AD. Smaller and less touristy than Chichen Itza.
+- Taxi round-trip ~$40–60 for the car. Site admission ~$5. Optional guide ~$10–15/person.
+- ~2.5–3.5 hours total including transport.
+- Tips: Go early, comfortable walking shoes, bring bug spray, negotiate taxi price firmly, cash only at site, ruins are climbable — great photos.
+
+**Mahahual Beach Town**
+- Charming village 5 min from port. Pedestrian malecón (boardwalk) with restaurants and shops. Great for a casual stroll, ceviche, or beach chair rental. Walkable from port.
+
+**Port Shopping Complex**
+- Large open-air shopping with jewelry, tequila, souvenirs. Infinity pool available to cruise passengers.
+
+### Dining (GF Notes)
+- Mexico is manageable for GF — corn is the staple starch
+- Safe: grilled fish tacos on corn tortillas (confirm no flour), ceviche (confirm no soy sauce), grilled shrimp, guacamole with corn chips (confirm no wheat chips)
+- Avoid: flour tortillas, mole sauce (often contains wheat), shared fryer items, breaded seafood
+- Port complex restaurants cater to cruise passengers — more likely to understand GF requests
+
+### Practical Tips
+- Confirm port times via Freestyle Daily the night before
+- Negotiate taxi prices upfront
+- Port is walking distance from Mahahual (~15–20 min walk or quick taxi)
+- USD widely accepted; pesos fine but not required
+- Bring cash for ruins, taxi, and tips
+
+### Weather
+Hot and sunny, 82–88°F (28–31°C). Low humidity. April is dry season.
+**Bring:** Sunscreen, bug spray (for ruins), comfortable shoes, hat, cash, water bottle
+
+### Currency
+USD accepted everywhere. Mexican Pesos also accepted but not required.
+
+---
+
+## Cozumel, Mexico — April 9
+
+**Type:** Port of Call
+**Hours:** 7:00am arrival / 5:00pm departure | All aboard 4:30pm
+
+Mexico's largest Caribbean island, world-class diving and snorkeling. Port in San Miguel de Cozumel — lively town with excellent shopping and restaurants. Earliest arrival of the cruise (7:00am).
+
+### ✅ Confirmed Excursion: Exclusive VIP Dolphin Swim at Dolphinaris (CZMN42)
+- **Departure:** 9:30am
+- **What:** VIP tier dolphin swim — private group, no long waits
+- **Experience:** Dolphin kisses, dorsal fin rides, hands-on interaction
+- **Important:** No phones or cameras in the water. Dolphinaris photographers take professional photos — available for purchase after.
+- **Both guests booked**
+
+### Post-Excursion
+- **San Miguel Waterfront Shopping** — Walkable from dock. Silver jewelry (Cozumel specialty), artisan markets, tequila tastings, vanilla. Los Cinco Soles is a well-known crafts market.
+- **Haven Pool Day** — Most passengers ashore, Haven deck exceptionally quiet. Butler service at full attention.
+- **Snorkeling** — Reefs (Palancar, Columbia, Santa Rosa) are world-famous. 2-hour tours bookable at pier.
+
+### Dining (GF Notes)
+- Same Mexico GF guidelines — corn-based cuisine manageable, confirm preparation
+- Recommended restaurants: La Cocay (upscale, GF-friendly, walk from pier) or Kinta (accommodates dietary restrictions)
+- If staying onboard, Haven Restaurant and Haven pool food service are safest
+
+### Practical Tips
+- Pier area is very tourist-friendly and walkable
+- Taxis are set-rate (posted) — no negotiation needed
+- Many shops are duty-free — good for jewelry, vanilla, spirits
+- NCL drink packages work on the ship all day while docked
+- Early arrival (7:00am) — great balcony morning
+
+### Weather
+Warm and sunny, 82–87°F (28–30°C). April is peak dry season.
+**Bring:** Comfortable walking shoes, sunscreen, light bag for purchases, USD cash
+
+### Currency
+USD universally accepted in tourist areas. Pesos fine but not necessary.
 
 ---
 
 ## Multi-Port Tips
 
 ### Currency Strategy
-- **Carry USD** — it's accepted everywhere on this itinerary. No need to exchange currency at any port.
-- Bring small bills: $1, $5, and $20 USD. $1s for tips; $5-10s for small purchases and taxis.
-- Suggested port cash: $50-75 USD per person per port day should cover tipping, taxis, food, and small purchases. More if planning significant shopping.
+- **Carry USD** — accepted everywhere on this itinerary. No need to exchange currency.
+- Bring small bills: $1, $5, $10, $20. Useful for tips, taxis, small purchases.
 
-### What to Always Have in Port
-- Passports or cruise ID card (NCL cruise card) — keep passports aboard and use cruise card for re-entry unless specifically needed; confirm NCL policy with concierge
-- Holly's Spanish allergy card (physical printout + phone photo backup)
-- Sunscreen (reef-safe preferred in marine environments)
-- Water bottle or buy water at the pier — stay hydrated in April Caribbean heat
-- Portable phone charger
-- Credit card for larger purchases (Visa/Mastercard widely accepted)
-
-### Safety General Notes
-- All four ports are generally safe in tourist areas
-- Do not display expensive jewelry, cameras, or electronics unnecessarily
-- Stay in designated tourist areas and on NCL-recommended routes
-- Book excursions through NCL or verified operators — the cost premium over local operators is worth it for reliability and guaranteed return to ship on time
-- **If you miss the ship:** Contact NCL shoreside emergency line immediately. They will direct you to the next port at your own expense. Travel insurance with "missed ship" coverage is valuable.
+### Always Have in Port
+- Cruise card (NCL cruise card) for re-entry to the ship
+- Holly's Spanish GF allergy card (physical + phone backup)
+- Sunscreen (reef-safe preferred)
+- Water bottle
+- Cash (USD)
