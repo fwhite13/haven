@@ -169,7 +169,7 @@ The Haven Observation Lounge at the very forward bow of Deck 17 is one of the mo
 
 ## Priority Disembarkation: How It Works
 
-- The night before arrival in New Orleans, the Haven concierge distributes priority disembarkation tags/cards with a specific time and color.
+- The night before arrival in Miami, the Haven concierge distributes priority disembarkation tags/cards with a specific time and color.
 - Haven guests are called to disembark before all other passengers — typically first or second group off the ship.
 - A Haven staff member escorts the group through the terminal.
 - This can mean you're through customs and in a car by 8:15–8:30 AM while other guests wait until 10 or 11 AM.
