@@ -27,18 +27,40 @@ const FAIT_URL = 'https://fait.dev.fortressam.ai';
 
 // ─── Venue Locations ──────────────────────────────────────────────
 const VENUE_LOCATIONS = {
-  'Haven Restaurant': 'Deck 17, Forward',
-  'Haven Pool': 'Deck 17, Forward',
-  'Haven Lounge': 'Deck 17, Forward',
-  'Haven Sundeck': 'Deck 18, Forward',
-  'Onda by Scarpetta': 'Deck 8, Midship',
-  'Onda': 'Deck 8, Midship',
-  'Los Lobos': 'Deck 8, Midship',
-  "Syd Norman's": 'Deck 6, Midship',
-  'Casino': 'Deck 7, Midship',
-  'Thermal Suite': 'Deck 15, Forward',
-  'Mandara Spa': 'Deck 15, Forward',
-  'Main Pool': 'Deck 15, Midship'
+  'The Haven Restaurant': 'Deck 15, Forward (Haven exclusive)',
+  'Haven Restaurant': 'Deck 15, Forward (Haven exclusive)',
+  'Haven Pool': 'Deck 15, Forward (Haven exclusive)',
+  'Haven Sundeck': 'Deck 15–16, Forward (Haven exclusive)',
+  'Haven Lounge': 'Deck 15, Forward (Haven exclusive)',
+  'Haven Lounge & Bar': 'Deck 15, Forward (Haven exclusive)',
+  "Bull's Eye Bar": 'Deck 15, Forward (Haven exclusive)',
+  "The Bull's Eye Bar": 'Deck 15, Forward (Haven exclusive)',
+  'Haven Concierge': 'Deck 15, Forward (Haven exclusive)',
+  'Starbucks': 'Deck 9, Midship (Penrose Atrium)',
+  'Starbucks®': 'Deck 9, Midship (Penrose Atrium)',
+  "Cagney's Steakhouse": 'Deck 9, Forward',
+  "Cagney's": 'Deck 9, Forward',
+  'Le Bistro': 'Deck 9, Forward',
+  'Hasuki': 'Deck 9, Midship-forward',
+  'Nama': 'Deck 9, Forward',
+  'Nama Sushi': 'Deck 9, Forward',
+  'Indulge Food Hall': 'Deck 9, Midship',
+  "Syd Norman's": 'Deck 9, Midship',
+  "Syd Norman's Pour House": 'Deck 9, Midship',
+  'Swirl Wine Bar': 'Deck 9, Midship',
+  'Whiskey Bar': 'Deck 9, Midship',
+  'Casino': 'Deck 9, Midship',
+  'Mandara Spa': 'Deck 16, Forward',
+  'Mandara Spa & Salon': 'Deck 16, Forward',
+  'Thermal Suite': 'Deck 16, Forward (inside Mandara Spa)',
+  'Main Pool': 'Deck 16, Midship',
+  'Waves Pool Bar': 'Deck 16, Midship',
+  'Surfside Café': 'Deck 16, Midship-forward',
+  'Pulse Fitness Center': 'Deck 15, Forward',
+  'Observation Lounge': 'Deck 15, Forward',
+  'Aqua SlideCoaster': 'Deck 16–19, Aft-midship',
+  'Guest Services': 'Deck 9, Midship',
+  'Shore Excursions': 'Deck 9, Midship',
 };
 
 function linkVenueNames(html) {
@@ -630,10 +652,10 @@ function searchKB(query) {
     const mentionedVenue = Object.keys(VENUE_LOCATIONS).find(v => q.includes(v.toLowerCase()));
     if (mentionedVenue) {
       const loc = VENUE_LOCATIONS[mentionedVenue];
-      return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the midship elevator to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Forward') ? 'forward (toward the bow)' : 'to the midship area'}.`;
+      return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the Haven elevator (forward, adjacent to your suite) to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Forward') ? 'forward (toward the bow)' : 'midship'}.`;
     }
     // General navigation answer
-    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, midship-starboard. Use the midship elevator bank for most venues:\n\n• Haven Restaurant/Pool/Lounge → Deck 17, forward\n• Haven Sundeck → Deck 18, forward\n• Mandara Spa/Thermal Suite → Deck 15, forward\n• Onda & Los Lobos → Deck 8, midship\n• Casino → Deck 7, midship\n• Syd Norman's → Deck 6, midship\n\nTip: Forward = bow (front), Aft = stern (back).`;
+    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, forward-starboard — directly adjacent to the **Haven Private Elevators**. Use your Haven keycard to access them.\n\n• Haven Restaurant/Lounge/Pool/Concierge → Deck 15, forward (Haven elevator)\n• Haven Sundeck → Deck 15–16, forward (Haven elevator)\n• Mandara Spa/Thermal Suite → Deck 16, forward (Haven elevator to 15, stairs to 16)\n• Casino/Cagney's/Le Bistro → Deck 9 (Haven elevator down)\n• Syd Norman's/Swirl/Whiskey Bar → Deck 9, midship (Haven elevator down)\n• Starbucks® → Deck 9, Penrose Atrium (Haven elevator down)\n• Main Pool → Deck 16, midship\n• Observation Lounge → Deck 15, forward\n\nTip: The Haven elevator is forward, right next to your suite. Your keycard activates it. Never wait for midship elevators.`;
   }
 
   return generalSearch(q);

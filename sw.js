@@ -1,5 +1,5 @@
-const CACHE_NAME = 'haven-v2';
-const CONTENT_CACHE = 'haven-content-v2';
+const CACHE_NAME = 'haven-v3';
+const CONTENT_CACHE = 'haven-content-v3';
 
 const APP_SHELL = [
   '/',
@@ -18,6 +18,7 @@ const CONTENT_FILES = [
   '/content/spa.json',
   '/content/entertainment.json',
   '/content/tips.json',
+  '/content/navigation.json',
 ];
 
 self.addEventListener('install', event => {
@@ -44,16 +45,18 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
-  // Cache-first for content JSON
+  // Stale-while-revalidate for content JSON — serve cached immediately, fetch fresh in background
   if (url.pathname.startsWith('/content/')) {
     event.respondWith(
       caches.open(CONTENT_CACHE).then(cache =>
         cache.match(event.request).then(cached => {
-          if (cached) return cached;
-          return fetch(event.request).then(res => {
-            cache.put(event.request, res.clone());
+          // Fire background fetch to update cache
+          const fetchAndUpdate = fetch(event.request).then(res => {
+            if (res.ok) cache.put(event.request, res.clone());
             return res;
           });
+          // Serve cached version immediately if available, else wait for fetch
+          return cached || fetchAndUpdate;
         })
       )
     );
