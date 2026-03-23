@@ -20,6 +20,43 @@ let spa = null;
 let entertainment = null;
 let tips = null;
 
+// ─── Connectivity State ───────────────────────────────────────────
+let _isOnline = navigator.onLine;
+
+function updateConnectivityState(online) {
+  const wasOnline = _isOnline;
+  _isOnline = online;
+  renderOfflineBanner();
+  if (online && !wasOnline) {
+    // Reconnected — trigger background sync
+    triggerContentSync();
+  }
+}
+
+function triggerContentSync() {
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({ type: 'SYNC_CONTENT' });
+  }
+}
+
+function renderOfflineBanner() {
+  let banner = document.getElementById('offline-banner');
+  if (!_isOnline) {
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'offline-banner';
+      banner.innerHTML = '📵 Offline mode — all content available from cache';
+      document.body.appendChild(banner);
+    }
+    banner.style.display = 'flex';
+  } else {
+    if (banner) banner.style.display = 'none';
+  }
+}
+
+window.addEventListener('online',  () => updateConnectivityState(true));
+window.addEventListener('offline', () => updateConnectivityState(false));
+
 // ─── Sailing Constants ────────────────────────────────────────────
 const SAIL_DATE = new Date('2026-04-04T11:00:00-05:00');  // Miami ET
 const RETURN_DATE = new Date('2026-04-11T07:00:00-05:00');
@@ -140,6 +177,7 @@ function navigateTo(view) {
   if (view === 'main') {
     document.getElementById('main-screen').classList.add('active');
     renderMainView();
+    renderOfflineBanner();
     return;
   }
 }
@@ -985,6 +1023,19 @@ function registerSW() {
     navigator.serviceWorker.register('/sw.js').catch(err => {
       console.warn('SW registration failed:', err);
     });
+
+    // Listen for background cache updates from SW
+    navigator.serviceWorker.addEventListener('message', event => {
+      if (event.data && event.data.type === 'CONTENT_UPDATED') {
+        // Content updated in background — next load will get fresh data
+        console.log('[Haven] Content cache updated in background');
+      }
+    });
+
+    // Trigger background content sync on every load (if online)
+    if (_isOnline) {
+      setTimeout(triggerContentSync, 2000); // 2s delay — let page load settle
+    }
   }
 }
 

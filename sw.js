@@ -39,6 +39,9 @@ self.addEventListener('activate', event => {
           .map(k => caches.delete(k))
       )
     ).then(() => self.clients.claim())
+     .then(() => self.clients.matchAll().then(clients =>
+       clients.forEach(c => c.postMessage({ type: 'CONTENT_UPDATED' }))
+     ))
   );
 });
 
@@ -81,4 +84,21 @@ self.addEventListener('fetch', event => {
       })
       .catch(() => caches.match(event.request).then(cached => cached || caches.match('/index.html')))
   );
+});
+
+// ─── Background Sync via message ─────────────────────────────────
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SYNC_CONTENT') {
+    event.waitUntil(
+      caches.open(CONTENT_CACHE).then(cache =>
+        Promise.allSettled(
+          CONTENT_FILES.map(url =>
+            fetch(url, { cache: 'no-store' }).then(res => {
+              if (res.ok) cache.put(url, res);
+            }).catch(() => {}) // silent fail — offline
+          )
+        )
+      )
+    );
+  }
 });

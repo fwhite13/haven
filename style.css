@@ -1015,3 +1015,25 @@ h3 { font-size: 1rem; }
   .pin-container { max-width: 360px; }
   .main-answer { max-width: 480px; }
 }
+
+/* ── Offline Banner ─────────────────────────────────────────────── */
+#offline-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #2a2f3e;
+  color: rgba(255,255,255,0.75);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 16px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  transition: opacity 0.3s ease;
+}
