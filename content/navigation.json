@@ -2,18 +2,18 @@
   "suite": {
     "number": "12846",
     "deck": 12,
-    "location": "Forward-starboard",
-    "elevator": "Haven Private Elevators (forward) — directly adjacent to your suite. Your Haven keycard activates them."
+    "location": "Aft-starboard",
+    "elevator": "Haven Private Elevators (aft) — directly adjacent to your suite. Your Haven keycard activates them."
   },
   "elevators": {
     "haven": {
-      "description": "The Haven Private Elevators — forward position, Haven keycard required",
+      "description": "The Haven Private Elevators — aft position, Haven keycard required",
       "decks_served": [5, 9, 11, 12, 13, 14, 15],
       "note": "Fastest and most exclusive. Your suite is directly adjacent to these on Deck 12."
     },
     "midship": {
       "description": "Main midship elevator banks — no keycard required, accessible to all guests",
-      "note": "Good for reaching casino (Deck 9), aft areas, and decks not served by Haven elevators"
+      "note": "Good for reaching casino (Deck 9), forward areas, and decks not served by Haven elevators"
     },
     "forward": {
       "description": "Forward public elevators — no keycard required",
@@ -25,55 +25,55 @@
       "id": "haven_restaurant",
       "name": "The Haven Restaurant",
       "deck": 15,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": true,
-      "directions_from_suite": "Take the Haven elevator (forward, Deck 12) up to Deck 15. Exit forward — The Haven Restaurant is directly ahead. Haven keycard required.",
+      "directions_from_suite": "Take the Haven elevator (aft, Deck 12) up to Deck 15. Exit aft — The Haven Restaurant is directly ahead. Haven keycard required.",
       "directions_to_suite": "Exit The Haven Restaurant, take the Haven elevator down to Deck 12. Turn to your suite — 12846 is starboard side, short walk from the elevator."
     },
     {
       "id": "haven_lounge",
       "name": "The Haven Lounge & Bar",
       "deck": 15,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": true,
-      "directions_from_suite": "Take the Haven elevator (forward, Deck 12) up to Deck 15. The Haven Lounge & Bar is adjacent to the restaurant, forward.",
+      "directions_from_suite": "Take the Haven elevator (aft, Deck 12) up to Deck 15. The Haven Lounge & Bar is adjacent to the restaurant, aft.",
       "directions_to_suite": "From the Haven Lounge, take the Haven elevator down to Deck 12. Short walk starboard to suite 12846."
     },
     {
       "id": "haven_sundeck",
       "name": "The Haven Sundeck & Pool",
       "deck": 15,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": true,
-      "directions_from_suite": "Take the Haven elevator (forward, Deck 12) up to Deck 15. Follow signs forward and up to the Haven Sundeck — private pool, hot tubs, and bar.",
+      "directions_from_suite": "Take the Haven elevator (aft, Deck 12) up to Deck 15. Follow signs aft and up to the Haven Sundeck — private pool, hot tubs, and bar.",
       "directions_to_suite": "From the Haven Sundeck, take the Haven elevator down to Deck 12. Suite 12846 is starboard, a short walk from the elevator."
     },
     {
       "id": "bulls_eye_bar",
       "name": "The Bull's Eye Bar",
       "deck": 15,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": true,
-      "directions_from_suite": "Take the Haven elevator to Deck 15. The Bull's Eye Bar is in the Haven complex, forward.",
+      "directions_from_suite": "Take the Haven elevator to Deck 15. The Bull's Eye Bar is in the Haven complex, aft.",
       "directions_to_suite": "From Bull's Eye Bar, take the Haven elevator down to Deck 12. Suite 12846 is starboard."
     },
     {
       "id": "concierge",
       "name": "Haven Concierge Desk",
       "deck": 15,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": true,
-      "directions_from_suite": "Take the Haven elevator to Deck 15. The Concierge Desk is in the Haven complex — forward, near the restaurant entrance.",
+      "directions_from_suite": "Take the Haven elevator to Deck 15. The Concierge Desk is in the Haven complex — aft, near the restaurant entrance.",
       "directions_to_suite": "From the Concierge Desk, take the Haven elevator down to Deck 12. Suite 12846 is a short walk starboard."
     },
     {
       "id": "mandara_spa",
       "name": "Mandara Spa & Salon",
       "deck": 16,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": false,
-      "directions_from_suite": "Take the Haven elevator to Deck 15, then take the stairs or midship elevator one deck up to Deck 16. The Mandara Spa entrance is at the forward section of Deck 16. Follow spa signs.",
-      "directions_to_suite": "From the Mandara Spa, head toward the forward elevators or Haven elevator on Deck 15 (one deck down), then down to Deck 12. Suite 12846 is starboard."
+      "directions_from_suite": "Take the Haven elevator to Deck 15, then take the stairs or midship elevator one deck up to Deck 16. The Mandara Spa entrance is at the aft section of Deck 16. Follow spa signs.",
+      "directions_to_suite": "From the Mandara Spa, head toward the aft elevators or Haven elevator on Deck 15 (one deck down), then down to Deck 12. Suite 12846 is starboard."
     },
     {
       "id": "main_pool",
@@ -82,7 +82,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator to Deck 15, then stairs up to Deck 16, then walk midship to the main pool area. Or use midship elevators to Deck 16.",
-      "directions_to_suite": "From the main pool, take the stairs or elevator down to Deck 15, then take the Haven elevator down to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From the main pool, take the stairs or elevator down to Deck 15, then take the Haven elevator down to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "surfside_cafe",
@@ -100,7 +100,7 @@
       "position": "Aft-midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator to Deck 15, stairs up to Deck 16, then walk midship-aft to the Aqua SlideCoaster.",
-      "directions_to_suite": "From the SlideCoaster area, take the stairs or elevator down to Deck 15, then take the Haven elevator to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From the SlideCoaster area, take the stairs or elevator down to Deck 15, then take the Haven elevator to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "casino",
@@ -109,7 +109,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. The Casino is midship on Deck 9 — follow signs after exiting the elevator.",
-      "directions_to_suite": "From the Casino, take the Haven elevator (forward on Deck 9) up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From the Casino, take the Haven elevator (aft on Deck 9) up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "starbucks",
@@ -118,7 +118,7 @@
       "position": "Midship (Penrose Atrium area)",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. Walk midship toward the Penrose Atrium — Starbucks is in the atrium retail area.",
-      "directions_to_suite": "From Starbucks in the Penrose Atrium, walk forward to the Haven elevator and take it up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Starbucks in the Penrose Atrium, walk aft to the Haven elevator and take it up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "cagneys",
@@ -163,7 +163,7 @@
       "position": "Midship-forward",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. Indulge Food Hall is midship on Deck 9.",
-      "directions_to_suite": "From Indulge, take the Haven elevator up to Deck 12. Suite 12846 is a short walk forward."
+      "directions_to_suite": "From Indulge, take the Haven elevator up to Deck 12. Suite 12846 is a short walk aft."
     },
     {
       "id": "syds",
@@ -172,7 +172,7 @@
       "position": "Midship (estimate — confirm onboard)",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9, then check ship signage for Syd Norman's — typically a dedicated rock/music venue midship on this deck.",
-      "directions_to_suite": "From Syd Norman's, walk forward to the Haven elevator and take it up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Syd Norman's, walk aft to the Haven elevator and take it up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "swirl_wine",
@@ -181,7 +181,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. Swirl Wine Bar is midship on Deck 9.",
-      "directions_to_suite": "From Swirl, take the Haven elevator up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Swirl, take the Haven elevator up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "whiskey_bar",
@@ -190,16 +190,16 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. The Whiskey Bar is midship on Deck 9.",
-      "directions_to_suite": "From the Whiskey Bar, take the Haven elevator up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From the Whiskey Bar, take the Haven elevator up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "thermal_suite",
       "name": "Thermal Suite (Mandara Spa)",
       "deck": 16,
-      "position": "Forward",
+      "position": "Aft",
       "haven_exclusive": false,
       "note": "Already booked for the week",
-      "directions_from_suite": "Take the Haven elevator to Deck 15, stairs up to Deck 16. The Thermal Suite is inside Mandara Spa — entrance forward on Deck 16.",
+      "directions_from_suite": "Take the Haven elevator to Deck 15, stairs up to Deck 16. The Thermal Suite is inside Mandara Spa — entrance aft on Deck 16.",
       "directions_to_suite": "From the Thermal Suite, exit the spa, head to Deck 15 via stairs, then take the Haven elevator down to Deck 12."
     },
     {
@@ -209,7 +209,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. Guest Services and Shore Excursions are midship on Deck 9.",
-      "directions_to_suite": "From Guest Services, take the Haven elevator up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Guest Services, take the Haven elevator up to Deck 12. Suite 12846 is aft-starboard."
     },
     {
       "id": "shops",
@@ -240,7 +240,7 @@
     }
   ],
   "quick_directions": {
-    "from_suite_prefix": "From Suite 12846: Take the Haven elevator (forward, adjacent to your suite on Deck 12)",
+    "from_suite_prefix": "From Suite 12846: Take the Haven elevator (aft, adjacent to your suite on Deck 12)",
     "to_suite_suffix": "Take the Haven elevator back to Deck 12. Suite 12846 is a short walk starboard from the elevator.",
     "note": "The Haven elevator uses your Haven keycard. It is faster, private, and the correct elevator for all Haven-complex destinations."
   }

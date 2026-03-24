@@ -72,15 +72,15 @@ const FAIT_URL = 'https://fait.dev.fortressam.ai';
 
 // ─── Venue Locations ──────────────────────────────────────────────
 const VENUE_LOCATIONS = {
-  'The Haven Restaurant': 'Deck 15, Forward (Haven exclusive)',
-  'Haven Restaurant': 'Deck 15, Forward (Haven exclusive)',
-  'Haven Pool': 'Deck 15, Forward (Haven exclusive)',
-  'Haven Sundeck': 'Deck 15–16, Forward (Haven exclusive)',
-  'Haven Lounge': 'Deck 15, Forward (Haven exclusive)',
-  'Haven Lounge & Bar': 'Deck 15, Forward (Haven exclusive)',
-  "Bull's Eye Bar": 'Deck 15, Forward (Haven exclusive)',
-  "The Bull's Eye Bar": 'Deck 15, Forward (Haven exclusive)',
-  'Haven Concierge': 'Deck 15, Forward (Haven exclusive)',
+  'The Haven Restaurant': 'Deck 15, Aft (Haven exclusive)',
+  'Haven Restaurant': 'Deck 15, Aft (Haven exclusive)',
+  'Haven Pool': 'Deck 15, Aft (Haven exclusive)',
+  'Haven Sundeck': 'Deck 15–16, Aft (Haven exclusive)',
+  'Haven Lounge': 'Deck 15, Aft (Haven exclusive)',
+  'Haven Lounge & Bar': 'Deck 15, Aft (Haven exclusive)',
+  "Bull's Eye Bar": 'Deck 15, Aft (Haven exclusive)',
+  "The Bull's Eye Bar": 'Deck 15, Aft (Haven exclusive)',
+  'Haven Concierge': 'Deck 15, Aft (Haven exclusive)',
   'Starbucks': 'Deck 9, Midship (Penrose Atrium)',
   'Starbucks®': 'Deck 9, Midship (Penrose Atrium)',
   "Cagney's Steakhouse": 'Deck 9, Forward',
@@ -97,7 +97,7 @@ const VENUE_LOCATIONS = {
   'Casino': 'Deck 9, Midship',
   'Mandara Spa': 'Deck 16, Forward',
   'Mandara Spa & Salon': 'Deck 16, Forward',
-  'Thermal Suite': 'Deck 16, Forward (inside Mandara Spa)',
+  'Thermal Suite': 'Deck 16, Aft (inside Mandara Spa)',
   'Main Pool': 'Deck 16, Midship',
   'Waves Pool Bar': 'Deck 16, Midship',
   'Surfside Café': 'Deck 16, Midship-forward',
@@ -477,6 +477,7 @@ function switchFredTab(tab) {
     case 'spa':       renderSpaTab(panel); break;
     case 'entertainment': renderEntertainmentTab(panel); break;
     case 'tips':      renderTipsTab(panel); break;
+    case 'decks':     renderDeckTab(panel); break;
     case 'pack':      renderPackingTab(panel); break;
     case 'surprises': renderSurprisesAdmin(panel); break;
   }
@@ -814,17 +815,17 @@ function renderTodayTab(panel) {
 
   if (day) {
     html += `
-    <div class="section-header"><span class="section-title">Today · ${day.date}</span></div>
+    <div class="section-header"><span class="section-title">Today · ${escapeHtml(day.date)}</span></div>
     <div class="card card-gold">
       <div class="card-header">
-        <span class="card-title">${day.port}</span>
+        <span class="card-title">${escapeHtml(day.port)}</span>
         <span class="gf-badge safe">Haven</span>
       </div>
-      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65">${day.notes}</p>
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65">${escapeHtml(day.notes)}</p>
       ${day.reservations && day.reservations.length ? `
       <div style="margin-top:0.75rem">
         <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.4rem">Reservations</div>
-        ${day.reservations.map(r => `<div style="font-size:0.85rem;padding:0.2rem 0;color:var(--gold)">· ${r}</div>`).join('')}
+        ${day.reservations.map(r => `<div style="font-size:0.85rem;padding:0.2rem 0;color:var(--gold)">· ${escapeHtml(r)}</div>`).join('')}
       </div>` : ''}
     </div>`;
   } else {
@@ -863,8 +864,8 @@ function renderItineraryTab(panel) {
     <div class="itinerary-day${isToday ? ' today' : ''}">
       <div class="day-header" onclick="toggleDayBody(this)">
         <div>
-          <div class="day-name">${day.date} · ${day.day}</div>
-          <div class="day-port">${day.port}</div>
+          <div class="day-name">${escapeHtml(day.date)} · ${escapeHtml(day.day)}</div>
+          <div class="day-port">${escapeHtml(day.port)}</div>
         </div>
         <div style="display:flex;align-items:center;gap:0.5rem">
           ${isToday ? '<span class="day-pill today-pill">Today</span>' : `<span class="day-pill">Day ${i + 1}</span>`}
@@ -872,11 +873,11 @@ function renderItineraryTab(panel) {
         </div>
       </div>
       <div class="day-body" style="${isToday ? '' : 'display:none'}">
-        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;margin-bottom:0.75rem">${day.notes}</p>
-        ${day.times ? `<div style="font-size:0.8rem;color:var(--gold);margin-bottom:0.5rem">🕐 ${day.times}</div>` : ''}
+        <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65;margin-bottom:0.75rem">${escapeHtml(day.notes)}</p>
+        ${day.times ? `<div style="font-size:0.8rem;color:var(--gold);margin-bottom:0.5rem">🕐 ${escapeHtml(day.times)}</div>` : ''}
         ${day.reservations && day.reservations.length ? `
         <div style="margin-top:0.5rem">
-          ${day.reservations.map(r => `<div style="font-size:0.8rem;padding:0.15rem 0;color:var(--text-muted)">· ${r}</div>`).join('')}
+          ${day.reservations.map(r => `<div style="font-size:0.8rem;padding:0.15rem 0;color:var(--text-muted)">· ${escapeHtml(r)}</div>`).join('')}
         </div>` : ''}
       </div>
     </div>`;
@@ -899,14 +900,14 @@ function renderGFTab(panel) {
   let html = `
     <div class="card card-gold" style="margin-bottom:1rem">
       <div class="card-title" style="margin-bottom:0.5rem">Holly's Profile</div>
-      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${gfGuide.holly_profile}</p>
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${escapeHtml(gfGuide.holly_profile)}</p>
     </div>
     <div class="section-header"><span class="section-title">Day 1 Checklist</span></div>
     <div class="card" style="margin-bottom:1rem">
       ${gfGuide.first_day_checklist.map((item, i) => `
       <div style="display:flex;gap:0.75rem;padding:0.4rem 0;${i > 0 ? 'border-top:1px solid rgba(255,255,255,0.05)' : ''}">
         <span style="color:var(--gold);font-size:0.8rem;margin-top:2px;flex-shrink:0">${i + 1}.</span>
-        <span style="font-size:0.875rem;color:var(--text-muted)">${item}</span>
+        <span style="font-size:0.875rem;color:var(--text-muted)">${escapeHtml(item)}</span>
       </div>`).join('')}
     </div>
     <div class="section-header"><span class="section-title">Restaurants</span></div>`;
@@ -917,24 +918,24 @@ function renderGFTab(panel) {
     <div class="restaurant-card">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.4rem">
         <div>
-          <div class="restaurant-name">${r.name}</div>
-          <div class="restaurant-meta">${r.location}${r.hours ? ' · ' + r.hours : ''}</div>
+          <div class="restaurant-name">${escapeHtml(r.name)}</div>
+          <div class="restaurant-meta">${escapeHtml(r.location)}${r.hours ? ' · ' + escapeHtml(r.hours) : ''}</div>
         </div>
         <span class="gf-badge ${status.cls}">${status.emoji} ${status.label}</span>
       </div>
-      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${r.notes}</p>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${escapeHtml(r.notes)}</p>
       ${r.safe_items && r.safe_items.length ? `
       <div style="margin-bottom:0.4rem">
         <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--safe)">✓ Safe: </span>
-        <span style="font-size:0.8rem;color:var(--text-muted)">${r.safe_items.join(', ')}</span>
+        <span style="font-size:0.8rem;color:var(--text-muted)">${r.safe_items.map(s => escapeHtml(s)).join(', ')}</span>
       </div>` : ''}
       ${r.avoid && r.avoid.length ? `
       <div style="margin-bottom:0.4rem">
         <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--warn)">✗ Avoid: </span>
-        <span style="font-size:0.8rem;color:var(--text-muted)">${r.avoid.join(', ')}</span>
+        <span style="font-size:0.8rem;color:var(--text-muted)">${r.avoid.map(s => escapeHtml(s)).join(', ')}</span>
       </div>` : ''}
-      ${r.ask_for ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.4rem;font-style:italic">"${r.ask_for}"</div>` : ''}
-      ${r.verdict ? `<div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem;font-weight:600">${r.verdict}</div>` : ''}
+      ${r.ask_for ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.4rem;font-style:italic">"${escapeHtml(r.ask_for)}"</div>` : ''}
+      ${r.verdict ? `<div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem;font-weight:600">${escapeHtml(r.verdict)}</div>` : ''}
     </div>`;
   });
 
@@ -952,22 +953,22 @@ function renderPortsTab(panel) {
     <div class="port-card">
       <div class="port-card-header">
         <div>
-          <div class="port-name">${p.name || p.port}</div>
-          <div class="port-country">${p.country || p.date || ''}</div>
+          <div class="port-name">${escapeHtml(p.name || p.port)}</div>
+          <div class="port-country">${escapeHtml(p.country || p.date || '')}</div>
         </div>
       </div>
       <div class="port-card-body">
         ${(p.arrival || p.departure) ? `
         <div class="port-times">
-          ${p.arrival ? `<div class="port-time-item"><div class="port-time-label">Arrive</div><div class="port-time-value">${p.arrival}</div></div>` : ''}
-          ${p.departure ? `<div class="port-time-item"><div class="port-time-label">Depart</div><div class="port-time-value">${p.departure}</div></div>` : ''}
+          ${p.arrival ? `<div class="port-time-item"><div class="port-time-label">Arrive</div><div class="port-time-value">${escapeHtml(p.arrival)}</div></div>` : ''}
+          ${p.departure ? `<div class="port-time-item"><div class="port-time-label">Depart</div><div class="port-time-value">${escapeHtml(p.departure)}</div></div>` : ''}
         </div>` : ''}
-        ${p.notes ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${p.notes}</p>` : ''}
+        ${p.notes ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem">${escapeHtml(p.notes)}</p>` : ''}
         ${p.highlights && p.highlights.length ? `
         <ul class="port-highlights">
-          ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+          ${p.highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}
         </ul>` : ''}
-        ${p.gf_tip ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.6rem">🍽 GF: ${p.gf_tip}</div>` : ''}
+        ${p.gf_tip ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.6rem">🍽 GF: ${escapeHtml(p.gf_tip)}</div>` : ''}
       </div>
     </div>`;
   });
@@ -987,9 +988,9 @@ function renderSpaTab(panel) {
     <div class="card card-gold" style="margin-bottom:1rem">
       ${spa.booked.map(b => `
       <div style="padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-        <div style="font-weight:600;font-size:0.9rem">${b.name || b}</div>
-        ${b.time ? `<div style="font-size:0.8rem;color:var(--gold)">${b.time}</div>` : ''}
-        ${b.notes ? `<div style="font-size:0.8rem;color:var(--text-muted)">${b.notes}</div>` : ''}
+        <div style="font-weight:600;font-size:0.9rem">${escapeHtml(typeof b === 'string' ? b : (b.name || ''))}</div>
+        ${b.time ? `<div style="font-size:0.8rem;color:var(--gold)">${escapeHtml(b.time)}</div>` : ''}
+        ${b.notes ? `<div style="font-size:0.8rem;color:var(--text-muted)">${escapeHtml(b.notes)}</div>` : ''}
       </div>`).join('')}
     </div>`;
   }
@@ -997,16 +998,16 @@ function renderSpaTab(panel) {
   const sections = spa.categories || spa.sections || (spa.treatments ? [{ title: 'Treatments', items: spa.treatments }] : []);
 
   sections.forEach(sec => {
-    html += `<div class="section-header"><span class="section-title">${sec.title || sec.name}</span></div><div class="card" style="margin-bottom:0.75rem">`;
+    html += `<div class="section-header"><span class="section-title">${escapeHtml(sec.title || sec.name)}</span></div><div class="card" style="margin-bottom:0.75rem">`;
     (sec.items || sec.treatments || []).forEach(t => {
       html += `
       <div class="spa-treatment">
         <div>
-          <div class="spa-treatment-name">${t.name}</div>
-          ${t.duration ? `<div class="spa-treatment-duration">${t.duration}</div>` : ''}
-          ${t.notes ? `<div class="spa-treatment-duration">${t.notes}</div>` : ''}
+          <div class="spa-treatment-name">${escapeHtml(t.name)}</div>
+          ${t.duration ? `<div class="spa-treatment-duration">${escapeHtml(t.duration)}</div>` : ''}
+          ${t.notes ? `<div class="spa-treatment-duration">${escapeHtml(t.notes)}</div>` : ''}
         </div>
-        ${t.price ? `<div class="spa-treatment-price">${t.price}</div>` : ''}
+        ${t.price ? `<div class="spa-treatment-price">${escapeHtml(t.price)}</div>` : ''}
       </div>`;
     });
     html += '</div>';
@@ -1030,7 +1031,7 @@ function renderSpaTab(panel) {
     html += `
     <div class="section-header"><span class="section-title">Spa Tips</span></div>`;
     spa.tips.forEach(t => {
-      html += `<div class="tip-item">${t}</div>`;
+      html += `<div class="tip-item">${escapeHtml(t)}</div>`;
     });
   }
 
@@ -1050,14 +1051,14 @@ function renderEntertainmentTab(panel) {
       html += `
       <div class="show-card">
         <div class="show-time-block">
-          <div class="show-time">${timeParts[0] || show.time || ''}</div>
-          <div class="show-period">${timeParts[1] || ''}</div>
+          <div class="show-time">${escapeHtml(timeParts[0] || show.time || '')}</div>
+          <div class="show-period">${escapeHtml(timeParts[1] || '')}</div>
         </div>
         <div class="show-info">
-          <div class="show-name">${show.name || show.title}</div>
-          ${show.venue ? `<div class="show-venue">${show.venue}</div>` : ''}
-          ${show.description || show.desc ? `<div class="show-desc">${show.description || show.desc}</div>` : ''}
-          ${show.notes ? `<div class="show-desc" style="color:var(--gold)">${show.notes}</div>` : ''}
+          <div class="show-name">${escapeHtml(show.name || show.title)}</div>
+          ${show.venue ? `<div class="show-venue">${escapeHtml(show.venue)}</div>` : ''}
+          ${show.description || show.desc ? `<div class="show-desc">${escapeHtml(show.description || show.desc)}</div>` : ''}
+          ${show.notes ? `<div class="show-desc" style="color:var(--gold)">${escapeHtml(show.notes)}</div>` : ''}
         </div>
       </div>`;
     });
@@ -1069,9 +1070,9 @@ function renderEntertainmentTab(panel) {
     venues.forEach(v => {
       html += `
       <div class="card" style="margin-bottom:0.75rem">
-        <div style="font-weight:600;margin-bottom:0.3rem">${v.name}</div>
-        ${v.description || v.desc ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.5">${v.description || v.desc}</p>` : ''}
-        ${v.hours ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.3rem">${v.hours}</div>` : ''}
+        <div style="font-weight:600;margin-bottom:0.3rem">${escapeHtml(v.name)}</div>
+        ${v.description || v.desc ? `<p style="font-size:0.85rem;color:var(--text-muted);line-height:1.5">${escapeHtml(v.description || v.desc)}</p>` : ''}
+        ${v.hours ? `<div style="font-size:0.8rem;color:var(--gold);margin-top:0.3rem">${escapeHtml(v.hours)}</div>` : ''}
       </div>`;
     });
   }
@@ -1243,18 +1244,74 @@ function renderTipsTab(panel) {
 
   if (tips.categories) {
     tips.categories.forEach(cat => {
-      html += `<div class="section-header"><span class="section-title">${cat.title}</span></div>`;
+      html += `<div class="section-header"><span class="section-title">${escapeHtml(cat.title)}</span></div>`;
       (cat.items || cat.tips || []).forEach(t => {
-        html += `<div class="tip-item">${typeof t === 'string' ? t : `<strong>${t.tip || t.title}</strong>${t.detail ? ' — ' + t.detail : ''}`}</div>`;
+        html += `<div class="tip-item">${typeof t === 'string' ? escapeHtml(t) : `<strong>${escapeHtml(t.tip || t.title)}</strong>${t.detail ? ' — ' + escapeHtml(t.detail) : ''}`}</div>`;
       });
     });
   } else {
     tipList.forEach(t => {
-      html += `<div class="tip-item">${typeof t === 'string' ? t : `<strong>${t.tip || t.title || ''}</strong>${t.detail ? ' — ' + t.detail : ''}`}</div>`;
+      html += `<div class="tip-item">${typeof t === 'string' ? escapeHtml(t) : `<strong>${escapeHtml(t.tip || t.title || '')}</strong>${t.detail ? ' — ' + escapeHtml(t.detail) : ''}`}</div>`;
     });
   }
 
   panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Tips loading…</p>';
+}
+
+// ─── Deck Plan Viewer ───────────────────────────────────────────────
+const DECK_IMAGES = [
+  { deck: 6,  file: 'Luna-Deck-06-021726.webp' },
+  { deck: 7,  file: 'Luna-Deck-07-021726.webp' },
+  { deck: 8,  file: 'Luna_Deck_08_12182025.webp' },
+  { deck: 9,  file: 'Luna_Deck_09_01202026.webp' },
+  { deck: 10, file: 'Luna_Deck_10_01202026.webp' },
+  { deck: 11, file: 'Luna_Deck_11_01202026.webp' },
+  { deck: 12, file: 'Luna_Deck_12_01202026.webp' },
+  { deck: 13, file: 'Luna_Deck_13_01202026.webp' },
+  { deck: 14, file: 'Luna_Deck_14_01202026.webp' },
+  { deck: 15, file: 'Luna_Deck_15_01202026.webp' },
+  { deck: 16, file: 'Luna_Deck_16_01202026.webp' },
+  { deck: 17, file: 'Luna-Deck-17-022426.webp' },
+  { deck: 18, file: 'Norwegian_Luna_Deck_18_012926.webp' },
+  { deck: 19, file: 'Norwegian_Luna_Deck_19_012926.webp' },
+  { deck: 20, file: 'Luna_Deck_20_01202026.webp' },
+];
+
+let _currentDeck = 12; // default to suite deck
+
+function getDeckImageUrl(deck) {
+  const entry = DECK_IMAGES.find(d => d.deck === deck);
+  return entry ? `content/deck-plans/${entry.file}` : '';
+}
+
+function changeDeck(dir) {
+  const decks = DECK_IMAGES.map(d => d.deck);
+  const idx = decks.indexOf(_currentDeck);
+  const newIdx = Math.max(0, Math.min(decks.length - 1, idx + dir));
+  _currentDeck = decks[newIdx];
+  
+  const img = document.getElementById('deck-image');
+  const label = document.getElementById('deck-label');
+  const hint = document.querySelector('.deck-hint');
+  if (img) { img.src = getDeckImageUrl(_currentDeck); img.alt = `Deck ${_currentDeck} plan`; }
+  if (label) label.textContent = `Deck ${_currentDeck}`;
+  if (hint) hint.textContent = `Pinch to zoom · ${_currentDeck === 12 ? '⭐ Your suite is on this deck' : ''}`;
+}
+
+function renderDeckTab(panel) {
+  panel.innerHTML = `
+    <div class="deck-viewer">
+      <div class="deck-controls">
+        <button class="deck-nav-btn" id="deck-prev" onclick="changeDeck(-1)">‹</button>
+        <span class="deck-label" id="deck-label">Deck ${_currentDeck}</span>
+        <button class="deck-nav-btn" id="deck-next" onclick="changeDeck(1)">›</button>
+      </div>
+      <div class="deck-image-wrap" id="deck-image-wrap">
+        <img class="deck-image" id="deck-image" src="${getDeckImageUrl(_currentDeck)}" alt="Deck ${_currentDeck} plan" loading="lazy">
+      </div>
+      <div class="deck-hint">Pinch to zoom · ${_currentDeck === 12 ? '⭐ Your suite is on this deck' : ''}</div>
+    </div>
+  `;
 }
 
 // ─── Packing Checklist ─────────────────────────────────────────────
@@ -1384,7 +1441,7 @@ function searchKB(query) {
 
   // Suite / cabin
   if (q.includes('suite') || q.includes('cabin') || q.includes('room') || q.includes('butler') || q.includes('haven') || q.includes('concierge')) {
-    return `You're in Suite 12846 — Haven King H5. Your Haven perks include priority embarkation, dedicated concierge, exclusive restaurant and pool deck, butler service, and priority show seating. Contact the Haven Concierge desk for reservations and requests.`;
+    return `You're in Suite 12846 — Haven King H5, located aft-starboard on Deck 12. Your Haven perks include priority embarkation, dedicated concierge, exclusive restaurant and pool deck, butler service, and priority show seating. Contact the Haven Concierge desk for reservations and requests.`;
   }
 
   // Anniversary
@@ -1408,7 +1465,7 @@ function searchKB(query) {
 
     // Handle reverse directions (back to suite from venue)
     if (isReverseQuery && !navigation) {
-      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (forward section of the ship — keycard access). Take it to Deck 12. Suite 12846 is forward-starboard from the elevator. Content still loading — ask again in a moment for venue-specific directions.`;
+      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (aft section of the ship — keycard access). Take it to Deck 12. Suite 12846 is aft-starboard from the elevator. Content still loading — ask again in a moment for venue-specific directions.`;
     }
     if (isReverseQuery && navigation) {
       const venues = navigation.venues || [];
@@ -1419,7 +1476,7 @@ function searchKB(query) {
         }
       }
       // General "back to suite" response when no venue mentioned
-      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (forward section of the ship — they're keycard-only). Take it to Deck 12. Suite 12846 is a short walk starboard (right side) from the elevator.\n\nIf you're on Decks 15–16 (Haven complex), the elevator is right there. From lower decks (9–13), look for the forward elevator bank — the Haven elevators are always forward.`;
+      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (aft section of the ship — they're keycard-only). Take it to Deck 12. Suite 12846 is a short walk starboard (right side) from the elevator.\n\nIf you're on Decks 15–16 (Haven complex), the elevator is right there. From lower decks (9–13), look for the aft elevator bank — the Haven elevators are always aft.`;
     }
 
     // Handle forward directions (from suite to venue)
@@ -1435,10 +1492,10 @@ function searchKB(query) {
     // Fallback to static venue location
     if (mentionedVenue) {
       const loc = VENUE_LOCATIONS[mentionedVenue];
-      return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the Haven elevator (forward, adjacent to your suite) to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Forward') ? 'forward (toward the bow)' : 'midship'}.`;
+      return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the Haven elevator (aft, adjacent to your suite) to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Aft') ? 'aft (toward the stern)' : 'midship'}.`;
     }
     // General navigation answer
-    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, forward-starboard — directly adjacent to the **Haven Private Elevators**. Use your Haven keycard to access them.\n\n• Haven Restaurant/Lounge/Pool/Concierge → Deck 15, forward (Haven elevator)\n• Haven Sundeck → Deck 15–16, forward (Haven elevator)\n• Mandara Spa/Thermal Suite → Deck 16, forward (Haven elevator to 15, stairs to 16)\n• Casino/Cagney's/Le Bistro → Deck 9 (Haven elevator down)\n• Syd Norman's/Swirl/Whiskey Bar → Deck 9, midship (Haven elevator down)\n• Starbucks® → Deck 9, Penrose Atrium (Haven elevator down)\n• Main Pool → Deck 16, midship\n• Observation Lounge → Deck 15, forward\n\nTip: The Haven elevator is forward, right next to your suite. Your keycard activates it. Never wait for midship elevators.`;
+    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, aft-starboard — directly adjacent to the **Haven Private Elevators**. Use your Haven keycard to access them.\n\n• Haven Restaurant/Lounge/Pool/Concierge → Deck 15, aft (Haven elevator)\n• Haven Sundeck → Deck 15–16, aft (Haven elevator)\n• Mandara Spa/Thermal Suite → Deck 16, aft (Haven elevator to 15, stairs to 16)\n• Casino/Cagney's/Le Bistro → Deck 9 (Haven elevator down)\n• Syd Norman's/Swirl/Whiskey Bar → Deck 9, midship (Haven elevator down)\n• Starbucks® → Deck 9, Penrose Atrium (Haven elevator down)\n• Main Pool → Deck 16, midship\n• Observation Lounge → Deck 15, forward\n\nTip: The Haven elevator is aft, right next to your suite. Your keycard activates it. Never wait for midship elevators.`;
   }
 
   return generalSearch(q);
@@ -1859,6 +1916,7 @@ function buildApp() {
         <button class="nav-tab" data-tab="ports" onclick="switchFredTab('ports')">Ports</button>
         <button class="nav-tab" data-tab="spa" onclick="switchFredTab('spa')">Spa</button>
         <button class="nav-tab" data-tab="entertainment" onclick="switchFredTab('entertainment')">Shows</button>
+        <button class="nav-tab" data-tab="decks" onclick="switchFredTab('decks')">Decks</button>
         <button class="nav-tab" data-tab="tips" onclick="switchFredTab('tips')">Tips</button>
       </div>
       <div class="scroll-content">
@@ -1868,6 +1926,7 @@ function buildApp() {
         <div id="tab-ports" class="tab-panel"></div>
         <div id="tab-spa" class="tab-panel"></div>
         <div id="tab-entertainment" class="tab-panel"></div>
+        <div id="tab-decks" class="tab-panel"></div>
         <div id="tab-tips" class="tab-panel"></div>
       </div>
     </div>`;

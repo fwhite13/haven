@@ -1,5 +1,5 @@
-const CACHE_NAME = 'haven-v3';
-const CONTENT_CACHE = 'haven-content-v3';
+const CACHE_NAME = 'haven-v4';
+const CONTENT_CACHE = 'haven-content-v4';
 
 const APP_SHELL = [
   '/',
@@ -19,6 +19,22 @@ const CONTENT_FILES = [
   '/content/entertainment.json',
   '/content/tips.json',
   '/content/navigation.json',
+  // Deck plan images
+  '/content/deck-plans/Luna-Deck-06-021726.webp',
+  '/content/deck-plans/Luna-Deck-07-021726.webp',
+  '/content/deck-plans/Luna_Deck_08_12182025.webp',
+  '/content/deck-plans/Luna_Deck_09_01202026.webp',
+  '/content/deck-plans/Luna_Deck_10_01202026.webp',
+  '/content/deck-plans/Luna_Deck_11_01202026.webp',
+  '/content/deck-plans/Luna_Deck_12_01202026.webp',
+  '/content/deck-plans/Luna_Deck_13_01202026.webp',
+  '/content/deck-plans/Luna_Deck_14_01202026.webp',
+  '/content/deck-plans/Luna_Deck_15_01202026.webp',
+  '/content/deck-plans/Luna_Deck_16_01202026.webp',
+  '/content/deck-plans/Luna-Deck-17-022426.webp',
+  '/content/deck-plans/Norwegian_Luna_Deck_18_012926.webp',
+  '/content/deck-plans/Norwegian_Luna_Deck_19_012926.webp',
+  '/content/deck-plans/Luna_Deck_20_01202026.webp',
 ];
 
 self.addEventListener('install', event => {
