@@ -333,7 +333,8 @@ function checkAndShowSurprises() {
   if (!surprises || state.who !== 'holly') return;
 
   const now = new Date();
-  const today = now.toISOString().slice(0, 10); // 'YYYY-MM-DD'
+  // Use local date (not UTC) — toISOString() would return wrong date at night in CDT (UTC-5)
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   const currentTime = now.toTimeString().slice(0, 5); // 'HH:MM'
 
   // Get revealed IDs from localStorage
