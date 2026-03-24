@@ -1200,6 +1200,7 @@ function scheduleSunsetNotification(minutesLeft) {
       body: 'Head to the Haven Sundeck or Observation Lounge — sunset is happening now.',
       icon: '/icons/icon-192.svg'
     });
+    showButlerToast('Sunset is happening now — head to the deck! 🌅');
     return;
   }
   
