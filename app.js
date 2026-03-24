@@ -25,6 +25,7 @@ let surprises = null;
 let dailyBriefing = null;
 let emergency = null;
 let packing = null;
+let moments = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -202,7 +203,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg, pack] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg, pack, mom] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -214,6 +215,7 @@ async function loadContent() {
       fetch('content/daily-briefing.json').then(r => r.json()).catch(() => null),
       fetch('content/emergency.json').then(r => r.json()).catch(() => null),
       fetch('content/packing.json').then(r => r.json()).catch(() => null),
+      fetch('content/moments.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -226,6 +228,7 @@ async function loadContent() {
     dailyBriefing = brief;
     emergency = emerg;
     packing = pack;
+    moments = mom;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -541,6 +544,65 @@ function getTodayBriefing() {
   return dailyBriefing.briefings.find(b => b.date === todayStr) || null;
 }
 
+// ─── Couples Moment Prompter ──────────────────────────────────────
+function getDailyMoments() {
+  if (!moments || !moments.moments) return [];
+  
+  const now = new Date();
+  const hour = now.getHours();
+  
+  // Determine time of day
+  const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
+  
+  // Determine day type from itinerary
+  const dayIdx = getTodayDayIndex();
+  const dayType = dayIdx >= 0 && itinerary?.days?.[dayIdx]?.type === 'port' ? 'port' : 'sea';
+  
+  // Date-seeded deterministic selection — same prompts all day, changes at midnight
+  const today = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
+  const seed = parseInt(today);
+  function seededRandom(s) { let x = Math.sin(s) * 10000; return x - Math.floor(x); }
+  
+  // Filter to relevant moments (matching timeOfDay or 'any', matching dayType or 'any')
+  const eligible = moments.moments.filter(m =>
+    (m.timeOfDay === timeOfDay || m.timeOfDay === 'any') &&
+    (m.dayType === dayType || m.dayType === 'any')
+  );
+  
+  if (eligible.length === 0) return moments.moments.slice(0, 2); // fallback
+  
+  // Pick 2 deterministically using seed
+  const idx1 = Math.floor(seededRandom(seed) * eligible.length);
+  const idx2 = Math.floor(seededRandom(seed + 1) * eligible.length);
+  const picks = [eligible[idx1]];
+  if (idx2 !== idx1) picks.push(eligible[idx2]);
+  
+  return picks;
+}
+
+function renderMomentCards() {
+  if (state.who !== 'fred') return '';
+  const picks = getDailyMoments();
+  if (!picks.length) return '';
+  
+  const cards = picks.map(m => `
+    <div class="moment-card" data-id="${escapeHtml(m.id)}">
+      <div class="moment-icon">💫</div>
+      <div class="moment-text">${escapeHtml(m.text)}</div>
+      <button class="moment-dismiss" onclick="this.closest('.moment-card').style.display='none'">
+        Dismiss
+      </button>
+    </div>
+  `).join('');
+  
+  return `
+    <div class="moments-section">
+      <div class="moments-label">Today's moments</div>
+      ${cards}
+    </div>
+  `;
+}
+
 function renderMorningBriefing(briefing) {
   if (!briefing) return '';
   const highlightsHtml = briefing.highlights
@@ -634,6 +696,9 @@ function renderTodayTab(panel) {
   if (day) {
     html += renderPortCountdown(day);
   }
+
+  // Couples moment prompter (Fred only)
+  html += renderMomentCards();
 
   if (day) {
     html += `

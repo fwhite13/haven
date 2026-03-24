@@ -1344,3 +1344,42 @@ h3 { font-size: 1rem; }
   color: var(--text-muted, #606070);
 }
 .pack-text { flex: 1; }
+
+/* Couples Moment Prompter */
+.moments-section { margin-bottom: 14px; }
+.moments-label {
+  color: var(--text-muted, #606070);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.moment-card {
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.moment-icon { font-size: 20px; flex-shrink: 0; }
+.moment-text {
+  flex: 1;
+  color: #d4c890;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+.moment-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #606070);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+.moment-dismiss:hover { color: #909090; }
