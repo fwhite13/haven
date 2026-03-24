@@ -1,0 +1,40 @@
+{
+  "muster_station": {
+    "label": "Muster Station",
+    "value": "Assembly Station D — Deck 7, Midship",
+    "note": "Check the muster card in your suite drawer for exact station. Drill is mandatory on embarkation day."
+  },
+  "medical_center": {
+    "label": "Medical Center",
+    "value": "Deck 4, Midship",
+    "hours": "8:00am–8:00pm daily (24hr emergency line)",
+    "phone": "Dial 911 from any ship phone"
+  },
+  "guest_services": {
+    "label": "Guest Services",
+    "value": "Deck 7, Midship",
+    "phone": "Dial 00 from suite phone",
+    "note": "Available 24 hours"
+  },
+  "suite_phone": {
+    "label": "Suite Extension",
+    "value": "Extension 12846",
+    "note": "Dial your room number from any ship phone to reach suite 12846"
+  },
+  "haven_concierge": {
+    "label": "Haven Concierge",
+    "value": "Haven Reception — Deck 15, Forward",
+    "phone": "Dial extension listed on Haven welcome card in suite",
+    "note": "Available during Haven hours. For after-hours, contact Guest Services."
+  },
+  "wifi": {
+    "label": "Wi-Fi Login",
+    "value": "Connect to 'Norwegian Luna' network",
+    "note": "Login page opens automatically. Use the access code from your cruise confirmation or the card in your suite. Haven guests receive complimentary Wi-Fi — use the code on your Haven welcome letter."
+  },
+  "emergency_number": {
+    "label": "Ship Emergency",
+    "value": "Dial 911 from any ship phone",
+    "note": "For fire, medical emergency, or man overboard"
+  }
+}

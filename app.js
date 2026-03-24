@@ -23,6 +23,7 @@ let tips = null;
 let navigation = null;
 let surprises = null;
 let dailyBriefing = null;
+let emergency = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -200,7 +201,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav, surp, brief] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -210,6 +211,7 @@ async function loadContent() {
       fetch('content/navigation.json').then(r => r.json()),
       fetch('content/surprises.json').then(r => r.json()).catch(() => null),
       fetch('content/daily-briefing.json').then(r => r.json()).catch(() => null),
+      fetch('content/emergency.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -220,6 +222,7 @@ async function loadContent() {
     navigation = nav;
     surprises = surp;
     dailyBriefing = brief;
+    emergency = emerg;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -304,6 +307,7 @@ function renderMainView() {
   switchFredTab(state.activeTab);
   setupVoice();
   setupAskInput();
+  setupEmergencyTriggers();
 
   // Check surprises for Holly after initial load
   if (state.who === 'holly') {
@@ -387,6 +391,87 @@ function showSurpriseModal(surprise) {
     </div>
   `;
   document.body.appendChild(modal);
+}
+
+// ─── Emergency Overlay ────────────────────────────────────────
+let _emergencyPressTimer = null;
+
+function showEmergencyOverlay() {
+  document.querySelectorAll('.emergency-overlay').forEach(e => e.remove());
+  
+  if (!emergency) {
+    // Show placeholder if content not yet loaded
+    const msg = document.createElement('div');
+    msg.className = 'emergency-overlay';
+    msg.innerHTML = `
+      <div class="emergency-backdrop" onclick="this.closest('.emergency-overlay').remove()"></div>
+      <div class="emergency-card">
+        <div class="emergency-header">
+          <span class="emergency-title">⚠️ Emergency Info</span>
+          <button class="emergency-close" onclick="this.closest('.emergency-overlay').remove()">✕</button>
+        </div>
+        <p style="color:#e0e0e0;padding:16px">Loading emergency info… try again in a moment.</p>
+      </div>`;
+    document.body.appendChild(msg);
+    return;
+  }
+  
+  const items = Object.values(emergency).map(item => `
+    <div class="emergency-item">
+      <div class="emergency-item-label">${escapeHtml(item.label)}</div>
+      <div class="emergency-item-value">${escapeHtml(item.value)}</div>
+      ${item.phone ? `<div class="emergency-item-detail">📞 ${escapeHtml(item.phone)}</div>` : ''}
+      ${item.hours ? `<div class="emergency-item-detail">🕐 ${escapeHtml(item.hours)}</div>` : ''}
+      ${item.note ? `<div class="emergency-item-note">${escapeHtml(item.note)}</div>` : ''}
+    </div>
+  `).join('');
+  
+  const overlay = document.createElement('div');
+  overlay.className = 'emergency-overlay';
+  overlay.innerHTML = `
+    <div class="emergency-backdrop" onclick="this.closest('.emergency-overlay').remove()"></div>
+    <div class="emergency-card">
+      <div class="emergency-header">
+        <span class="emergency-title">⚠️ Emergency & Practical Info</span>
+        <button class="emergency-close" onclick="this.closest('.emergency-overlay').remove()">✕</button>
+      </div>
+      <div class="emergency-items">${items}</div>
+      <div class="emergency-footer">Tap outside to dismiss</div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function attachEmergencyTrigger(el) {
+  if (!el) return;
+  el.addEventListener('touchstart', () => {
+    _emergencyPressTimer = setTimeout(showEmergencyOverlay, 600);
+  }, { passive: true });
+  el.addEventListener('touchend', () => clearTimeout(_emergencyPressTimer));
+  el.addEventListener('touchmove', () => clearTimeout(_emergencyPressTimer));
+  // Desktop: right-click or contextmenu
+  el.addEventListener('contextmenu', e => { e.preventDefault(); showEmergencyOverlay(); });
+}
+
+function addEmergencyButton() {
+  const headerActions = document.querySelector('.header-actions');
+  if (!headerActions || document.querySelector('.emergency-btn')) return;
+  const btn = document.createElement('button');
+  btn.className = 'emergency-btn';
+  btn.textContent = '⚠️';
+  btn.title = 'Emergency Info (long press Haven logo)';
+  btn.onclick = showEmergencyOverlay;
+  headerActions.insertBefore(btn, headerActions.firstChild);
+}
+
+function setupEmergencyTriggers() {
+  // Attach long-press to the Haven avatar
+  const avatar = document.querySelector('.header-avatar');
+  attachEmergencyTrigger(avatar);
+  // Also attach to wordmark
+  const wordmark = document.querySelector('.haven-wordmark-sm');
+  attachEmergencyTrigger(wordmark);
+  // Add the always-visible button
+  addEmergencyButton();
 }
 
 function renderSurprisesAdmin(panel) {
