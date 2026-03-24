@@ -26,6 +26,7 @@ let dailyBriefing = null;
 let emergency = null;
 let packing = null;
 let moments = null;
+let butler = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -306,7 +307,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg, pack, mom] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg, pack, mom, btlr] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -319,6 +320,7 @@ async function loadContent() {
       fetch('content/emergency.json').then(r => r.json()).catch(() => null),
       fetch('content/packing.json').then(r => r.json()).catch(() => null),
       fetch('content/moments.json').then(r => r.json()).catch(() => null),
+      fetch('content/butler.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -332,6 +334,7 @@ async function loadContent() {
     emergency = emerg;
     packing = pack;
     moments = mom;
+    butler = btlr;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -1071,11 +1074,89 @@ function renderEntertainmentTab(panel) {
   panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Entertainment information loading…</p>';
 }
 
+// ─── Butler Quick-Request Templates ────────────────────────────────
+function renderButlerCard() {
+  if (!butler) return '';
+  
+  // Load custom requests from localStorage
+  const customItems = JSON.parse(localStorage.getItem(butler.customStorageKey || 'haven_butler_custom') || '[]');
+  const allTemplates = [...butler.templates, ...customItems];
+  
+  const itemsHtml = allTemplates.map(t => `
+    <div class="butler-item" data-text="${escapeHtml(t.text)}">
+      <span class="butler-icon">${t.icon || '📋'}</span>
+      <span class="butler-label">${escapeHtml(t.label || t.text)}</span>
+      <button class="butler-copy" data-text="${escapeHtml(t.text)}" onclick="copyButlerRequest(this)">Copy</button>
+    </div>
+  `).join('');
+  
+  return `
+    <div class="butler-card">
+      <div class="butler-header">🛎️ Butler Requests</div>
+      <div class="butler-subtitle">Tap Copy, then call or text your butler.</div>
+      <div class="butler-list">${itemsHtml}</div>
+      <button class="butler-add-btn" onclick="showAddButlerRequest()">+ Add Custom Request</button>
+    </div>
+  `;
+}
+
+function copyButlerRequest(btn) {
+  const text = btn.dataset.text;
+  navigator.clipboard.writeText(text).then(() => {
+    showButlerToast('Copied! Now call or text your butler. 📞');
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showButlerToast('Copied! Now call or text your butler. 📞');
+  });
+}
+
+function showButlerToast(message) {
+  document.querySelectorAll('.butler-toast').forEach(t => t.remove());
+  const toast = document.createElement('div');
+  toast.className = 'butler-toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.classList.add('butler-toast-show'), 10);
+  setTimeout(() => {
+    toast.classList.remove('butler-toast-show');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+function showAddButlerRequest() {
+  const text = prompt('Enter your custom butler request:');
+  if (!text || !text.trim()) return;
+  
+  const key = butler?.customStorageKey || 'haven_butler_custom';
+  const existing = JSON.parse(localStorage.getItem(key) || '[]');
+  existing.push({
+    id: 'custom_' + Date.now(),
+    text: text.trim(),
+    icon: '📋',
+    label: text.trim().slice(0, 40)
+  });
+  localStorage.setItem(key, JSON.stringify(existing));
+  
+  // Re-render the tips tab
+  const panel = document.querySelector('[data-tab-content="tips"]');
+  if (panel) renderTipsTab(panel);
+}
+
 function renderTipsTab(panel) {
   if (!tips) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
 
   const tipList = tips.tips || tips.items || (Array.isArray(tips) ? tips : []);
-  let html = '';
+  
+  // Butler card at the top
+  let html = renderButlerCard();
 
   if (tips.categories) {
     tips.categories.forEach(cat => {

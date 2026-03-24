@@ -1,0 +1,13 @@
+{
+  "templates": [
+    { "id": "b01", "text": "Coke Zero & sugar-free energy drink to suite 12846, please.", "icon": "🥤", "label": "Coke Zero + Energy Drink" },
+    { "id": "b02", "text": "Herbal tea with honey to suite 12846, please.", "icon": "☕", "label": "Herbal Tea with Honey" },
+    { "id": "b03", "text": "Turn-down service tonight at 9pm for suite 12846, please.", "icon": "🛏️", "label": "Turn-Down at 9pm" },
+    { "id": "b04", "text": "Champagne & strawberries to suite 12846, please.", "icon": "🥂", "label": "Champagne & Strawberries" },
+    { "id": "b05", "text": "Laundry pickup requested for suite 12846 — when is the next available time?", "icon": "👔", "label": "Laundry Pickup" },
+    { "id": "b06", "text": "Ice bucket for suite 12846, please.", "icon": "🧊", "label": "Ice Bucket" },
+    { "id": "b07", "text": "Could you arrange dinner reservations at the Haven Restaurant for tonight? Suite 12846.", "icon": "🍽️", "label": "Dinner Reservation — Haven" },
+    { "id": "b08", "text": "Suite 12846 — we'd love fresh towels and toiletries, at your convenience.", "icon": "🛁", "label": "Fresh Towels & Toiletries" }
+  ],
+  "customStorageKey": "haven_butler_custom"
+}

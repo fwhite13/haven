@@ -1488,3 +1488,78 @@ h3 { font-size: 1rem; }
 }
 .venue-dir-label { color: #c9a84c; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
 .venue-dir-text { color: #c0d0e0; font-size: 14px; line-height: 1.5; }
+
+/* ─── Butler Request Card ──────────────────────────────────────── */
+.butler-card {
+  background: rgba(13, 27, 42, 0.8);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.butler-header {
+  color: #c9a84c;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.butler-subtitle {
+  color: #606878;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.butler-list { display: flex; flex-direction: column; gap: 2px; }
+.butler-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.butler-item:last-child { border-bottom: none; }
+.butler-icon { font-size: 18px; flex-shrink: 0; }
+.butler-label { flex: 1; color: #d0d0e0; font-size: 14px; }
+.butler-copy {
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: #c9a84c;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.butler-copy:active { background: rgba(201,168,76,0.3); }
+.butler-add-btn {
+  background: transparent;
+  border: none;
+  color: #6070a0;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 4px 0;
+}
+.butler-add-btn:hover { color: #8090c0; }
+
+/* Butler Toast */
+.butler-toast {
+  position: fixed;
+  bottom: calc(80px + env(safe-area-inset-bottom, 16px));
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1a2a3a;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 9999;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.butler-toast-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
