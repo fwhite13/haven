@@ -1164,7 +1164,7 @@ function renderSunsetWidget(day) {
   const urgency = minutesLeft <= 15 ? 'sunset-urgent' : minutesLeft <= 30 ? 'sunset-soon' : '';
   
   const viewingSpots = [
-    '🌅 Haven Sundeck — Deck 15, Forward (Haven elevator)',
+    '🌅 Haven Sundeck — Deck 15, Aft (Haven elevator)',
     '🚢 The Waterfront — Deck 8 Promenade (wrap-around)',
     '🔭 Observation Lounge — Deck 15, Forward (panoramic windows)'
   ];
