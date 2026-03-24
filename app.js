@@ -104,14 +104,23 @@ const VENUE_LOCATIONS = {
   'Shore Excursions': 'Deck 9, Midship',
 };
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 function linkVenueNames(html) {
   // Sort by length desc so longer names match first ("Onda by Scarpetta" before "Onda")
   const sorted = Object.keys(VENUE_LOCATIONS).sort((a, b) => b.length - a.length);
   for (const venue of sorted) {
     const loc = VENUE_LOCATIONS[venue];
     const escaped = venue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // HTML-escape both the data-location attribute value and the visible venue name
     html = html.replace(new RegExp(escaped, 'g'),
-      `<span class="venue-link" data-location="${loc}">${venue} 📍</span>`);
+      `<span class="venue-link" data-location="${escapeHtml(loc)}">${escapeHtml(venue)} 📍</span>`);
   }
   return html;
 }
@@ -658,10 +667,16 @@ function renderSpaTab(panel) {
   });
 
   if (spa.thermal_suite) {
+    const ts = spa.thermal_suite;
+    const overview = typeof ts === 'string' ? ts : (ts.overview || '');
+    const passInfo = (ts.passes && typeof ts.passes === 'object')
+      ? `<div style="margin-top:0.6rem;font-size:0.8rem;color:var(--gold)">Day pass: ${ts.passes.single_day || ''} · Week pass: ${ts.passes.week_pass || ''}</div>`
+      : '';
     html += `
-    <div class="section-header"><span class="section-title">Thermal Suite</span></div>
+    <div class="section-header"><span class="section-title">${escapeHtml(ts.name || 'Thermal Suite')}</span></div>
     <div class="card">
-      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${spa.thermal_suite}</p>
+      <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6">${escapeHtml(overview)}</p>
+      ${passInfo}
     </div>`;
   }
 
