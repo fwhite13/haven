@@ -1563,3 +1563,41 @@ h3 { font-size: 1rem; }
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* Sunset Widget (ADO#1094) */
+.sunset-widget {
+  background: linear-gradient(135deg, rgba(30,15,5,0.95) 0%, rgba(50,25,10,0.9) 100%);
+  border: 1px solid rgba(255,140,0,0.4);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.sunset-widget.sunset-soon { border-color: rgba(255,140,0,0.7); }
+.sunset-widget.sunset-urgent {
+  border-color: #ff8c00;
+  box-shadow: 0 0 12px rgba(255,140,0,0.3);
+  animation: sunsetPulse 2s infinite;
+}
+@keyframes sunsetPulse {
+  0%,100% { box-shadow: 0 0 12px rgba(255,140,0,0.3); }
+  50% { box-shadow: 0 0 20px rgba(255,140,0,0.5); }
+}
+.sunset-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.sunset-emoji { font-size: 22px; }
+.sunset-countdown { flex: 1; color: #ffb060; font-size: 15px; font-weight: 600; }
+.sunset-notify-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px;
+  opacity: 0.8;
+}
+.sunset-notify-btn:hover { opacity: 1; }
+.sunset-spots { display: flex; flex-direction: column; gap: 4px; }
+.sunset-spot { color: #d09050; font-size: 13px; }

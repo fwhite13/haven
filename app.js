@@ -804,6 +804,11 @@ function renderTodayTab(panel) {
     html += renderPortCountdown(day);
   }
 
+  // Sunset golden hour widget (shows within 90 min of sunset)
+  if (day) {
+    html += renderSunsetWidget(day);
+  }
+
   // Couples moment prompter (Fred only)
   html += renderMomentCards();
 
@@ -1129,6 +1134,83 @@ function showButlerToast(message) {
     toast.classList.remove('butler-toast-show');
     setTimeout(() => toast.remove(), 300);
   }, 3000);
+}
+
+// === SUNSET WIDGET (ADO#1094) ===
+function renderSunsetWidget(day) {
+  if (!day || !day.sunsetTime) return '';
+  
+  const now = new Date();
+  const [ssHr, ssMn] = day.sunsetTime.split(':').map(Number);
+  const sunset = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ssHr, ssMn, 0);
+  
+  const msUntil = sunset - now;
+  
+  // Only show widget within 90 minutes before sunset, and not after sunset
+  if (msUntil <= 0 || msUntil > 90 * 60 * 1000) return '';
+  
+  const minutesLeft = Math.round(msUntil / 60000);
+  const urgency = minutesLeft <= 15 ? 'sunset-urgent' : minutesLeft <= 30 ? 'sunset-soon' : '';
+  
+  const viewingSpots = [
+    '🌅 Haven Sundeck — Deck 15, Forward (Haven elevator)',
+    '🚢 The Waterfront — Deck 8 Promenade (wrap-around)',
+    '🔭 Observation Lounge — Deck 15, Forward (panoramic windows)'
+  ];
+  
+  return `
+    <div class="sunset-widget ${urgency}">
+      <div class="sunset-header">
+        <span class="sunset-emoji">🌅</span>
+        <span class="sunset-countdown">Sunset in <strong>${minutesLeft} min</strong></span>
+        <button class="sunset-notify-btn" id="sunset-notify-btn" onclick="requestSunsetNotification(${minutesLeft})" title="Remind me">🔔</button>
+      </div>
+      <div class="sunset-spots">
+        ${viewingSpots.map(s => `<div class="sunset-spot">${escapeHtml(s)}</div>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function requestSunsetNotification(minutesLeft) {
+  if (!('Notification' in window)) {
+    showButlerToast('Notifications not supported on this browser.');
+    return;
+  }
+  
+  if (Notification.permission === 'granted') {
+    scheduleSunsetNotification(minutesLeft);
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(perm => {
+      if (perm === 'granted') scheduleSunsetNotification(minutesLeft);
+    });
+  } else {
+    showButlerToast('Notifications blocked — enable in browser settings.');
+  }
+}
+
+function scheduleSunsetNotification(minutesLeft) {
+  const notifyInMs = Math.max(0, (minutesLeft - 30) * 60000);
+  const btn = document.getElementById('sunset-notify-btn');
+  if (btn) { btn.textContent = '✅'; btn.disabled = true; }
+  
+  if (notifyInMs <= 0) {
+    // Less than 30 min until sunset — notify immediately
+    new Notification('🌅 Sunset Now!', {
+      body: 'Head to the Haven Sundeck or Observation Lounge — sunset is happening now.',
+      icon: '/icons/icon-192.svg'
+    });
+    return;
+  }
+  
+  setTimeout(() => {
+    new Notification('🌅 Sunset in 30 minutes', {
+      body: 'Best viewing: Haven Sundeck (Deck 15) or Observation Lounge. Get there now!',
+      icon: '/icons/icon-192.svg'
+    });
+  }, notifyInMs);
+  
+  showButlerToast(`Sunset reminder set for ${Math.round(notifyInMs/60000)} min from now. 🌅`);
 }
 
 function showAddButlerRequest() {
