@@ -10,6 +10,7 @@ const state = {
   view: 'pin',  // 'pin' | 'main'
   pin: '',
   activeTab: 'today',
+  who: null,    // 'fred' | 'holly' — who logged in
 };
 
 // ─── Content ──────────────────────────────────────────────────────
@@ -20,6 +21,7 @@ let spa = null;
 let entertainment = null;
 let tips = null;
 let navigation = null;
+let surprises = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -114,7 +116,7 @@ function linkVenueNames(html) {
 }
 
 // ─── PIN Auth ─────────────────────────────────────────────────────
-const PINS = { '1313': 'main', '1009': 'main' };
+const PINS = { '1313': 'fred', '1009': 'holly', '0405': 'holly' };
 
 function handlePinInput(digit) {
   if (state.pin.length >= 4) return;
@@ -135,8 +137,10 @@ function handlePinBack() {
 function checkPin() {
   const who = PINS[state.pin];
   if (who) {
-    sessionStorage.setItem('haven_view', who);
-    navigateTo(who);
+    state.who = who;
+    sessionStorage.setItem('haven_view', 'main');
+    sessionStorage.setItem('haven_who', who);
+    navigateTo('main');
   } else {
     shakePinDisplay();
     document.getElementById('pin-error').textContent = 'Try again';
@@ -186,7 +190,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -194,6 +198,7 @@ async function loadContent() {
       fetch('content/entertainment.json').then(r => r.json()),
       fetch('content/tips.json').then(r => r.json()),
       fetch('content/navigation.json').then(r => r.json()),
+      fetch('content/surprises.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -202,6 +207,7 @@ async function loadContent() {
     entertainment = ent;
     tips = t;
     navigation = nav;
+    surprises = surp;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -262,9 +268,35 @@ function getGFStatus(status) {
 
 // ─── Main View ───────────────────────────────────────────────────
 function renderMainView() {
+  // Add Surprises tab for Fred only
+  if (state.who === 'fred') {
+    const mainTabs = document.getElementById('main-tabs');
+    if (mainTabs && !document.querySelector('[data-tab="surprises"]')) {
+      const surpriseTab = document.createElement('button');
+      surpriseTab.className = 'nav-tab';
+      surpriseTab.dataset.tab = 'surprises';
+      surpriseTab.onclick = () => switchFredTab('surprises');
+      surpriseTab.textContent = '🎁';
+      mainTabs.appendChild(surpriseTab);
+
+      const scrollContent = document.querySelector('.scroll-content');
+      if (scrollContent && !document.getElementById('tab-surprises')) {
+        const surprisePanel = document.createElement('div');
+        surprisePanel.id = 'tab-surprises';
+        surprisePanel.className = 'tab-panel';
+        scrollContent.appendChild(surprisePanel);
+      }
+    }
+  }
+
   switchFredTab(state.activeTab);
   setupVoice();
   setupAskInput();
+
+  // Check surprises for Holly after initial load
+  if (state.who === 'holly') {
+    setTimeout(checkAndShowSurprises, 800);
+  }
 }
 
 function switchFredTab(tab) {
@@ -287,7 +319,87 @@ function switchFredTab(tab) {
     case 'spa':       renderSpaTab(panel); break;
     case 'entertainment': renderEntertainmentTab(panel); break;
     case 'tips':      renderTipsTab(panel); break;
+    case 'surprises': renderSurprisesAdmin(panel); break;
   }
+
+  // Check for surprises on Holly's Today tab
+  if (tab === 'today' && state.who === 'holly') {
+    setTimeout(checkAndShowSurprises, 500);
+  }
+}
+
+// ─── Surprises ────────────────────────────────────────────────────
+function checkAndShowSurprises() {
+  if (!surprises || state.who !== 'holly') return;
+
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10); // 'YYYY-MM-DD'
+  const currentTime = now.toTimeString().slice(0, 5); // 'HH:MM'
+
+  // Get revealed IDs from localStorage
+  const revealedIds = JSON.parse(localStorage.getItem('haven_revealed_surprises') || '[]');
+
+  // Find surprises for today at or before current time that haven't been revealed
+  const toShow = surprises.surprises.filter(s =>
+    s.date === today &&
+    s.time <= currentTime &&
+    !revealedIds.includes(s.id)
+  );
+
+  if (toShow.length === 0) return;
+
+  // Show the first unrevealed surprise as a modal
+  showSurpriseModal(toShow[0]);
+
+  // Mark as revealed in localStorage
+  const updated = [...revealedIds, toShow[0].id];
+  localStorage.setItem('haven_revealed_surprises', JSON.stringify(updated));
+}
+
+function showSurpriseModal(surprise) {
+  // Remove any existing surprise modal
+  document.querySelectorAll('.surprise-modal').forEach(m => m.remove());
+
+  const modal = document.createElement('div');
+  modal.className = 'surprise-modal';
+  modal.innerHTML = `
+    <div class="surprise-modal-overlay" onclick="this.closest('.surprise-modal').remove()"></div>
+    <div class="surprise-modal-card">
+      <div class="surprise-icon">${surprise.icon}</div>
+      <h2 class="surprise-title">${surprise.title}</h2>
+      <p class="surprise-message">${surprise.message}</p>
+      <button class="surprise-dismiss" onclick="this.closest('.surprise-modal').remove()">
+        Close ✕
+      </button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+function renderSurprisesAdmin(panel) {
+  if (!surprises) {
+    panel.innerHTML = '<p class="text-muted">Loading surprises...</p>';
+    return;
+  }
+
+  const revealedIds = JSON.parse(localStorage.getItem('haven_revealed_surprises') || '[]');
+
+  const items = surprises.surprises.map(s => {
+    const status = revealedIds.includes(s.id) ? '✅ Revealed' : '⏳ Pending';
+    return `<div class="surprise-admin-item">
+      <div class="surprise-admin-meta">${s.date} at ${s.time} — ${status}</div>
+      <div class="surprise-admin-title">${s.icon} ${s.title}</div>
+      <div class="surprise-admin-msg">${s.message}</div>
+    </div>`;
+  }).join('');
+
+  panel.innerHTML = `
+    <div class="section-header"><span class="section-title">Anniversary Surprises</span></div>
+    <p class="text-muted" style="font-size:0.85rem;margin-bottom:1rem">
+      Scheduled surprises for Holly. Each one reveals as a modal at the specified date/time.
+    </p>
+    <div class="surprise-admin-list">${items}</div>
+  `;
 }
 
 function renderTodayTab(panel) {
@@ -1169,7 +1281,9 @@ async function init() {
 
   // Restore session
   const saved = sessionStorage.getItem('haven_view');
-  if (saved && saved === 'main') {
+  const savedWho = sessionStorage.getItem('haven_who');
+  if (saved && saved === 'main' && savedWho) {
+    state.who = savedWho;
     // Load content first, then navigate
     await loadContent();
     navigateTo(saved);
