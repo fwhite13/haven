@@ -8,7 +8,7 @@
   "elevators": {
     "haven": {
       "description": "The Haven Private Elevators — forward position, Haven keycard required",
-      "decks_served": [5, 9, 11, 12, 13, 14, 15, 16],
+      "decks_served": [5, 9, 11, 12, 13, 14, 15],
       "note": "Fastest and most exclusive. Your suite is directly adjacent to these on Deck 12."
     },
     "midship": {

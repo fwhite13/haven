@@ -696,6 +696,9 @@ function searchKB(query) {
     const mentionedVenue = Object.keys(VENUE_LOCATIONS).find(v => q.includes(v.toLowerCase()));
 
     // Handle reverse directions (back to suite from venue)
+    if (isReverseQuery && !navigation) {
+      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (forward section of the ship — keycard access). Take it to Deck 12. Suite 12846 is forward-starboard from the elevator. Content still loading — ask again in a moment for venue-specific directions.`;
+    }
     if (isReverseQuery && navigation) {
       const venues = navigation.venues || [];
       if (mentionedVenue) {
