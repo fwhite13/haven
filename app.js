@@ -134,7 +134,7 @@ function linkVenueNames(html) {
     const htmlEncodedVenue = escapeHtml(venue);
     const escaped = htmlEncodedVenue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     html = html.replace(new RegExp(escaped, 'g'),
-      `<span class="venue-link" data-location="${escapeHtml(loc)}">${escapeHtml(venue)} 📍</span>`);
+      `<span class="venue-link" data-location="${escapeHtml(loc)}">${venue} 📍</span>`);
   }
   return html;
 }
@@ -1299,16 +1299,34 @@ function changeDeck(dir) {
   const idx = decks.indexOf(_currentDeck);
   const newIdx = Math.max(0, Math.min(decks.length - 1, idx + dir));
   _currentDeck = decks[newIdx];
-  
+
   const img = document.getElementById('deck-image');
   const label = document.getElementById('deck-label');
   const hint = document.querySelector('.deck-hint');
+  const wrap = document.getElementById('deck-image-wrap');
+
   if (img) { img.src = getDeckImageUrl(_currentDeck); img.alt = `Deck ${_currentDeck} plan`; }
   if (label) label.textContent = `Deck ${_currentDeck}`;
-  if (hint) hint.textContent = `Pinch to zoom · ${_currentDeck === 12 ? '⭐ Your suite is on this deck' : ''}`;
+  if (hint) hint.textContent = `Pinch to zoom${_currentDeck === 12 ? ' · Suite 12846 marked ⭐' : ''}`;
+
+  // Add/remove suite pin
+  const existingPin = document.getElementById('suite-pin');
+  if (existingPin) existingPin.remove();
+  if (_currentDeck === 12 && wrap) {
+    const pin = document.createElement('div');
+    pin.className = 'suite-pin';
+    pin.id = 'suite-pin';
+    pin.title = 'Suite 12846';
+    pin.textContent = '⭐';
+    wrap.appendChild(pin);
+  }
 }
 
 function renderDeckTab(panel) {
+  const suiteOverlay = _currentDeck === 12
+    ? `<div class="suite-pin" id="suite-pin" title="Suite 12846">⭐</div>`
+    : '';
+
   panel.innerHTML = `
     <div class="deck-viewer">
       <div class="deck-controls">
@@ -1316,10 +1334,11 @@ function renderDeckTab(panel) {
         <span class="deck-label" id="deck-label">Deck ${_currentDeck}</span>
         <button class="deck-nav-btn" id="deck-next" onclick="changeDeck(1)">›</button>
       </div>
-      <div class="deck-image-wrap" id="deck-image-wrap">
+      <div class="deck-image-wrap" id="deck-image-wrap" style="position:relative">
         <img class="deck-image" id="deck-image" src="${getDeckImageUrl(_currentDeck)}" alt="Deck ${_currentDeck} plan" loading="lazy">
+        ${suiteOverlay}
       </div>
-      <div class="deck-hint">Pinch to zoom · ${_currentDeck === 12 ? '⭐ Your suite is on this deck' : ''}</div>
+      <div class="deck-hint">Pinch to zoom${_currentDeck === 12 ? ' · Suite 12846 marked ⭐' : ''}</div>
     </div>
   `;
 }
