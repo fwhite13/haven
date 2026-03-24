@@ -1,0 +1,50 @@
+{
+  "hiddenAfter": "2026-04-04",
+  "sections": [
+    {
+      "id": "fred",
+      "title": "Fred's List",
+      "icon": "🧳",
+      "items": [
+        { "id": "f1", "text": "Passports (both) — in carry-on, NOT checked bag" },
+        { "id": "f2", "text": "Cruise confirmation printout / NCL booking PDF" },
+        { "id": "f3", "text": "Excursion voucher PDFs printed or saved offline" },
+        { "id": "f4", "text": "Phone chargers — both phones" },
+        { "id": "f5", "text": "Power strip / USB hub (cruise-safe, no surge protector)" },
+        { "id": "f6", "text": "Coke Zero + sugar-free energy drinks in carry-on" },
+        { "id": "f7", "text": "Formal outfit for specialty dinner night" },
+        { "id": "f8", "text": "Download Haven app / save to home screen before departure" },
+        { "id": "f9", "text": "Cash for tips / port vendors ($100–200 small bills)" },
+        { "id": "f10", "text": "Sunscreen — high SPF, reef-safe preferred" }
+      ]
+    },
+    {
+      "id": "holly",
+      "title": "Holly's List",
+      "icon": "👜",
+      "items": [
+        { "id": "h1", "text": "GF snacks for travel day — airport + embarkation day" },
+        { "id": "h2", "text": "All medications — in carry-on with pharmacy labels" },
+        { "id": "h3", "text": "Thermal suite swimwear — Mandara Spa on April 5" },
+        { "id": "h4", "text": "Formal outfit for anniversary dinner (Onda, April 5)" },
+        { "id": "h5", "text": "Sunscreen — high SPF" },
+        { "id": "h6", "text": "Motion sickness remedies if needed (sea days: Apr 4, 5, 10, 11)" },
+        { "id": "h7", "text": "Comfortable walking shoes for port days" },
+        { "id": "h8", "text": "Waterproof bag / dry bag for tender ports (Belize + Roatán)" }
+      ]
+    },
+    {
+      "id": "haven",
+      "title": "Haven-Specific Prep",
+      "icon": "⚓",
+      "items": [
+        { "id": "hv1", "text": "Add Haven PWA to home screen on both phones" },
+        { "id": "hv2", "text": "Test Holly's voice button works before boarding" },
+        { "id": "hv3", "text": "Note Haven concierge hours from welcome letter" },
+        { "id": "hv4", "text": "Pre-book specialty restaurants via NCL app before departure" },
+        { "id": "hv5", "text": "Confirm Onda reservation for April 5 (anniversary dinner)" },
+        { "id": "hv6", "text": "Confirm Holly's spa treatments (April 5 morning)" }
+      ]
+    }
+  ]
+}

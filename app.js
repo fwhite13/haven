@@ -24,6 +24,7 @@ let navigation = null;
 let surprises = null;
 let dailyBriefing = null;
 let emergency = null;
+let packing = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -201,7 +202,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp, brief, emerg, pack] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -212,6 +213,7 @@ async function loadContent() {
       fetch('content/surprises.json').then(r => r.json()).catch(() => null),
       fetch('content/daily-briefing.json').then(r => r.json()).catch(() => null),
       fetch('content/emergency.json').then(r => r.json()).catch(() => null),
+      fetch('content/packing.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -223,6 +225,7 @@ async function loadContent() {
     surprises = surp;
     dailyBriefing = brief;
     emergency = emerg;
+    packing = pack;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -304,6 +307,35 @@ function renderMainView() {
     }
   }
 
+  // Add Pack tab (visible before April 4, 2026)
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  const packHiddenAfter = packing?.hiddenAfter || '2026-04-04';
+  if (today < packHiddenAfter) {
+    const mainTabs = document.getElementById('main-tabs');
+    if (mainTabs && !document.querySelector('[data-tab="pack"]')) {
+      const tipsTab = document.querySelector('[data-tab="tips"]');
+      const packTab = document.createElement('button');
+      packTab.className = 'nav-tab';
+      packTab.dataset.tab = 'pack';
+      packTab.onclick = () => switchFredTab('pack');
+      packTab.textContent = '🧳';
+      if (tipsTab) {
+        mainTabs.insertBefore(packTab, tipsTab);
+      } else {
+        mainTabs.appendChild(packTab);
+      }
+
+      const scrollContent = document.querySelector('.scroll-content');
+      if (scrollContent && !document.getElementById('tab-pack')) {
+        const packPanel = document.createElement('div');
+        packPanel.id = 'tab-pack';
+        packPanel.className = 'tab-panel';
+        scrollContent.appendChild(packPanel);
+      }
+    }
+  }
+
   switchFredTab(state.activeTab);
   setupVoice();
   setupAskInput();
@@ -335,6 +367,7 @@ function switchFredTab(tab) {
     case 'spa':       renderSpaTab(panel); break;
     case 'entertainment': renderEntertainmentTab(panel); break;
     case 'tips':      renderTipsTab(panel); break;
+    case 'pack':      renderPackingTab(panel); break;
     case 'surprises': renderSurprisesAdmin(panel); break;
   }
 
@@ -889,6 +922,52 @@ function renderTipsTab(panel) {
   }
 
   panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Tips loading…</p>';
+}
+
+// ─── Packing Checklist ─────────────────────────────────────────────
+function renderPackingTab(panel) {
+  if (!packing) { panel.innerHTML = '<p class="text-muted">Loading…</p>'; return; }
+  
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  
+  if (today >= packing.hiddenAfter) {
+    panel.innerHTML = `
+      <div style="text-align:center;padding:40px 20px">
+        <div style="font-size:48px;margin-bottom:12px">⛵</div>
+        <div style="color:var(--gold);font-size:18px;font-weight:600">Safe travels!</div>
+        <div style="color:var(--text-muted);margin-top:8px">You're on your way. Have an amazing cruise.</div>
+      </div>`;
+    return;
+  }
+  
+  let html = '<div class="section-header"><span class="section-title">Pre-Cruise Checklist</span></div>';
+  
+  packing.sections.forEach(section => {
+    html += `<div class="section-header" style="margin-top:0.75rem"><span class="section-title">${escapeHtml(section.icon)} ${escapeHtml(section.title)}</span></div>`;
+    html += '<div class="card" style="margin-bottom:0.75rem">';
+    section.items.forEach(item => {
+      const checked = localStorage.getItem(`haven_packing_${item.id}`) === 'true';
+      html += `
+        <label class="pack-item${checked ? ' pack-checked' : ''}" data-id="${escapeHtml(item.id)}">
+          <input type="checkbox" class="pack-checkbox" data-id="${escapeHtml(item.id)}" ${checked ? 'checked' : ''}>
+          <span class="pack-text">${escapeHtml(item.text)}</span>
+        </label>`;
+    });
+    html += '</div>';
+  });
+  
+  panel.innerHTML = html;
+  
+  // Attach checkbox listeners
+  panel.querySelectorAll('.pack-checkbox').forEach(cb => {
+    cb.addEventListener('change', e => {
+      const id = e.target.dataset.id;
+      localStorage.setItem(`haven_packing_${id}`, e.target.checked ? 'true' : 'false');
+      const label = e.target.closest('.pack-item');
+      if (label) label.classList.toggle('pack-checked', e.target.checked);
+    });
+  });
 }
 
 // ─── Chat / KB Search ──────────────────────────────────────────────
