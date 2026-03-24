@@ -116,13 +116,23 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;');
 }
 
+// Measure actual header height and set CSS variable for sticky nav-tabs offset
+function updateHeaderOffset() {
+  const header = document.querySelector('.app-header');
+  if (header) {
+    document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+  }
+}
+window.addEventListener('resize', updateHeaderOffset);
+
 function linkVenueNames(html) {
   // Sort by length desc so longer names match first ("Onda by Scarpetta" before "Onda")
   const sorted = Object.keys(VENUE_LOCATIONS).sort((a, b) => b.length - a.length);
   for (const venue of sorted) {
     const loc = VENUE_LOCATIONS[venue];
-    const escaped = venue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // HTML-escape both the data-location attribute value and the visible venue name
+    // Match the HTML-escaped version of the venue name (since html is already escaped)
+    const htmlEncodedVenue = escapeHtml(venue);
+    const escaped = htmlEncodedVenue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     html = html.replace(new RegExp(escaped, 'g'),
       `<span class="venue-link" data-location="${escapeHtml(loc)}">${escapeHtml(venue)} 📍</span>`);
   }
@@ -1017,7 +1027,7 @@ function renderSpaTab(panel) {
     const ts = spa.thermal_suite;
     const overview = typeof ts === 'string' ? ts : (ts.overview || '');
     const passInfo = (ts.passes && typeof ts.passes === 'object')
-      ? `<div style="margin-top:0.6rem;font-size:0.8rem;color:var(--gold)">Day pass: ${ts.passes.single_day || ''} · Week pass: ${ts.passes.week_pass || ''}</div>`
+      ? `<div style="margin-top:0.6rem;font-size:0.8rem;color:var(--gold)">Day pass: ${escapeHtml(String(ts.passes.single_day || ''))} · Week pass: ${escapeHtml(String(ts.passes.week_pass || ''))}</div>`
       : '';
     html += `
     <div class="section-header"><span class="section-title">${escapeHtml(ts.name || 'Thermal Suite')}</span></div>
@@ -1935,6 +1945,7 @@ function buildApp() {
 // ─── Init ─────────────────────────────────────────────────────────
 async function init() {
   buildApp();
+  updateHeaderOffset(); // Set header height CSS var for sticky nav-tabs
   registerSW();
 
   // Restore session
