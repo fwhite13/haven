@@ -22,6 +22,7 @@ let entertainment = null;
 let tips = null;
 let navigation = null;
 let surprises = null;
+let dailyBriefing = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -190,7 +191,7 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t, nav, surp] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav, surp, brief] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
@@ -199,6 +200,7 @@ async function loadContent() {
       fetch('content/tips.json').then(r => r.json()),
       fetch('content/navigation.json').then(r => r.json()),
       fetch('content/surprises.json').then(r => r.json()).catch(() => null),
+      fetch('content/daily-briefing.json').then(r => r.json()).catch(() => null),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -208,6 +210,7 @@ async function loadContent() {
     tips = t;
     navigation = nav;
     surprises = surp;
+    dailyBriefing = brief;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -403,10 +406,39 @@ function renderSurprisesAdmin(panel) {
   `;
 }
 
+// ─── Morning Briefing ─────────────────────────────────────────────
+function getTodayBriefing() {
+  if (!dailyBriefing || !dailyBriefing.briefings) return null;
+  const now = new Date();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  return dailyBriefing.briefings.find(b => b.date === todayStr) || null;
+}
+
+function renderMorningBriefing(briefing) {
+  if (!briefing) return '';
+  const highlightsHtml = briefing.highlights
+    .map(h => `<div class="briefing-highlight"><span class="briefing-icon">${h.icon}</span><span>${h.text}</span></div>`)
+    .join('');
+
+  return `
+    <div class="briefing-card">
+      <div class="briefing-header">
+        <span class="briefing-gold-title">Good Morning</span>
+        <span class="briefing-day-label">${briefing.dayLabel}</span>
+      </div>
+      <p class="briefing-greeting">${briefing.greeting}</p>
+      <div class="briefing-highlights">${highlightsHtml}</div>
+      ${briefing.gfTip ? `<div class="briefing-gf-tip">🌾 <strong>GF:</strong> ${briefing.gfTip}</div>` : ''}
+      ${briefing.reminder ? `<div class="briefing-reminder">📌 ${briefing.reminder}</div>` : ''}
+    </div>
+  `;
+}
+
 function renderTodayTab(panel) {
   const dayIdx = getTodayDayIndex();
   const sailing = getSailing();
   const day = (itinerary && dayIdx >= 0) ? itinerary.days[dayIdx] : null;
+  const briefing = getTodayBriefing();
 
   let html = `
     <div class="dashboard-grid">
@@ -421,6 +453,9 @@ function renderTodayTab(panel) {
         <div class="dashboard-stat-sub">${sailing.text}</div>
       </div>
     </div>`;
+
+  // Morning briefing card (if available for today)
+  html += renderMorningBriefing(briefing);
 
   if (day) {
     html += `

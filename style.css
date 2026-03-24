@@ -1126,3 +1126,64 @@ h3 { font-size: 1rem; }
   color: rgba(255,255,255,0.7);
   line-height: 1.5;
 }
+
+/* ─── Morning Briefing Card ───────────────────────────────────────── */
+.briefing-card {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a2744 100%);
+  border: 1px solid #c9a84c;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.briefing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.briefing-gold-title {
+  color: #c9a84c;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+.briefing-day-label {
+  color: #a0a0b8;
+  font-size: 13px;
+}
+.briefing-greeting {
+  color: #e8e8e8;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0 0 14px;
+}
+.briefing-highlight {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  color: #d0d0e0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.briefing-icon {
+  flex-shrink: 0;
+}
+.briefing-gf-tip {
+  background: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4caf50;
+  padding: 8px 12px;
+  margin-top: 12px;
+  border-radius: 0 6px 6px 0;
+  color: #b0d4b0;
+  font-size: 13px;
+}
+.briefing-reminder {
+  background: rgba(201,168,76,0.08);
+  border-left: 3px solid #c9a84c;
+  padding: 8px 12px;
+  margin-top: 8px;
+  border-radius: 0 6px 6px 0;
+  color: #d4c890;
+  font-size: 13px;
+}

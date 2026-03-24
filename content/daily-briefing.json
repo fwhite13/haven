@@ -1,0 +1,108 @@
+{
+  "briefings": [
+    {
+      "date": "2026-04-04",
+      "dayLabel": "Embarkation Day",
+      "greeting": "The adventure begins today.",
+      "highlights": [
+        { "icon": "🚢", "text": "Board Norwegian Luna in Miami. Haven priority boarding — skip the lines." },
+        { "icon": "🥂", "text": "Haven Restaurant open for lunch once aboard. Reserve tonight's dinner with the concierge." },
+        { "icon": "🛁", "text": "Explore your suite — butler introduction, unpack, settle in." },
+        { "icon": "🎭", "text": "Check tonight's entertainment schedule with the Haven concierge." }
+      ],
+      "gfTip": "Haven Restaurant is always GF-safe. Alert them on your first visit.",
+      "reminder": "Muster drill is mandatory — check your station card in the suite."
+    },
+    {
+      "date": "2026-04-05",
+      "dayLabel": "Sea Day — Anniversary",
+      "greeting": "Happy Anniversary. Today is all about you two.",
+      "highlights": [
+        { "icon": "💆", "text": "Holly's spa morning at Mandara — Deck 16. Thermal suite opens at 8am." },
+        { "icon": "🌅", "text": "Sunrise on the Haven Sundeck if you're up early. Worth it." },
+        { "icon": "🍝", "text": "Dinner tonight: Onda by Scarpetta — GF pasta available, balcony table." },
+        { "icon": "🎭", "text": "Rocket Man show tonight — Haven priority seating, 9pm." }
+      ],
+      "gfTip": "Onda: GF pasta available. Tell them at seating. Confirm with your butler in the afternoon.",
+      "reminder": "It's your anniversary. Slow down. Be present."
+    },
+    {
+      "date": "2026-04-06",
+      "dayLabel": "Harvest Caye, Belize",
+      "greeting": "Private island day. NCL's own paradise.",
+      "highlights": [
+        { "icon": "🏝️", "text": "Harvest Caye is NCL's private island — tender port. Tenders start ~8am." },
+        { "icon": "🌊", "text": "Beach, pool, waterslides, zip line all on the island. Haven beach loungers available." },
+        { "icon": "🍹", "text": "Full bar and food on the island. Verify GF options with staff on arrival." },
+        { "icon": "⏰", "text": "All-aboard time is critical — check Daily newsletter for exact time." }
+      ],
+      "gfTip": "Limited GF options on the island — bring snacks from the Haven pantry.",
+      "reminder": "Tender port — allow extra time to get back to ship. Don't miss all-aboard."
+    },
+    {
+      "date": "2026-04-07",
+      "dayLabel": "Roatán, Honduras",
+      "greeting": "Honduras. One of the most beautiful reef systems in the world.",
+      "highlights": [
+        { "icon": "🤿", "text": "Roatán is famous for snorkeling and diving. Crystal-clear water, abundant reef." },
+        { "icon": "🌺", "text": "West End village is walkable — local shops, restaurants, beach bars." },
+        { "icon": "🐒", "text": "Gumbalimba Park excursion if booked — parrots, monkeys, hanging bridges." },
+        { "icon": "⏰", "text": "Tender port — return early. Last tender back departs ~30 min before all-aboard." }
+      ],
+      "gfTip": "Stick to grilled fish and rice at local restaurants. Ask about sauces.",
+      "reminder": "Tender port — allow extra time back. Keep your sea pass card accessible."
+    },
+    {
+      "date": "2026-04-08",
+      "dayLabel": "Costa Maya, Mexico",
+      "greeting": "Mexico. Ruins, ruins, ruins — or beach. Your call.",
+      "highlights": [
+        { "icon": "🏛️", "text": "Chacchoben Mayan ruins excursion if booked — stunning jungle site, 90 min from port." },
+        { "icon": "🏖️", "text": "Port area has a large beach complex — pool, bars, shops, direct from dock." },
+        { "icon": "🦞", "text": "Fresh seafood at the port restaurants. One of the better port food options." },
+        { "icon": "🚢", "text": "Ship is docked — easy return, no tender." }
+      ],
+      "gfTip": "Grilled shrimp and fish tacos (corn tortillas only) are safe. Avoid flour tortillas.",
+      "reminder": "Docked port — no tender stress. Still watch all-aboard time."
+    },
+    {
+      "date": "2026-04-09",
+      "dayLabel": "Cozumel, Mexico",
+      "greeting": "Best snorkeling in the Caribbean, right here.",
+      "highlights": [
+        { "icon": "🤿", "text": "Palancar Reef — world-class snorkeling. Book a boat tour at the pier if you haven't." },
+        { "icon": "🛍️", "text": "San Miguel town is one block from the pier. Best duty-free shopping of the trip." },
+        { "icon": "🌮", "text": "El Fish Fritanga or similar local spots have excellent GF-friendly grilled fish." },
+        { "icon": "🚢", "text": "Docked port — easy return. Popular port, lots of ship traffic." }
+      ],
+      "gfTip": "Ceviche (corn tostadas) and grilled fish are safe bets. Avoid anything battered.",
+      "reminder": "Last port day. Make it count."
+    },
+    {
+      "date": "2026-04-10",
+      "dayLabel": "Sea Day",
+      "greeting": "Second-to-last day. Soak it in.",
+      "highlights": [
+        { "icon": "☀️", "text": "Full sea day — Haven pool deck, sun loungers, cocktails. Nowhere to be." },
+        { "icon": "🎰", "text": "Casino is open — try your luck if you haven't yet." },
+        { "icon": "🍽️", "text": "Last chance for specialty restaurants. Any you missed? Call the concierge." },
+        { "icon": "🧳", "text": "Start thinking about packing — disembarkation is tomorrow morning." }
+      ],
+      "gfTip": "Haven Restaurant for a relaxed lunch. Tell them it's your last sea day.",
+      "reminder": "Set luggage outside suite by 11pm tonight if using ship's disembarkation service."
+    },
+    {
+      "date": "2026-04-11",
+      "dayLabel": "Disembarkation Day",
+      "greeting": "Seven days. Already?",
+      "highlights": [
+        { "icon": "🏠", "text": "Haven guests disembark first — priority off the ship. No long lines." },
+        { "icon": "☕", "text": "Haven Restaurant open for breakfast until ~9am. Last Haven breakfast — make it count." },
+        { "icon": "🧳", "text": "All luggage must be out of suite by 11pm last night. Keep carry-ons with you." },
+        { "icon": "🚗", "text": "Ground transport from PortMiami. Rideshare pickup Zone A." }
+      ],
+      "gfTip": "Haven breakfast: full GF options available. Last chance — enjoy it.",
+      "reminder": "Check under bed and in bathroom. Things hide there."
+    }
+  ]
+}
