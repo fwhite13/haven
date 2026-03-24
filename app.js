@@ -1228,7 +1228,7 @@ function showAddButlerRequest() {
   localStorage.setItem(key, JSON.stringify(existing));
   
   // Re-render the tips tab
-  const panel = document.querySelector('[data-tab-content="tips"]');
+  const panel = document.getElementById('tab-tips');
   if (panel) renderTipsTab(panel);
 }
 
