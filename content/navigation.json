@@ -82,7 +82,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator to Deck 15, then stairs up to Deck 16, then walk midship to the main pool area. Or use midship elevators to Deck 16.",
-      "directions_to_suite": "From the main pool, take midship elevators down to Deck 12. Walk forward to suite 12846."
+      "directions_to_suite": "From the main pool, take the stairs or elevator down to Deck 15, then take the Haven elevator down to Deck 12. Suite 12846 is forward-starboard."
     },
     {
       "id": "surfside_cafe",
@@ -100,7 +100,7 @@
       "position": "Aft-midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator to Deck 15, stairs up to Deck 16, then walk midship-aft to the Aqua SlideCoaster.",
-      "directions_to_suite": "From the SlideCoaster area, use midship elevators down to Deck 12, walk forward to suite 12846."
+      "directions_to_suite": "From the SlideCoaster area, take the stairs or elevator down to Deck 15, then take the Haven elevator to Deck 12. Suite 12846 is forward-starboard."
     },
     {
       "id": "casino",
@@ -109,7 +109,7 @@
       "position": "Midship",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. The Casino is midship on Deck 9 — follow signs after exiting the elevator.",
-      "directions_to_suite": "From the Casino, use the midship elevators or Haven elevator back up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From the Casino, take the Haven elevator (forward on Deck 9) up to Deck 12. Suite 12846 is forward-starboard."
     },
     {
       "id": "starbucks",
@@ -118,7 +118,7 @@
       "position": "Midship (Penrose Atrium area)",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9. Walk midship toward the Penrose Atrium — Starbucks is in the atrium retail area.",
-      "directions_to_suite": "From Starbucks, take the Haven elevator or midship elevator up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Starbucks in the Penrose Atrium, walk forward to the Haven elevator and take it up to Deck 12. Suite 12846 is forward-starboard."
     },
     {
       "id": "cagneys",
@@ -172,7 +172,7 @@
       "position": "Midship (estimate — confirm onboard)",
       "haven_exclusive": false,
       "directions_from_suite": "Take the Haven elevator down to Deck 9, then check ship signage for Syd Norman's — typically a dedicated rock/music venue midship on this deck.",
-      "directions_to_suite": "From Syd Norman's, take the Haven elevator or midship elevator up to Deck 12. Suite 12846 is forward-starboard."
+      "directions_to_suite": "From Syd Norman's, walk forward to the Haven elevator and take it up to Deck 12. Suite 12846 is forward-starboard."
     },
     {
       "id": "swirl_wine",

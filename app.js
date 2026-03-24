@@ -19,6 +19,7 @@ let ports = null;
 let spa = null;
 let entertainment = null;
 let tips = null;
+let navigation = null;
 
 // ─── Connectivity State ───────────────────────────────────────────
 let _isOnline = navigator.onLine;
@@ -185,13 +186,14 @@ function navigateTo(view) {
 // ─── Content Loading ──────────────────────────────────────────────
 async function loadContent() {
   try {
-    const [itin, gf, p, s, ent, t] = await Promise.all([
+    const [itin, gf, p, s, ent, t, nav] = await Promise.all([
       fetch('content/itinerary.json').then(r => r.json()),
       fetch('content/gf-guide.json').then(r => r.json()),
       fetch('content/ports.json').then(r => r.json()),
       fetch('content/spa.json').then(r => r.json()),
       fetch('content/entertainment.json').then(r => r.json()),
       fetch('content/tips.json').then(r => r.json()),
+      fetch('content/navigation.json').then(r => r.json()),
     ]);
     itinerary = itin;
     gfGuide = gf;
@@ -199,6 +201,7 @@ async function loadContent() {
     spa = s;
     entertainment = ent;
     tips = t;
+    navigation = nav;
   } catch (err) {
     console.warn('Content load error:', err);
   }
@@ -685,9 +688,37 @@ function searchKB(query) {
 
   // Navigation / directions questions
   const navKeywords = ['how do i get', 'where is', 'directions', 'navigate to', 'find the', 'how to get to', 'deck'];
-  if (navKeywords.some(kw => q.includes(kw))) {
+  const reverseKeywords = ['back to suite', 'back to my suite', 'get back', 'return to suite', 'how do i get back', 'directions back', 'way back'];
+  const isReverseQuery = reverseKeywords.some(kw => q.includes(kw));
+
+  if (navKeywords.some(kw => q.includes(kw)) || isReverseQuery) {
     // Check if a specific venue is mentioned
     const mentionedVenue = Object.keys(VENUE_LOCATIONS).find(v => q.includes(v.toLowerCase()));
+
+    // Handle reverse directions (back to suite from venue)
+    if (isReverseQuery && navigation) {
+      const venues = navigation.venues || [];
+      if (mentionedVenue) {
+        const venueData = venues.find(v => v.name?.toLowerCase().includes(mentionedVenue.toLowerCase()));
+        if (venueData?.directions_to_suite) {
+          return `**Back to Suite 12846 from ${mentionedVenue}:**\n\n${venueData.directions_to_suite}`;
+        }
+      }
+      // General "back to suite" response when no venue mentioned
+      return `**Getting back to Suite 12846:**\n\nFind the nearest Haven Private Elevator (forward section of the ship — they're keycard-only). Take it to Deck 12. Suite 12846 is a short walk starboard (right side) from the elevator.\n\nIf you're on Decks 15–16 (Haven complex), the elevator is right there. From lower decks (9–13), look for the forward elevator bank — the Haven elevators are always forward.`;
+    }
+
+    // Handle forward directions (from suite to venue)
+    if (mentionedVenue && navigation) {
+      const venues = navigation.venues || [];
+      const venueData = venues.find(v => v.name?.toLowerCase().includes(mentionedVenue.toLowerCase()));
+      if (venueData?.directions_from_suite) {
+        const loc = VENUE_LOCATIONS[mentionedVenue];
+        return `**Directions to ${mentionedVenue}:**\n\nLocation: ${loc}\n\n${venueData.directions_from_suite}`;
+      }
+    }
+
+    // Fallback to static venue location
     if (mentionedVenue) {
       const loc = VENUE_LOCATIONS[mentionedVenue];
       return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the Haven elevator (forward, adjacent to your suite) to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Forward') ? 'forward (toward the bow)' : 'midship'}.`;
