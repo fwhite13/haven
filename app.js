@@ -1045,7 +1045,7 @@ function renderSpaTab(panel) {
     });
   }
 
-  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Spa information loading…</p>';
+  panel.innerHTML = html || '<p class="text-muted">Spa information loading…</p>';
 }
 
 function renderEntertainmentTab(panel) {
@@ -1265,7 +1265,7 @@ function renderTipsTab(panel) {
     });
   }
 
-  panel.innerHTML = linkVenueNames(html) || '<p class="text-muted">Tips loading…</p>';
+  panel.innerHTML = html || '<p class="text-muted">Tips loading…</p>';
 }
 
 // ─── Deck Plan Viewer ───────────────────────────────────────────────

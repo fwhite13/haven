@@ -1648,12 +1648,12 @@ h3 { font-size: 1rem; }
 }
 .suite-pin {
   position: absolute;
-  left: 85%;
-  top: 75%;
-  font-size: 24px;
+  left: 88%;   /* aft = far right */
+  top: 72%;    /* starboard = lower portion */
+  font-size: 20px;
   line-height: 1;
   pointer-events: none;
-  filter: drop-shadow(0 0 4px rgba(0,0,0,0.8));
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.9));
   transform: translate(-50%, -50%);
   z-index: 10;
 }
