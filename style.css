@@ -1657,3 +1657,21 @@ h3 { font-size: 1rem; }
   transform: translate(-50%, -50%);
   z-index: 10;
 }
+.surprise-add-btn {
+  width: 100%;
+  background: rgba(201,168,76,0.1);
+  border: 1px dashed rgba(201,168,76,0.4);
+  color: var(--gold);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: center;
+}
+.surprise-queue {
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}

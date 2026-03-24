@@ -116,6 +116,31 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;');
 }
 
+// ─── Surprises Storage Helpers ────────────────────────────────────
+function getSurprises() {
+  try {
+    return JSON.parse(localStorage.getItem('haven_surprises') || '[]');
+  } catch { return []; }
+}
+
+function saveSurprises(arr) {
+  localStorage.setItem('haven_surprises', JSON.stringify(arr));
+}
+
+function initSurprisesStorage() {
+  if (localStorage.getItem('haven_surprises')) return; // already migrated
+  if (!surprises || !surprises.surprises) return;
+
+  const migrated = surprises.surprises.map(s => ({
+    id: s.id,
+    title: s.icon ? `${s.icon} ${s.title}` : s.title,
+    message: s.message,
+    scheduledAt: `${s.date}T${s.time}:00`,
+    shown: false
+  }));
+  localStorage.setItem('haven_surprises', JSON.stringify(migrated));
+}
+
 // Measure actual header height and set CSS variable for sticky nav-tabs offset
 function updateHeaderOffset() {
   const header = document.querySelector('.app-header');
@@ -340,6 +365,7 @@ async function loadContent() {
     tips = t;
     navigation = nav;
     surprises = surp;
+    initSurprisesStorage();
     dailyBriefing = brief;
     emergency = emerg;
     packing = pack;
@@ -500,51 +526,52 @@ function switchFredTab(tab) {
 
 // ─── Surprises ────────────────────────────────────────────────────
 function checkAndShowSurprises() {
-  if (!surprises || state.who !== 'holly') return;
+  if (state.who !== 'holly') return;
 
   const now = new Date();
-  // Use local date (not UTC) — toISOString() would return wrong date at night in CDT (UTC-5)
-  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  const currentTime = now.toTimeString().slice(0, 5); // 'HH:MM'
+  const surpriseList = getSurprises();
+  const due = surpriseList.filter(s => !s.shown && new Date(s.scheduledAt) <= now);
 
-  // Get revealed IDs from localStorage
-  const revealedIds = JSON.parse(localStorage.getItem('haven_revealed_surprises') || '[]');
+  if (due.length === 0) return;
 
-  // Find surprises for today at or before current time that haven't been revealed
-  const toShow = surprises.surprises.filter(s =>
-    s.date === today &&
-    s.time <= currentTime &&
-    !revealedIds.includes(s.id)
-  );
-
-  if (toShow.length === 0) return;
-
-  // Show the first unrevealed surprise as a modal
-  showSurpriseModal(toShow[0]);
-
-  // Mark as revealed in localStorage
-  const updated = [...revealedIds, toShow[0].id];
-  localStorage.setItem('haven_revealed_surprises', JSON.stringify(updated));
+  showSurpriseModal(due[0], due.length);
 }
 
-function showSurpriseModal(surprise) {
-  // Remove any existing surprise modal
+function showSurpriseModal(surprise, remaining) {
   document.querySelectorAll('.surprise-modal').forEach(m => m.remove());
 
   const modal = document.createElement('div');
   modal.className = 'surprise-modal';
   modal.innerHTML = `
-    <div class="surprise-modal-overlay" onclick="this.closest('.surprise-modal').remove()"></div>
+    <div class="surprise-modal-overlay"></div>
     <div class="surprise-modal-card">
-      <div class="surprise-icon">${surprise.icon}</div>
-      <h2 class="surprise-title">${surprise.title}</h2>
-      <p class="surprise-message">${surprise.message}</p>
-      <button class="surprise-dismiss" onclick="this.closest('.surprise-modal').remove()">
-        Close ✕
+      ${remaining > 1 ? `<div class="surprise-queue">${remaining} surprises waiting</div>` : ''}
+      <h2 class="surprise-title">${escapeHtml(surprise.title)}</h2>
+      <p class="surprise-message">${escapeHtml(surprise.message)}</p>
+      <button class="surprise-dismiss" onclick="dismissSurprise('${escapeHtml(surprise.id)}')">
+        ${remaining > 1 ? 'Next →' : 'Close ✕'}
       </button>
     </div>
   `;
   document.body.appendChild(modal);
+}
+
+function dismissSurprise(id) {
+  // Mark shown
+  const list = getSurprises();
+  const idx = list.findIndex(s => s.id === id);
+  if (idx !== -1) { list[idx].shown = true; saveSurprises(list); }
+
+  // Remove modal
+  document.querySelectorAll('.surprise-modal').forEach(m => m.remove());
+
+  // Check if more are due
+  const now = new Date();
+  const next = getSurprises().find(s => !s.shown && new Date(s.scheduledAt) <= now);
+  if (next) {
+    const remaining = getSurprises().filter(s => !s.shown && new Date(s.scheduledAt) <= now).length;
+    showSurpriseModal(next, remaining);
+  }
 }
 
 // ─── Emergency Overlay ────────────────────────────────────────
@@ -629,29 +656,140 @@ function setupEmergencyTriggers() {
 }
 
 function renderSurprisesAdmin(panel) {
-  if (!surprises) {
-    panel.innerHTML = '<p class="text-muted">Loading surprises...</p>';
-    return;
-  }
+  const list = getSurprises();
 
-  const revealedIds = JSON.parse(localStorage.getItem('haven_revealed_surprises') || '[]');
-
-  const items = surprises.surprises.map(s => {
-    const status = revealedIds.includes(s.id) ? '✅ Revealed' : '⏳ Pending';
-    return `<div class="surprise-admin-item">
-      <div class="surprise-admin-meta">${s.date} at ${s.time} — ${status}</div>
-      <div class="surprise-admin-title">${s.icon} ${s.title}</div>
-      <div class="surprise-admin-msg">${s.message}</div>
-    </div>`;
-  }).join('');
+  const items = list.length === 0
+    ? '<p class="text-muted" style="text-align:center;padding:20px">No surprises yet. Add one below!</p>'
+    : list.map(s => {
+        const dt = new Date(s.scheduledAt);
+        const dtStr = `${dt.toLocaleDateString('en-US', {month:'short',day:'numeric'})} at ${dt.toLocaleTimeString('en-US', {hour:'numeric',minute:'2-digit'})}`;
+        const statusPill = s.shown
+          ? '<span style="font-size:0.7rem;color:var(--safe);margin-left:0.5rem">✅ Shown</span>'
+          : '<span style="font-size:0.7rem;color:var(--gold);margin-left:0.5rem">⏳ Pending</span>';
+        return `
+          <div class="surprise-admin-item" id="surprise-item-${escapeHtml(s.id)}">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <div>
+                <div class="surprise-admin-meta">${dtStr}${statusPill}</div>
+                <div class="surprise-admin-title">${escapeHtml(s.title)}</div>
+                <div class="surprise-admin-msg">${escapeHtml(s.message)}</div>
+              </div>
+              <div style="display:flex;gap:0.4rem;flex-shrink:0;margin-left:0.5rem">
+                <button onclick="editSurprise('${escapeHtml(s.id)}')" style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:var(--gold);border-radius:6px;padding:4px 8px;font-size:0.75rem;cursor:pointer">✏️</button>
+                <button onclick="deleteSurprise('${escapeHtml(s.id)}')" style="background:rgba(255,80,80,0.1);border:1px solid rgba(255,80,80,0.3);color:#ff6060;border-radius:6px;padding:4px 8px;font-size:0.75rem;cursor:pointer">🗑</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
 
   panel.innerHTML = `
     <div class="section-header"><span class="section-title">Anniversary Surprises</span></div>
-    <p class="text-muted" style="font-size:0.85rem;margin-bottom:1rem">
-      Scheduled surprises for Holly. Each one reveals as a modal at the specified date/time.
-    </p>
-    <div class="surprise-admin-list">${items}</div>
+    <p class="text-muted" style="font-size:0.8rem;margin-bottom:0.75rem">Surprises appear as popups for Holly at the scheduled time.</p>
+    <div class="surprise-admin-list" id="surprise-admin-list">${items}</div>
+    <div style="margin-top:1rem">
+      <button onclick="showAddSurpriseForm()" id="add-surprise-btn" class="surprise-add-btn">+ Add Surprise</button>
+    </div>
+    <div id="surprise-form-wrap" style="display:none"></div>
   `;
+}
+
+function showAddSurpriseForm(existingId) {
+  const list = getSurprises();
+  const existing = existingId ? list.find(s => s.id === existingId) : null;
+
+  // Default scheduledAt: tomorrow at 09:00 local time
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const defaultDt = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth()+1).padStart(2,'0')}-${String(tomorrow.getDate()).padStart(2,'0')}T09:00`;
+
+  const formWrap = document.getElementById('surprise-form-wrap');
+  const addBtn = document.getElementById('add-surprise-btn');
+  if (!formWrap) return;
+
+  formWrap.style.display = 'block';
+  if (addBtn) addBtn.style.display = 'none';
+
+  formWrap.innerHTML = `
+    <div class="card" style="margin-top:0.75rem">
+      <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.75rem;color:var(--gold)">${existing ? 'Edit Surprise' : 'New Surprise'}</div>
+      <div style="margin-bottom:0.5rem">
+        <label style="font-size:0.75rem;color:var(--text-muted)">Title</label>
+        <input id="sf-title" type="text" value="${existing ? escapeHtml(existing.title) : ''}" placeholder="Something special tonight 🌅"
+          style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;color:#e0e0e0;font-size:0.875rem;margin-top:2px;box-sizing:border-box">
+      </div>
+      <div style="margin-bottom:0.5rem">
+        <label style="font-size:0.75rem;color:var(--text-muted)">Message</label>
+        <textarea id="sf-message" rows="3" placeholder="Your message to Holly..."
+          style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;color:#e0e0e0;font-size:0.875rem;margin-top:2px;box-sizing:border-box;resize:vertical">${existing ? escapeHtml(existing.message) : ''}</textarea>
+      </div>
+      <div style="margin-bottom:0.75rem">
+        <label style="font-size:0.75rem;color:var(--text-muted)">When (local time)</label>
+        <input id="sf-when" type="datetime-local" value="${existing ? existing.scheduledAt.slice(0,16) : defaultDt}"
+          style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:6px 10px;color:#e0e0e0;font-size:0.875rem;margin-top:2px;box-sizing:border-box">
+      </div>
+      <div style="display:flex;gap:0.5rem">
+        <button onclick="saveSurpriseForm('${existing ? escapeHtml(existing.id) : ''}')"
+          style="flex:1;background:var(--gold);color:#0a0f18;border:none;border-radius:6px;padding:8px;font-size:0.875rem;font-weight:600;cursor:pointer">
+          ${existing ? 'Save Changes' : 'Add Surprise'}
+        </button>
+        <button onclick="cancelSurpriseForm()"
+          style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:var(--text-muted);border-radius:6px;padding:8px 12px;font-size:0.875rem;cursor:pointer">
+          Cancel
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function editSurprise(id) {
+  showAddSurpriseForm(id);
+}
+
+function deleteSurprise(id) {
+  if (!confirm('Delete this surprise?')) return;
+  const list = getSurprises().filter(s => s.id !== id);
+  saveSurprises(list);
+  const panel = document.getElementById('tab-surprises');
+  if (panel) renderSurprisesAdmin(panel);
+}
+
+function saveSurpriseForm(existingId) {
+  const title = document.getElementById('sf-title')?.value.trim();
+  const message = document.getElementById('sf-message')?.value.trim();
+  const when = document.getElementById('sf-when')?.value; // "YYYY-MM-DDTHH:MM"
+
+  if (!title || !message || !when) {
+    showButlerToast('Please fill in all fields.');
+    return;
+  }
+
+  const list = getSurprises();
+  if (existingId) {
+    const idx = list.findIndex(s => s.id === existingId);
+    if (idx !== -1) {
+      list[idx] = { ...list[idx], title, message, scheduledAt: when + ':00' };
+    }
+  } else {
+    list.push({
+      id: 'surprise-' + Date.now(),
+      title,
+      message,
+      scheduledAt: when + ':00',
+      shown: false
+    });
+  }
+  saveSurprises(list);
+  showButlerToast(existingId ? 'Surprise updated ✓' : 'Surprise added ✓');
+
+  const panel = document.getElementById('tab-surprises');
+  if (panel) renderSurprisesAdmin(panel);
+}
+
+function cancelSurpriseForm() {
+  const formWrap = document.getElementById('surprise-form-wrap');
+  const addBtn = document.getElementById('add-surprise-btn');
+  if (formWrap) { formWrap.style.display = 'none'; formWrap.innerHTML = ''; }
+  if (addBtn) addBtn.style.display = 'block';
 }
 
 // ─── Morning Briefing ─────────────────────────────────────────────
