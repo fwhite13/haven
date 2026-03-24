@@ -1187,3 +1187,40 @@ h3 { font-size: 1rem; }
   color: #d4c890;
   font-size: 13px;
 }
+
+/* Port Day Countdown */
+.port-countdown-card {
+  background: rgba(13, 27, 42, 0.9);
+  border: 1px solid #3a5a7a;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.port-countdown-title {
+  color: #7ab8e8;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.port-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+}
+.port-stat-label { color: #8090a0; }
+.port-stat-value { color: #c0d4e8; font-weight: 500; }
+.port-aab-amber .port-stat-value { color: #f0a830; font-weight: 700; }
+.port-aab-red .port-stat-value { color: #f05050; font-weight: 700; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+.port-tender-yes {
+  margin-top: 10px;
+  color: #f0a830;
+  font-size: 13px;
+}
+.port-tender-no {
+  margin-top: 10px;
+  color: #70b870;
+  font-size: 13px;
+}

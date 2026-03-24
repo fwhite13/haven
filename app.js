@@ -443,6 +443,52 @@ function renderMorningBriefing(briefing) {
   `;
 }
 
+function renderPortCountdown(day) {
+  if (!day.arrivalTime || !day.allAboardTime) return '';
+  
+  const now = new Date();
+  
+  // Build Date objects for arrival and all-aboard (treat as local time)
+  const [arrHr, arrMin] = day.arrivalTime.split(':').map(Number);
+  const [aabHr, aabMin] = day.allAboardTime.split(':').map(Number);
+  const arrival = new Date(now.getFullYear(), now.getMonth(), now.getDate(), arrHr, arrMin, 0);
+  const allAboard = new Date(now.getFullYear(), now.getMonth(), now.getDate(), aabHr, aabMin, 0);
+  
+  const msUntilArrival = arrival - now;
+  const msUntilAllAboard = allAboard - now;
+  
+  // Format countdown
+  function fmtMs(ms) {
+    if (ms <= 0) return null;
+    const h = Math.floor(ms / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    return h > 0 ? `${h}h ${m}m` : `${m}m`;
+  }
+  
+  // All-aboard urgency color
+  let aabClass = 'port-aab-normal';
+  if (msUntilAllAboard > 0 && msUntilAllAboard < 3600000) aabClass = 'port-aab-red';
+  else if (msUntilAllAboard > 0 && msUntilAllAboard < 7200000) aabClass = 'port-aab-amber';
+  
+  const arrivalStr = fmtMs(msUntilArrival);
+  const allAboardStr = fmtMs(msUntilAllAboard);
+  
+  const tenderHtml = day.tender
+    ? `<div class="port-tender-yes">⛵ Tender port — allow extra time back to ship</div>`
+    : `<div class="port-tender-no">🚢 Docked — easy return, no tender</div>`;
+  
+  let html = `<div class="port-countdown-card">
+    <div class="port-countdown-title">📍 ${day.port || day.location || 'Port Day'}</div>
+    ${arrivalStr 
+      ? `<div class="port-stat"><span class="port-stat-label">Ship arrives</span><span class="port-stat-value">${day.arrivalTime} (${arrivalStr} from now)</span></div>` 
+      : `<div class="port-stat"><span class="port-stat-label">Ship arrived</span><span class="port-stat-value">${day.arrivalTime} ✅</span></div>`}
+    <div class="port-stat ${aabClass}"><span class="port-stat-label">All aboard</span><span class="port-stat-value">${day.allAboardTime}${allAboardStr ? ` — ${allAboardStr} remaining` : ' — PASSED'}</span></div>
+    ${tenderHtml}
+  </div>`;
+  
+  return html;
+}
+
 function renderTodayTab(panel) {
   const dayIdx = getTodayDayIndex();
   const sailing = getSailing();
@@ -465,6 +511,11 @@ function renderTodayTab(panel) {
 
   // Morning briefing card (if available for today)
   html += renderMorningBriefing(briefing);
+
+  // Port day countdown (if port day with arrival/all-aboard times)
+  if (day) {
+    html += renderPortCountdown(day);
+  }
 
   if (day) {
     html += `

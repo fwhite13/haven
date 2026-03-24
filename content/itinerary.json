@@ -23,11 +23,11 @@
       "day": "Sunday",
       "port": "Sea Day",
       "times": "At sea",
-      "notes": "ANNIVERSARY DAY. Holly spa: Targeted Technology Facial (2:00pm, 50 min) \u2014 confirmed. Holly also has Thermal Suite 7-Day Pass (activates tonight at 8pm). Anniversary dinner at specialty restaurant \u2014 book via concierge Day 1. Suite d\u00e9cor already arranged.",
+      "notes": "ANNIVERSARY DAY. Holly spa: Targeted Technology Facial (2:00pm, 50 min) — confirmed. Holly also has Thermal Suite 7-Day Pass (activates tonight at 8pm). Anniversary dinner at specialty restaurant — book via concierge Day 1. Suite décor already arranged.",
       "reservations": [
-        "Holly spa: Targeted Technology Facial \u2014 2:00pm (\u2705 confirmed)",
+        "Holly spa: Targeted Technology Facial — 2:00pm (✅ confirmed)",
         "Holly: Thermal Suite 7-Day Pass (activates Apr 4 8pm)",
-        "Anniversary dinner \u2014 book Day 1 via concierge",
+        "Anniversary dinner — book Day 1 via concierge",
         "Rocket Man show (Haven priority seating via concierge)"
       ]
     },
@@ -36,38 +36,54 @@
       "day": "Monday",
       "port": "Harvest Caye, Belize",
       "times": "10:30am arrival / 6:00pm departure (all aboard 5:30pm)",
-      "notes": "EXCURSION BOOKED: Howler Monkey River Expedition (BPIN11) \u2014 11:00am departure. Boat cruise up Monkey River through rainforest; wildlife includes howler monkeys, crocodiles, iguanas, herons. Late arrival (10:30am) \u2014 plan accordingly. All aboard 5:30pm.",
+      "notes": "EXCURSION BOOKED: Howler Monkey River Expedition (BPIN11) — 11:00am departure. Boat cruise up Monkey River through rainforest; wildlife includes howler monkeys, crocodiles, iguanas, herons. Late arrival (10:30am) — plan accordingly. All aboard 5:30pm.",
       "reservations": [
-        "\u2705 Excursion: Howler Monkey River Expedition (11:00am)"
-      ]
+        "✅ Excursion: Howler Monkey River Expedition (11:00am)"
+      ],
+      "tender": true,
+      "arrivalTime": "08:00",
+      "allAboardTime": "17:00",
+      "portTimezone": "America/Belize"
     },
     {
       "date": "April 7",
       "day": "Tuesday",
-      "port": "Roat\u00e1n, Honduras",
+      "port": "Roatán, Honduras",
       "times": "8:00am - 5:00pm",
-      "notes": "EXCURSION BOOKED: Monkeys, Sloths & Macaws \u2014 Noon departure. Pre-noon: explore port area. Post-excursion: back to ship, Haven pool. GF tip: ship food much safer than port street food.",
+      "notes": "EXCURSION BOOKED: Monkeys, Sloths & Macaws — Noon departure. Pre-noon: explore port area. Post-excursion: back to ship, Haven pool. GF tip: ship food much safer than port street food.",
       "reservations": [
         "Excursion: Monkeys, Sloths & Macaws (Noon)"
-      ]
+      ],
+      "tender": true,
+      "arrivalTime": "07:00",
+      "allAboardTime": "16:00",
+      "portTimezone": "America/Tegucigalpa"
     },
     {
       "date": "April 8",
       "day": "Wednesday",
       "port": "Costa Maya, Mexico",
       "times": "8:00am arrival / 5:00pm departure (all aboard 4:30pm)",
-      "notes": "Explore Chacchoben Mayan ruins or beach day at Mahahual. No major excursion booked \u2014 decide onboard. Short cab ride to ruins (~40 min).",
-      "reservations": []
+      "notes": "Explore Chacchoben Mayan ruins or beach day at Mahahual. No major excursion booked — decide onboard. Short cab ride to ruins (~40 min).",
+      "reservations": [],
+      "tender": false,
+      "arrivalTime": "09:00",
+      "allAboardTime": "17:00",
+      "portTimezone": "America/Cancun"
     },
     {
       "date": "April 9",
       "day": "Thursday",
       "port": "Cozumel, Mexico",
       "times": "7:00am arrival / 5:00pm departure (all aboard 4:30pm)",
-      "notes": "EXCURSION BOOKED: Exclusive VIP Dolphin Swim at Dolphinaris (CZMN42) \u2014 9:30am departure. VIP tier = private group, no long waits. Actual dolphin interaction: kisses, dorsal fin rides. No phones/cameras in water \u2014 buy Dolphinaris photos after (~$40 each or ~$350 full set). Post-excursion: downtown San Miguel shopping (silver jewelry, vanilla, Kahl\u00faa \u2014 walkable from pier).",
+      "notes": "EXCURSION BOOKED: Exclusive VIP Dolphin Swim at Dolphinaris (CZMN42) — 9:30am departure. VIP tier = private group, no long waits. Actual dolphin interaction: kisses, dorsal fin rides. No phones/cameras in water — buy Dolphinaris photos after (~$40 each or ~$350 full set). Post-excursion: downtown San Miguel shopping (silver jewelry, vanilla, Kahlúa — walkable from pier).",
       "reservations": [
-        "\u2705 Excursion: VIP Dolphin Swim \u2014 Dolphinaris (9:30am)"
-      ]
+        "✅ Excursion: VIP Dolphin Swim — Dolphinaris (9:30am)"
+      ],
+      "tender": false,
+      "arrivalTime": "07:00",
+      "allAboardTime": "17:00",
+      "portTimezone": "America/Cancun"
     },
     {
       "date": "April 10",
@@ -82,7 +98,7 @@
       "day": "Saturday",
       "port": "Miami (Debarkation)",
       "times": "Arrive ~7am",
-      "notes": "Haven guests disembark first \u2014 concierge will arrange priority disembarkation. Collect checked luggage. Arrange transport to airport/hotel in advance.",
+      "notes": "Haven guests disembark first — concierge will arrange priority disembarkation. Collect checked luggage. Arrange transport to airport/hotel in advance.",
       "reservations": [
         "Haven priority debarkation"
       ]
