@@ -128,6 +128,109 @@ function linkVenueNames(html) {
   return html;
 }
 
+// ─── Venue Lookup FAB ─────────────────────────────────────────────
+function addVenueFAB() {
+  if (document.getElementById('venue-fab')) return; // no duplicates
+  const fab = document.createElement('button');
+  fab.id = 'venue-fab';
+  fab.className = 'venue-fab';
+  fab.innerHTML = '📍';
+  fab.title = 'Find a venue';
+  fab.setAttribute('aria-label', 'Find a venue');
+  fab.onclick = showVenueLookup;
+  document.body.appendChild(fab);
+}
+
+function showVenueLookup() {
+  document.querySelectorAll('.venue-lookup-overlay').forEach(e => e.remove());
+
+  // Build venue list from navigation.json venues array
+  const venues = navigation?.venues || [];
+
+  const overlay = document.createElement('div');
+  overlay.className = 'venue-lookup-overlay';
+  overlay.innerHTML = `
+    <div class="venue-lookup-backdrop" onclick="this.closest('.venue-lookup-overlay').remove()"></div>
+    <div class="venue-lookup-sheet">
+      <div class="venue-lookup-header">
+        <span class="venue-lookup-title">📍 Find a Venue</span>
+        <button class="venue-lookup-close" onclick="this.closest('.venue-lookup-overlay').remove()">✕</button>
+      </div>
+      <div class="venue-lookup-search-wrap">
+        <input type="text" class="venue-lookup-search" placeholder="Search venues…" autocomplete="off" autocorrect="off" spellcheck="false">
+      </div>
+      <div class="venue-lookup-list" id="venue-lookup-list"></div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Populate and filter
+  const listEl = overlay.querySelector('#venue-lookup-list');
+  const searchEl = overlay.querySelector('.venue-lookup-search');
+
+  function renderVenueList(filter) {
+    const q = (filter || '').toLowerCase().trim();
+    const filtered = venues
+      .filter(v => !q || (v.name || '').toLowerCase().includes(q))
+      .sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+    if (!filtered.length) {
+      listEl.innerHTML = '<div class="venue-lookup-empty">No venues found</div>';
+      return;
+    }
+
+    listEl.innerHTML = filtered.map(v => `
+      <div class="venue-lookup-item" data-venue-id="${escapeHtml(v.id || v.name)}">
+        <div class="venue-lookup-name">${escapeHtml(v.name || '')}</div>
+        <div class="venue-lookup-deck">${escapeHtml(v.deck ? 'Deck ' + v.deck : (v.location || ''))}</div>
+      </div>
+    `).join('');
+
+    // Tap to show directions
+    listEl.querySelectorAll('.venue-lookup-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const venueName = item.querySelector('.venue-lookup-name').textContent;
+        const venue = venues.find(v => v.name === venueName);
+        if (venue) showVenueDetail(venue, overlay);
+      });
+    });
+  }
+
+  renderVenueList('');
+  searchEl.addEventListener('input', e => renderVenueList(e.target.value));
+
+  // Auto-focus search on desktop
+  setTimeout(() => searchEl.focus(), 100);
+}
+
+function showVenueDetail(venue, overlayEl) {
+  const sheet = overlayEl.querySelector('.venue-lookup-sheet');
+  const fromSuite = venue.directions_from_suite || '';
+  const toSuite = venue.directions_to_suite || '';
+
+  sheet.innerHTML = `
+    <div class="venue-lookup-header">
+      <button class="venue-lookup-back" onclick="showVenueLookup(); this.closest('.venue-lookup-overlay').remove()">← Back</button>
+      <button class="venue-lookup-close" onclick="this.closest('.venue-lookup-overlay').remove()">✕</button>
+    </div>
+    <div class="venue-detail-content">
+      <h2 class="venue-detail-name">${escapeHtml(venue.name || '')}</h2>
+      <div class="venue-detail-deck">📍 ${escapeHtml(venue.deck ? 'Deck ' + venue.deck : (venue.location || ''))}</div>
+      ${venue.description ? `<p class="venue-detail-desc">${escapeHtml(venue.description)}</p>` : ''}
+      ${fromSuite ? `
+        <div class="venue-detail-dir">
+          <div class="venue-dir-label">From Suite 12846</div>
+          <div class="venue-dir-text">${escapeHtml(fromSuite)}</div>
+        </div>` : ''}
+      ${toSuite ? `
+        <div class="venue-detail-dir">
+          <div class="venue-dir-label">Back to Suite</div>
+          <div class="venue-dir-text">${escapeHtml(toSuite)}</div>
+        </div>` : ''}
+    </div>
+  `;
+}
+
 // ─── PIN Auth ─────────────────────────────────────────────────────
 const PINS = { '1313': 'fred', '1009': 'holly', '0405': 'holly' };
 
@@ -343,6 +446,7 @@ function renderMainView() {
   setupVoice();
   setupAskInput();
   setupEmergencyTriggers();
+  addVenueFAB();
 
   // Check surprises for Holly after initial load
   if (state.who === 'holly') {
