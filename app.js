@@ -72,40 +72,63 @@ const FAIT_URL = 'https://fait.dev.fortressam.ai';
 
 // ─── Venue Locations ──────────────────────────────────────────────
 const VENUE_LOCATIONS = {
-  'The Haven Restaurant': 'Deck 15, Aft (Haven exclusive)',
-  'Haven Restaurant': 'Deck 15, Aft (Haven exclusive)',
-  'Haven Pool': 'Deck 15, Aft (Haven exclusive)',
-  'Haven Sundeck': 'Deck 15–16, Aft (Haven exclusive)',
-  'Haven Lounge': 'Deck 15, Aft (Haven exclusive)',
-  'Haven Lounge & Bar': 'Deck 15, Aft (Haven exclusive)',
-  "Bull's Eye Bar": 'Deck 15, Aft (Haven exclusive)',
-  "The Bull's Eye Bar": 'Deck 15, Aft (Haven exclusive)',
-  'Haven Concierge': 'Deck 15, Aft (Haven exclusive)',
-  'Starbucks': 'Deck 9, Midship (Penrose Atrium)',
-  'Starbucks®': 'Deck 9, Midship (Penrose Atrium)',
-  "Cagney's Steakhouse": 'Deck 9, Forward',
-  "Cagney's": 'Deck 9, Forward',
-  'Le Bistro': 'Deck 9, Forward',
-  'Hasuki': 'Deck 9, Midship-forward',
-  'Nama': 'Deck 9, Forward',
-  'Nama Sushi': 'Deck 9, Forward',
-  'Indulge Food Hall': 'Deck 9, Midship',
-  "Syd Norman's": 'Deck 9, Midship',
-  "Syd Norman's Pour House": 'Deck 9, Midship',
-  'Swirl Wine Bar': 'Deck 9, Midship',
-  'Whiskey Bar': 'Deck 9, Midship',
-  'Casino': 'Deck 9, Midship',
-  'Mandara Spa': 'Deck 16, Aft',
-  'Mandara Spa & Salon': 'Deck 16, Aft',
-  'Thermal Suite': 'Deck 16, Aft (inside Mandara Spa)',
-  'Main Pool': 'Deck 16, Midship',
-  'Waves Pool Bar': 'Deck 16, Midship',
-  'Surfside Café': 'Deck 16, Midship-forward',
+  // ── The Haven (Deck 16, aft) ──────────────────────────────────────
+  'The Haven Restaurant': 'Deck 16, Aft (Haven exclusive)',
+  'Haven Restaurant': 'Deck 16, Aft (Haven exclusive)',
+  'Haven Pool': 'Deck 16, Aft (Haven exclusive)',
+  'Haven Sundeck': 'Deck 16, Aft (Haven exclusive)',
+  'Haven Lounge': 'Deck 16, Aft (Haven exclusive)',
+  'Haven Lounge & Bar': 'Deck 16, Aft (Haven exclusive)',
+  "Bull's Eye Bar": 'Deck 16, Aft (Haven exclusive)',
+  "The Bull's Eye Bar": 'Deck 16, Aft (Haven exclusive)',
+  'Haven Concierge': 'Deck 16, Aft (Haven exclusive)',
+  // ── Deck 6 (Casino, bars, Hasuki, Improv) ────────────────────────
+  'Casino': 'Deck 6, Midship (Penrose Atrium)',
+  'Hasuki': 'Deck 6, Midship',
+  'Whiskey Bar': 'Deck 6, Midship (Atrium)',
+  'Swirl Wine Bar': 'Deck 6, Midship',
+  'Penrose Bar': 'Deck 6, Midship (Atrium)',
+  'Improv at Sea': 'Deck 6, Forward (comedy club)',
+  'Improv at Sea Comedy Club': 'Deck 6, Forward (comedy club)',
+  'Commodore Room': 'Deck 6, Midship (main dining room)',
+  // ── Deck 7 (specialty dining, Atrium, shops, Syd Norman's) ───────
+  'Starbucks': 'Deck 7, Midship (Penrose Atrium)',
+  'Starbucks®': 'Deck 7, Midship (Penrose Atrium)',
+  "Cagney's Steakhouse": 'Deck 7, Forward',
+  "Cagney's": 'Deck 7, Forward',
+  'Le Bistro': 'Deck 7, Forward',
+  'Nama': 'Deck 7, Midship',
+  'Nama Sushi': 'Deck 7, Midship',
+  "Syd Norman's": 'Deck 7, Midship',
+  "Syd Norman's Pour House": 'Deck 7, Midship',
+  'Metropolitan Bar': 'Deck 7, Aft',
+  'Guest Services': 'Deck 7, Midship (Penrose Atrium)',
+  'Shore Excursions': 'Deck 7, Midship (Penrose Atrium)',
+  'Hudson\'s': 'Deck 7, Aft (main dining room)',
+  // ── Deck 8 (Ocean Boulevard, Indulge, specialty dining) ──────────
+  'Indulge Food Hall': 'Deck 8, Aft (Ocean Boulevard)',
+  'The Local': 'Deck 8, Midship (Ocean Boulevard)',
+  'The Local Bar & Grill': 'Deck 8, Midship (Ocean Boulevard)',
+  'Los Lobos': 'Deck 8, Midship (Ocean Boulevard)',
+  'Onda by Scarpetta': 'Deck 8, Midship (Ocean Boulevard)',
+  // ── Deck 15 (Mandara Spa, fitness, Haven elevator) ───────────────
+  'Mandara Spa': 'Deck 15, Forward',
+  'Mandara Spa & Salon': 'Deck 15, Forward',
+  'Thermal Suite': 'Deck 15, Forward (inside Mandara Spa)',
   'Pulse Fitness Center': 'Deck 15, Forward',
-  'Observation Lounge': 'Deck 15, Forward',
-  'Aqua SlideCoaster': 'Deck 16–19, Aft-midship',
-  'Guest Services': 'Deck 9, Midship',
-  'Shore Excursions': 'Deck 9, Midship',
+  'Splash Academy': 'Deck 15, Midship (kids club)',
+  // ── Deck 17 (pools, Observation Lounge, specialty dining) ────────
+  'Main Pool': 'Deck 17, Midship',
+  'Waves Pool Bar': 'Deck 17, Midship',
+  'Surfside Café': 'Deck 17, Midship',
+  'Observation Lounge': 'Deck 17, Forward',
+  'Palomar': 'Deck 17, Midship (Mediterranean specialty)',
+  'Sukhothai': 'Deck 17, Midship (Thai specialty)',
+  'Vibe Beach Club': 'Deck 17 (adults-only, paid access)',
+  // ── Upper decks ──────────────────────────────────────────────────
+  'Aqua SlideCoaster': 'Decks 18–20, Aft-midship',
+  'Bullseye Bar': 'Deck 18, Aft',
+  "Bull's Eye Bar (Sports)": 'Deck 18, Aft',
 };
 
 function escapeHtml(str) {
@@ -1670,7 +1693,7 @@ function searchKB(query) {
       return `**${mentionedVenue}** is located at **${loc}**.\n\nFrom suite 12846: take the Haven elevator (aft, adjacent to your suite) to ${loc.split(',')[0].toLowerCase()}, then follow signs ${loc.includes('Aft') ? 'aft (toward the stern)' : 'midship'}.`;
     }
     // General navigation answer
-    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, aft-starboard — directly adjacent to the **Haven Private Elevators**. Use your Haven keycard to access them.\n\n• Haven Restaurant/Lounge/Pool/Concierge → Deck 15, aft (Haven elevator)\n• Haven Sundeck → Deck 15–16, aft (Haven elevator)\n• Mandara Spa/Thermal Suite → Deck 16, aft (Haven elevator to 15, stairs to 16)\n• Casino/Cagney's/Le Bistro → Deck 9 (Haven elevator down)\n• Syd Norman's/Swirl/Whiskey Bar → Deck 9, midship (Haven elevator down)\n• Starbucks® → Deck 9, Penrose Atrium (Haven elevator down)\n• Main Pool → Deck 16, midship\n• Observation Lounge → Deck 15, forward\n\nTip: The Haven elevator is aft, right next to your suite. Your keycard activates it. Never wait for midship elevators.`;
+    return `**Getting Around Luna:**\n\nYour suite (12846) is on Deck 12, aft-starboard — directly adjacent to the **Haven Private Elevators**. Use your Haven keycard to access them.\n\n• Haven Restaurant/Lounge/Pool/Concierge → Deck 16, aft (Haven elevator up)\n• Haven Sundeck → Deck 16, aft (Haven elevator up)\n• Mandara Spa/Thermal Suite → Deck 15, forward (Haven elevator to 15, walk forward)\n• Casino → Deck 6, midship (Haven elevator down, walk midship)\n• Cagney's/Le Bistro/Nama → Deck 7 (Haven elevator down, walk forward)\n• Syd Norman's/Starbucks® → Deck 7, midship (Haven elevator down)\n• Swirl/Whiskey Bar/Hasuki → Deck 6 (Haven elevator down)\n• Indulge Food Hall → Deck 8, aft (Haven elevator down, walk aft)\n• Main Pool/Observation Lounge → Deck 17 (Haven elevator to 15, stairs/elevator up)\n• Improv at Sea (comedy) → Deck 6, forward (Haven elevator down, walk forward)\n\nTip: The Haven elevator is aft, right next to your suite. Your keycard activates it. Never wait for midship elevators.`;
   }
 
   return generalSearch(q);
