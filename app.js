@@ -1865,12 +1865,11 @@ async function processQuery(query) {
   if (answer.startsWith("I didn't find")) {
     showMainAnswer('Searching Haven AI…');
     try {
-      await fetch(FAIT_URL, { method: 'HEAD', signal: AbortSignal.timeout(3000) });
-      const resp = await fetch('https://fait.dev.fortressam.ai/api/haven/chat', {
+      const resp = await fetch('/api/haven/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': 'ed9b529c93fd15a56cc060fa5de37f33d1e8fcb9248c98c37574a0c3deaa5623' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: query, projectId: 'ac79d2db-165a-49b2-b36f-01489e568efc' }),
-        signal: AbortSignal.timeout(15000)
+        signal: AbortSignal.timeout(20000)
       });
       if (!resp.ok) throw new Error(`FAIT ${resp.status}`);
       const data = await resp.json();
