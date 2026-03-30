@@ -1865,7 +1865,7 @@ async function processQuery(query) {
   if (answer.startsWith("I didn't find")) {
     showMainAnswer('Searching Haven AI…');
     try {
-      const resp = await fetch('/api/haven/chat', {
+      const resp = await fetch('/haven-ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: query, projectId: 'ac79d2db-165a-49b2-b36f-01489e568efc' }),
