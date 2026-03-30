@@ -1445,7 +1445,7 @@ const DECK_IMAGES = [
   { deck: 9,  file: 'Luna_Deck_09_01202026.webp' },
   { deck: 10, file: 'Luna_Deck_10_01202026.webp' },
   { deck: 11, file: 'Luna_Deck_11_01202026.webp' },
-  { deck: 12, file: 'Luna_Deck_12_01202026.webp' },
+  { deck: 12, file: 'Luna_Deck_12_marked.webp' },
   { deck: 13, file: 'Luna_Deck_13_01202026.webp' },
   { deck: 14, file: 'Luna_Deck_14_01202026.webp' },
   { deck: 15, file: 'Luna_Deck_15_01202026.webp' },
@@ -1478,24 +1478,9 @@ function changeDeck(dir) {
   if (label) label.textContent = `Deck ${_currentDeck}`;
   if (hint) hint.textContent = `Pinch to zoom${_currentDeck === 12 ? ' · Suite 12846 marked ⭐' : ''}`;
 
-  // Add/remove suite pin
-  const existingPin = document.getElementById('suite-pin');
-  if (existingPin) existingPin.remove();
-  if (_currentDeck === 12 && wrap) {
-    const pin = document.createElement('div');
-    pin.className = 'suite-pin';
-    pin.id = 'suite-pin';
-    pin.title = 'Suite 12846';
-    pin.textContent = '⭐';
-    wrap.appendChild(pin);
-  }
 }
 
 function renderDeckTab(panel) {
-  const suiteOverlay = _currentDeck === 12
-    ? `<div class="suite-pin" id="suite-pin" title="Suite 12846">⭐</div>`
-    : '';
-
   panel.innerHTML = `
     <div class="deck-viewer">
       <div class="deck-controls">
@@ -1505,7 +1490,6 @@ function renderDeckTab(panel) {
       </div>
       <div class="deck-image-wrap" id="deck-image-wrap" style="position:relative">
         <img class="deck-image" id="deck-image" src="${getDeckImageUrl(_currentDeck)}" alt="Deck ${_currentDeck} plan" loading="lazy">
-        ${suiteOverlay}
       </div>
       <div class="deck-hint">Pinch to zoom${_currentDeck === 12 ? ' · Suite 12846 marked ⭐' : ''}</div>
     </div>

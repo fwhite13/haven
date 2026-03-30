@@ -1646,17 +1646,7 @@ h3 { font-size: 1rem; }
   padding: 8px;
   flex-shrink: 0;
 }
-.suite-pin {
-  position: absolute;
-  left: 78%;   /* starboard = right side */
-  top: 88%;    /* aft = near bottom of plan */
-  font-size: 20px;
-  line-height: 1;
-  pointer-events: none;
-  filter: drop-shadow(0 0 4px rgba(0,0,0,0.9));
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
+/* .suite-pin removed — marker baked into Luna_Deck_12_marked.webp */
 .surprise-add-btn {
   width: 100%;
   background: rgba(201,168,76,0.1);
