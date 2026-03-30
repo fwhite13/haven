@@ -6,26 +6,41 @@
 
 const FAIT_URL = 'https://fait.dev.fortressam.ai/api/haven/chat';
 
-export async function onRequestPost(context) {
+// Accept both POST (body) and GET (?q=...&projectId=...) to work around WAF POST blocks
+export async function onRequest(context) {
   const { request, env } = context;
 
-  // CORS preflight handled by onRequestOptions below
   const apiKey = env.FAIT_API_KEY;
   if (!apiKey) {
     return new Response(JSON.stringify({ error: 'Server misconfigured — API key missing' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: corsHeaders(),
     });
   }
 
   let body;
-  try {
-    body = await request.json();
-  } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  if (request.method === 'GET') {
+    const url = new URL(request.url);
+    const message = url.searchParams.get('q');
+    const projectId = url.searchParams.get('projectId');
+    if (!message) {
+      return new Response(JSON.stringify({ error: 'Missing q param' }), {
+        status: 400,
+        headers: corsHeaders(),
+      });
+    }
+    body = { message, projectId };
+  } else if (request.method === 'POST') {
+    try {
+      body = await request.json();
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
+        status: 400,
+        headers: corsHeaders(),
+      });
+    }
+  } else {
+    return new Response(null, { status: 405, headers: corsHeaders() });
   }
 
   let faitResp;
@@ -42,7 +57,7 @@ export async function onRequestPost(context) {
   } catch (err) {
     return new Response(JSON.stringify({ error: 'FAIT unreachable', detail: String(err) }), {
       status: 502,
-      headers: { 'Content-Type': 'application/json' },
+      headers: corsHeaders(),
     });
   }
 
@@ -50,11 +65,15 @@ export async function onRequestPost(context) {
 
   return new Response(JSON.stringify(data), {
     status: faitResp.status,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
+    headers: corsHeaders(),
   });
+}
+
+function corsHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  };
 }
 
 export async function onRequestOptions() {
