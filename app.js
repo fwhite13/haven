@@ -327,6 +327,14 @@ function navigateTo(view) {
   if (view === 'pin') {
     document.getElementById('pin-screen').classList.add('active');
     state.pin = '';
+    state.who = null;
+    sessionStorage.removeItem('haven_view');
+    sessionStorage.removeItem('haven_who');
+    // Remove surprises tab from DOM so it doesn't persist across logins
+    const existingTab = document.querySelector('[data-tab="surprises"]');
+    if (existingTab) existingTab.remove();
+    const existingPanel = document.getElementById('tab-surprises');
+    if (existingPanel) existingPanel.remove();
     renderPinDots();
     return;
   }

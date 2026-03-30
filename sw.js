@@ -1,5 +1,5 @@
-const CACHE_NAME = 'haven-v8';
-const CONTENT_CACHE = 'haven-content-v8';
+const CACHE_NAME = 'haven-v9';
+const CONTENT_CACHE = 'haven-content-v9';
 
 const APP_SHELL = [
   '/',

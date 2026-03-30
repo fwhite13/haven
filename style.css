@@ -1648,8 +1648,8 @@ h3 { font-size: 1rem; }
 }
 .suite-pin {
   position: absolute;
-  left: 88%;   /* aft = far right */
-  top: 72%;    /* starboard = lower portion */
+  left: 78%;   /* starboard = right side */
+  top: 88%;    /* aft = near bottom of plan */
   font-size: 20px;
   line-height: 1;
   pointer-events: none;
