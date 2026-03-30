@@ -68,7 +68,7 @@ window.addEventListener('offline', () => updateConnectivityState(false));
 // ─── Sailing Constants ────────────────────────────────────────────
 const SAIL_DATE = new Date('2026-04-04T11:00:00-05:00');  // Miami ET
 const RETURN_DATE = new Date('2026-04-11T07:00:00-05:00');
-const FAIT_URL = 'https://fait.dev.fortressam.ai';
+// Haven AI endpoint (Cloudflare Pages Function)
 
 // ─── Venue Locations ──────────────────────────────────────────────
 const VENUE_LOCATIONS = {
@@ -1860,27 +1860,25 @@ async function processQuery(query) {
   const status = document.getElementById('main-voice-status');
   if (status) status.textContent = `"${query}"`;
 
-  const answer = searchKB(query);
-
-  if (answer.startsWith("I didn't find")) {
-    showMainAnswer('Searching Haven AI…');
-    try {
-      const havenAiUrl = '/haven-ai?projectId=ac79d2db-165a-49b2-b36f-01489e568efc&q=' + encodeURIComponent(query);
-      const resp = await fetch(havenAiUrl, {
-        method: 'GET',
-        signal: AbortSignal.timeout(20000)
-      });
-      if (!resp.ok) throw new Error(`FAIT ${resp.status}`);
-      const data = await resp.json();
-      const faitAnswer = data.message ?? data.answer ?? data.content ?? 'Haven AI could not find an answer.';
-      showMainAnswer(faitAnswer);
-      speak(faitAnswer);
-      return; // don't fall through to searchKB
-    } catch {
-      const fallback = 'Full AI search unavailable right now — try rephrasing your question.';
-      showMainAnswer(fallback);
-      speak(fallback);
-    }
+  // AI-first: always try Haven AI online, fall back to local KB if offline/error
+  showMainAnswer('Searching Haven AI…');
+  try {
+    const havenAiUrl = '/haven-ai?q=' + encodeURIComponent(query);
+    const resp = await fetch(havenAiUrl, {
+      method: 'GET',
+      signal: AbortSignal.timeout(25000)
+    });
+    if (!resp.ok) throw new Error(`Haven AI ${resp.status}`);
+    const data = await resp.json();
+    const aiAnswer = data.answer ?? 'Haven AI could not find an answer.';
+    showMainAnswer(aiAnswer);
+    speak(aiAnswer);
+    return;
+  } catch {
+    // Offline fallback — local KB search
+    const fallback = searchKB(query);
+    showMainAnswer(fallback);
+    speak(fallback);
     return;
   }
 
