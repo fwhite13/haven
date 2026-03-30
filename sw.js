@@ -1,5 +1,5 @@
-const CACHE_NAME = 'haven-v11';
-const CONTENT_CACHE = 'haven-content-v11';
+const CACHE_NAME = 'haven-v12';
+const CONTENT_CACHE = 'haven-content-v12';
 
 const APP_SHELL = [
   '/',
@@ -63,6 +63,12 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+
+  // Never cache AI endpoint — always go straight to network
+  if (url.pathname === '/haven-ai') {
+    event.respondWith(fetch(event.request));
+    return;
+  }
 
   // Stale-while-revalidate for content JSON — serve cached immediately, fetch fresh in background
   if (url.pathname.startsWith('/content/')) {
