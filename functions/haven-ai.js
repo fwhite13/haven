@@ -362,6 +362,10 @@ export async function onRequest(context) {
     }
   }
 
+  // Inject today's date so the model can reason about the itinerary timeline
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York' });
+  const systemWithDate = `Today's date is ${today}.\n\n${SYSTEM_PROMPT}`;
+
   // Call Anthropic
   let anthropicResp;
   try {
@@ -375,7 +379,7 @@ export async function onRequest(context) {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 1024,
-        system: SYSTEM_PROMPT,
+        system: systemWithDate,
         messages: [{ role: 'user', content: userMessage }],
       }),
       signal: AbortSignal.timeout(25000),
