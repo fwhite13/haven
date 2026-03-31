@@ -23,12 +23,15 @@ const WEATHER_KEYWORDS = ['weather', 'temperature', 'forecast', 'rain', 'hot', '
 
 function detectWeatherLocation(query) {
   const q = query.toLowerCase();
-  if (!WEATHER_KEYWORDS.some(kw => q.includes(kw))) return null;
+  // Check for explicit port location first (always fetch weather if port mentioned)
   for (const [key, loc] of Object.entries(PORT_LOCATIONS)) {
     if (q.includes(key)) return loc;
   }
-  // Default to current/next port based on date if no specific location mentioned
-  return 'Miami,Florida';
+  // Only fetch weather for generic queries if a weather keyword is present
+  if (WEATHER_KEYWORDS.some(kw => q.includes(kw))) {
+    return 'Miami,Florida'; // Default fallback
+  }
+  return null;
 }
 
 async function getWeather(location) {
@@ -53,7 +56,9 @@ async function getWeather(location) {
 
 const SYSTEM_PROMPT = `You are Haven, a private AI cruise companion for Fred & Holly White aboard Norwegian Cruise Line's Norwegian Luna, April 4–11, 2026. You have complete knowledge of their cruise — itinerary, stateroom (Suite 12846, Haven H5), dining, entertainment, ports, tipping, and all special arrangements.
 
-Answer questions helpfully and concisely. Be warm but efficient. If asked about weather, use the weather data provided in the context. You can answer general cruise and travel questions beyond the provided knowledge base.
+Answer questions helpfully and concisely. Be warm but efficient. You can answer general cruise and travel questions beyond the provided knowledge base.
+
+When real-time weather data is available for a port, it will be appended to the user's message in brackets like [Current weather data for ...]. When present, use it to give accurate current forecasts. Do not disclaim lack of real-time data when weather data is provided in the message.
 
 === CRUISE KNOWLEDGE BASE ===
 
