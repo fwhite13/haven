@@ -19,6 +19,32 @@ const PORT_LOCATIONS = {
   'miami': 'Miami,Florida',
 };
 
+// Coordinates for Open-Meteo fallback (parallel to PORT_LOCATIONS)
+const PORT_COORDINATES = {
+  'Harvest+Caye,Belize':   [16.87, -88.07],
+  'Belize+City,Belize':    [16.87, -88.07],
+  'Roatan,Honduras':        [16.30, -86.55],
+  'Costa+Maya,Mexico':      [18.73, -87.71],
+  'Cozumel,Mexico':         [20.51, -86.95],
+  'Miami,Florida':          [25.76, -80.19],
+};
+
+// WMO weather code → human-readable description
+const WMO_CODES = {
+  0:  'Clear sky',
+  1:  'Partly cloudy', 2: 'Partly cloudy', 3: 'Partly cloudy',
+  45: 'Foggy', 48: 'Foggy',
+  51: 'Drizzle', 53: 'Drizzle', 55: 'Drizzle',
+  61: 'Rain', 63: 'Rain', 65: 'Rain',
+  71: 'Snow', 73: 'Snow', 75: 'Snow',
+  80: 'Rain showers', 81: 'Rain showers', 82: 'Rain showers',
+  95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm',
+};
+
+function getLocationCoords(location) {
+  return PORT_COORDINATES[location] ?? null;
+}
+
 const WEATHER_KEYWORDS = ['weather', 'temperature', 'forecast', 'rain', 'hot', 'cold', 'humid', 'warm', 'sunny', 'storm', 'wind'];
 
 function detectWeatherLocation(query) {
@@ -35,18 +61,55 @@ function detectWeatherLocation(query) {
 }
 
 async function getWeather(location) {
+  // 1. Try wttr.in first
   try {
     const resp = await fetch(`https://wttr.in/${location}?format=j1`, {
       signal: AbortSignal.timeout(5000),
     });
+    if (resp.ok) {
+      const data = await resp.json();
+      const current = data.current_condition?.[0];
+      const weather3 = data.weather?.slice(0, 3) || [];
+      if (current) {
+        const summary = [
+          `Current: ${current.temp_F}°F, ${current.weatherDesc?.[0]?.value}, humidity ${current.humidity}%`,
+          ...weather3.map((d, i) => `Day ${i + 1} high: ${d.maxtempF}°F, low: ${d.mintempF}°F, ${d.hourly?.[4]?.weatherDesc?.[0]?.value || ''}`)
+        ].join('\n');
+        return summary;
+      }
+    }
+  } catch {
+    // fall through to Open-Meteo
+  }
+
+  // 2. Try Open-Meteo as fallback
+  const coords = getLocationCoords(location);
+  if (coords) {
+    const result = await getWeatherOpenMeteo(coords[0], coords[1]);
+    if (result) return result;
+  }
+
+  // 3. Both failed
+  return 'WEATHER_UNAVAILABLE';
+}
+
+async function getWeatherOpenMeteo(lat, lon) {
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&temperature_unit=fahrenheit&timezone=auto&forecast_days=3`;
+    const resp = await fetch(url, { signal: AbortSignal.timeout(5000) });
     if (!resp.ok) return null;
     const data = await resp.json();
-    const current = data.current_condition?.[0];
-    const weather3 = data.weather?.slice(0, 3) || [];
-    if (!current) return null;
+    const cw = data.current_weather;
+    if (!cw) return null;
+    const currentDesc = WMO_CODES[cw.weathercode] ?? `Code ${cw.weathercode}`;
+    const daily = data.daily;
+    const days = (daily?.time || []).slice(0, 3).map((_, i) => {
+      const desc = WMO_CODES[daily.weathercode?.[i]] ?? `Code ${daily.weathercode?.[i]}`;
+      return `Day ${i + 1} high: ${daily.temperature_2m_max?.[i]}°F, low: ${daily.temperature_2m_min?.[i]}°F, ${desc}`;
+    });
     const summary = [
-      `Current: ${current.temp_F}°F, ${current.weatherDesc?.[0]?.value}, humidity ${current.humidity}%`,
-      ...weather3.map((d, i) => `Day ${i + 1} high: ${d.maxtempF}°F, low: ${d.mintempF}°F, ${d.hourly?.[4]?.weatherDesc?.[0]?.value || ''}`)
+      `Current: ${cw.temperature}°F, ${currentDesc}`,
+      ...days,
     ].join('\n');
     return summary;
   } catch {
@@ -362,9 +425,12 @@ export async function onRequest(context) {
   const weatherLocation = detectWeatherLocation(userMessage);
   if (weatherLocation) {
     const weatherData = await getWeather(weatherLocation);
-    if (weatherData) {
+    if (weatherData === 'WEATHER_UNAVAILABLE') {
+      userMessage += `\n\n[Weather service temporarily unavailable. If asked about weather, mention typical April conditions for the port based on your knowledge rather than saying you have no real-time data.]`;
+    } else if (weatherData) {
       userMessage += `\n\n[Current weather data for ${weatherLocation.replace(/\+/g, ' ')}: ${weatherData}]`;
     }
+    // null safety net — no-op
   }
 
   // Inject today's date so the model can reason about the itinerary timeline
