@@ -5,7 +5,7 @@
  */
 
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
-const MODEL = 'claude-3-5-haiku-20241022';
+const MODEL = 'claude-haiku-4-5';
 
 // Weather location detection
 const PORT_LOCATIONS = {
