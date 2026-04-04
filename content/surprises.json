@@ -1,6 +1,15 @@
 {
   "surprises": [
     {
+      "id": "s0",
+      "date": "2026-04-04",
+      "time": "11:00",
+      "title": "Welcome aboard, Bunny! 🚢",
+      "message": "I love you so much! This is gonna be the best vacation ever!",
+      "icon": "⌛",
+      "revealed": false
+    },
+    {
       "id": "s1",
       "date": "2026-04-05",
       "time": "07:30",
