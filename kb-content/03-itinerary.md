@@ -28,6 +28,7 @@
 - Haven priority embarkation
 - Suite decoration request
 - ✅ Holly: Thermal Suite 7-Day Pass activates at 8:00pm tonight
+- ✅ **Dinner: Haven Restaurant — 6:00pm**
 
 ---
 
@@ -40,7 +41,7 @@ Fred & Holly's anniversary. First sea day — perfect for relaxation, celebratio
 ### Confirmed Reservations
 - ✅ **Holly: Targeted Technology Facial** — 2:00pm (50 min) at Mandara Spa ($229 + 20% service fee)
 - Holly: Thermal Suite available all day (7-Day Pass active)
-- Anniversary dinner — book via concierge on Day 1 (specialty restaurant or in-suite balcony dinner — arrange with butler)
+- ✅ **Dinner: Cagney's Steakhouse — 6:00pm**
 - Rocket Man show — evening (Haven priority seating via concierge)
 
 ### Suggested Flow
@@ -60,6 +61,9 @@ Fred & Holly's anniversary. First sea day — perfect for relaxation, celebratio
 
 NCL's private island in southern Belize. Note the late arrival (10:30am).
 
+### Dinner
+- ✅ **Hasuki — 6:30pm**
+
 ### ✅ Confirmed Excursion: Howler Monkey River Expedition (BPIN11)
 - **Departure:** 11:00am
 - Boat cruise up Monkey River through rainforest
@@ -77,6 +81,9 @@ NCL's private island in southern Belize. Note the late arrival (10:30am).
 ## Day 4 — Tuesday, April 7: Roatán, Honduras
 
 **Arrive 8:00am | Depart 5:00pm | All aboard 5:00pm | Dock**
+
+### Dinner
+- ✅ **Onda by Scarpetta — 6:30pm**
 
 ### ✅ Confirmed Excursion: Monkeys, Sloths & Macaws (RTBN01)
 - **Departure:** 12:00pm (Noon)
@@ -115,6 +122,9 @@ No excursion booked — decide onboard based on energy levels.
 3. **Port Shopping Complex** — Shops, restaurants, infinity pool right at port.
 4. **Stay Onboard** — Haven pool practically empty on port days.
 
+### Dinner
+- ✅ **Le Bistro — 6:00pm**
+
 ### Second Formal Night
 - April 8 is the second formal or smart-casual evening
 
@@ -128,6 +138,9 @@ No excursion booked — decide onboard based on energy levels.
 ## Day 6 — Thursday, April 9: Cozumel, Mexico
 
 **Arrive 7:00am | Depart 5:00pm | All aboard 4:30pm | Dock**
+
+### Dinner
+- ✅ **Los Lobos — 6:30pm**
 
 ### ✅ Confirmed Excursion: Exclusive VIP Dolphin Swim at Dolphinaris (CZMN42)
 - **Departure:** 9:30am
@@ -151,6 +164,9 @@ No excursion booked — decide onboard based on energy levels.
 ## Day 7 — Friday, April 10: Sea Day
 
 **At sea all day — last full day**
+
+### Dinner
+- ✅ **Palomar — 6:00pm**
 
 ### Suggested Activities
 - Haven pool and deck
@@ -177,12 +193,18 @@ No excursion booked — decide onboard based on energy levels.
 | Date | Reservation | Status |
 |---|---|---|
 | Apr 4 | Holly: Thermal Suite 7-Day Pass — activates 8:00pm | ✅ Confirmed ($349) |
+| Apr 4 | Dinner: Haven Restaurant — 6:00pm | ✅ Confirmed |
 | Apr 5 | Holly: Targeted Technology Facial (50 min) — 2:00pm | ✅ Confirmed ($229 + service fee) |
-| Apr 5 | Anniversary dinner | Book Day 1 via concierge |
+| Apr 5 | Dinner: Cagney's Steakhouse — 6:00pm | ✅ Confirmed |
 | Apr 5 | Rocket Man show | Book Day 1 via concierge |
 | Apr 6 | Howler Monkey River Expedition — 11:00am | ✅ Confirmed (both guests) |
+| Apr 6 | Dinner: Hasuki — 6:30pm | ✅ Confirmed |
 | Apr 7 | Monkeys, Sloths & Macaws — 12:00pm | ✅ Confirmed (both guests) |
+| Apr 7 | Dinner: Onda by Scarpetta — 6:30pm | ✅ Confirmed |
+| Apr 8 | Dinner: Le Bistro — 6:00pm | ✅ Confirmed |
 | Apr 9 | VIP Dolphin Swim — 9:30am | ✅ Confirmed (both guests) |
+| Apr 9 | Dinner: Los Lobos — 6:30pm | ✅ Confirmed |
+| Apr 10 | Dinner: Palomar — 6:00pm | ✅ Confirmed |
 
 ## Port All-Aboard Summary
 
