@@ -151,17 +151,25 @@ function saveSurprises(arr) {
 }
 
 function initSurprisesStorage() {
-  if (localStorage.getItem('haven_surprises')) return; // already migrated
   if (!surprises || !surprises.surprises) return;
 
-  const migrated = surprises.surprises.map(s => ({
-    id: s.id,
-    title: s.icon ? `${s.icon} ${s.title}` : s.title,
-    message: s.message,
-    scheduledAt: `${s.date}T${s.time}:00`,
-    shown: false
-  }));
-  localStorage.setItem('haven_surprises', JSON.stringify(migrated));
+  // Merge: add any IDs from surprises.json not already in localStorage
+  const existing = JSON.parse(localStorage.getItem('haven_surprises') || '[]');
+  const existingIds = new Set(existing.map(s => s.id));
+
+  const newEntries = surprises.surprises
+    .filter(s => !existingIds.has(s.id))
+    .map(s => ({
+      id: s.id,
+      title: s.icon ? `${s.icon} ${s.title}` : s.title,
+      message: s.message,
+      scheduledAt: `${s.date}T${s.time}:00`,
+      shown: false
+    }));
+
+  if (newEntries.length > 0) {
+    localStorage.setItem('haven_surprises', JSON.stringify([...existing, ...newEntries]));
+  }
 }
 
 // Measure actual header height and set CSS variable for sticky nav-tabs offset
