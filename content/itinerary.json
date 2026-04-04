@@ -12,7 +12,7 @@
       "day": "Saturday",
       "port": "Miami (Embarkation)",
       "times": "Board from 11am (Haven priority)",
-      "notes": "Haven guests board from 11am via priority. Suite 12846. Request suite decoration for anniversary from concierge at boarding. Muster drill required.",
+      "notes": "Embarkation day! Haven priority boarding from 11am. Suite 12846. Dinner at Haven Restaurant at 6pm. Holly has a salon appointment at 3pm. Tonight: meet your butler, visit Haven concierge to book anniversary dinner and show seating, flag Holly's gluten-free requirement fleet-wide. Muster station E5 \u2014 The Local Bar, Deck 8. Holly's Thermal Suite 7-Day Pass activates at 8pm.",
       "sunsetTime": "19:45",
       "reservations": [
         "Haven priority embarkation",
@@ -26,7 +26,7 @@
       "day": "Sunday",
       "port": "Sea Day",
       "times": "At sea",
-      "notes": "ANNIVERSARY DAY. Holly spa: Targeted Technology Facial (2:00pm, 50 min) \u2014 confirmed. Holly also has Thermal Suite 7-Day Pass (activates tonight at 8pm). Anniversary dinner at specialty restaurant \u2014 book via concierge Day 1. Suite d\u00e9cor already arranged.",
+      "notes": "ANNIVERSARY DAY \u2014 20 years! Holly's spa facial at 2pm (arrive 15 min early). Thermal Suite open all day. Dinner at Cagney's Steakhouse at 6pm. Rocket Man show in the evening \u2014 Haven priority seating via concierge. Formal/smart-casual night.",
       "sunsetTime": "19:47",
       "reservations": [
         "Holly spa: Targeted Technology Facial \u2014 2:00pm (\u2705 confirmed)",
@@ -41,7 +41,7 @@
       "day": "Monday",
       "port": "Harvest Caye, Belize",
       "times": "10:30am arrival / 6:00pm departure (all aboard 5:30pm)",
-      "notes": "EXCURSION BOOKED: Howler Monkey River Expedition (BPIN11) \u2014 11:00am departure. Boat cruise up Monkey River through rainforest; wildlife includes howler monkeys, crocodiles, iguanas, herons. Late arrival (10:30am) \u2014 plan accordingly. All aboard 5:30pm.",
+      "notes": "Harvest Caye, Belize \u2014 NCL private island. Late arrival 10:30am. Excursion: Howler Monkey River Expedition at 11am (boat cruise, howler monkeys, crocodiles, herons). All aboard 5:30pm. Dinner at Hasuki at 6:30pm.",
       "sunsetTime": "18:05",
       "reservations": [
         "\u2705 Excursion: Howler Monkey River Expedition (11:00am)",
@@ -57,7 +57,7 @@
       "day": "Tuesday",
       "port": "Roat\u00e1n, Honduras",
       "times": "8:00am - 5:00pm",
-      "notes": "EXCURSION BOOKED: Monkeys, Sloths & Macaws \u2014 Noon departure. Pre-noon: explore port area. Post-excursion: back to ship, Haven pool. GF tip: ship food much safer than port street food.",
+      "notes": "Roat\u00e1n, Honduras. Arrive 8am. Excursion: Monkeys, Sloths & Macaws at noon. Pre-excursion: explore port area. Post-excursion: Haven pool. All aboard 5pm. Dinner at Onda by Scarpetta at 6:30pm. Don't wear loose jewelry \u2014 the monkeys are curious.",
       "sunsetTime": "18:07",
       "reservations": [
         "Excursion: Monkeys, Sloths & Macaws (Noon)",
@@ -73,7 +73,7 @@
       "day": "Wednesday",
       "port": "Costa Maya, Mexico",
       "times": "8:00am arrival / 5:00pm departure (all aboard 4:30pm)",
-      "notes": "Explore Chacchoben Mayan ruins or beach day at Mahahual. No major excursion booked \u2014 decide onboard. Short cab ride to ruins (~40 min).",
+      "notes": "Costa Maya, Mexico. Arrive 8am, all aboard 4:30pm. No excursion booked \u2014 options: Chacchoben Mayan Ruins (~40 min taxi), Mahahual beach town, or stay onboard (Haven pool is quiet on port days). Dinner at Le Bistro at 6pm. Second formal/smart-casual night.",
       "sunsetTime": "18:30",
       "reservations": [
         "\ud83c\udf7d\ufe0f Dinner: Le Bistro \u2014 6:00pm"
@@ -88,7 +88,7 @@
       "day": "Thursday",
       "port": "Cozumel, Mexico",
       "times": "7:00am arrival / 5:00pm departure (all aboard 4:30pm)",
-      "notes": "EXCURSION BOOKED: Exclusive VIP Dolphin Swim at Dolphinaris (CZMN42) \u2014 9:30am departure. VIP tier = private group, no long waits. Actual dolphin interaction: kisses, dorsal fin rides. No phones/cameras in water \u2014 buy Dolphinaris photos after (~$40 each or ~$350 full set). Post-excursion: downtown San Miguel shopping (silver jewelry, vanilla, Kahl\u00faa \u2014 walkable from pier).",
+      "notes": "Cozumel, Mexico. Arrive 7am. Excursion: VIP Dolphin Swim at Dolphinaris at 9:30am \u2014 no phones in water, buy photos after. Post-excursion: downtown San Miguel shopping (silver, vanilla, Kahl\u00faa). All aboard 4:30pm. Dinner at Los Lobos at 6:30pm.",
       "sunsetTime": "18:28",
       "reservations": [
         "\u2705 Excursion: VIP Dolphin Swim \u2014 Dolphinaris (9:30am)",
@@ -104,7 +104,7 @@
       "day": "Friday",
       "port": "Sea Day",
       "times": "At sea",
-      "notes": "Last full day at sea. Haven deck and pool, casino (final session), packing begins tonight. Syd Norman's for evening entertainment. Butler gratuity.",
+      "notes": "Last sea day. Haven pool and deck, Holly's Thermal Suite last day, casino final session, Syd Norman's Pour House in the evening. Dinner at Palomar at 6pm. Pack tonight \u2014 set luggage outside suite before bed. Tip the butler and concierge tonight.",
       "sunsetTime": "19:52",
       "reservations": [
         "\ud83c\udf7d\ufe0f Dinner: Palomar \u2014 6:00pm"
@@ -115,7 +115,7 @@
       "day": "Saturday",
       "port": "Miami (Debarkation)",
       "times": "Arrive ~7am",
-      "notes": "Haven guests disembark first \u2014 concierge will arrange priority disembarkation. Collect checked luggage. Arrange transport to airport/hotel in advance.",
+      "notes": "Disembarkation day. Arrive Miami ~7am. Haven guests disembark first \u2014 concierge arranges priority. Collect checked luggage in terminal.",
       "sunsetTime": "19:53",
       "reservations": [
         "Haven priority debarkation"
