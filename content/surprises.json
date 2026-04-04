@@ -6,52 +6,25 @@
       "time": "11:00",
       "title": "Welcome aboard, Bunny! 🚢",
       "message": "I love you so much! This is gonna be the best vacation ever!",
-      "icon": "⌛",
+      "icon": "🚢",
       "revealed": false
     },
     {
       "id": "s1",
       "date": "2026-04-05",
       "time": "07:30",
-      "title": "Good Morning, My Love 💕",
-      "message": "Happy Anniversary, Holly. One year older, one year more beautiful. Today is for you — champagne at breakfast, spa morning, and dinner under the stars tonight. I love you more than you know.",
+      "title": "💕 Good Morning, Bunny 💕",
+      "message": "Happy Anniversary, Holly. Can you believe it's been 20 years?! Today is for you — breakfast in bed, spa time, and special dinner tonight. I love you more than you know.",
       "icon": "💕",
-      "revealed": false
-    },
-    {
-      "id": "s2",
-      "date": "2026-04-05",
-      "time": "17:30",
-      "title": "A Little Secret 🥂",
-      "message": "There's a bottle of champagne chilling at the butler's station. Ask for it before you get ready for dinner. You deserve it.",
-      "icon": "🥂",
-      "revealed": false
-    },
-    {
-      "id": "s3",
-      "date": "2026-04-05",
-      "time": "19:00",
-      "title": "Tonight's Show 🎭",
-      "message": "We have priority Haven seating for Rocket Man tonight — Elton John tribute, 9pm. Your seat is already reserved. Get dressed up — we're going out.",
-      "icon": "🎭",
       "revealed": false
     },
     {
       "id": "s4",
       "date": "2026-04-07",
       "time": "09:00",
-      "title": "Roatán Morning ☀️",
-      "message": "Happy Tuesday, love. Today we explore Roatán. The water is turquoise and the tenders start at 8:30. Sunscreen on, adventure mode on.",
+      "title": "☀️ Roatán Morning ☀️",
+      "message": "Happy Tuesday, Holly. Today we explore Roatán and see some sloths! Sunscreen on, adventure mode on.",
       "icon": "☀️",
-      "revealed": false
-    },
-    {
-      "id": "s5",
-      "date": "2026-04-11",
-      "time": "07:00",
-      "title": "Last Morning 🌊",
-      "message": "Last morning at sea. You made this trip magical, Holly. Thank you for seven days of saying yes to everything — the excursions, the food, the late nights. I'd sail with you anywhere.",
-      "icon": "🌊",
       "revealed": false
     }
   ]
