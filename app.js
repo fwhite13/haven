@@ -1641,7 +1641,7 @@ function searchKB(query) {
 
   // Anniversary
   if (q.includes('anniversary') || q.includes('special') || q.includes('celebrate')) {
-    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa (acupuncture consultation 1:30pm + facial 2pm at Mandara), dinner at Cagney's Steakhouse at 6pm, and Rocket Man show with Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
+    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa (acupuncture consultation 1:30pm + facial 2pm at Mandara), dinner at Cagney's Steakhouse at 6pm, and HIKO show — meet at Deck 6 Luna Theater, left side entrance, before 7:30pm for Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
   }
 
   // PIN / reset
@@ -1757,10 +1757,10 @@ function formatSpaAnswer(q) {
 
 function formatEntertainmentAnswer(q) {
   if (!entertainment) return "Entertainment details are loading — try again in a moment.";
-  if (q.includes('rocket') || q.includes('rocket man')) {
+  if (q.includes('hiko') || q.includes('rocket') || q.includes('rocket man')) {
     const show = (entertainment.shows || []).find(s => (s.name || '').toLowerCase().includes('rocket'));
     if (show) return `Rocket Man: ${show.description || show.desc || 'Live tribute show'}. ${show.time ? `Show time: ${show.time}.` : ''} ${show.notes || 'Request Haven priority seating via the concierge.'}`;
-    return "Rocket Man is a live Elton John tribute show on board. Book Haven priority seating through the concierge.";
+    return "Tonight's show is HIKO. Meet at the Deck 6 Luna Theater entrance, left side, before 7:30pm for Haven priority seating.";
   }
   if (q.includes('syd')) {
     return "Syd Norman's Pour House is the signature live music bar on Norwegian Luna — rock, classic hits, nightly performances. Great for the last sea day (April 10).";
