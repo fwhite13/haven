@@ -418,7 +418,12 @@ async function loadContent() {
 // ─── Date Utilities ───────────────────────────────────────────────
 function getTodayDayIndex() {
   const now = new Date();
-  const diff = Math.floor((now - SAIL_DATE) / (1000 * 60 * 60 * 24));
+  // Compare calendar dates (local), not elapsed milliseconds.
+  // This avoids off-by-one errors when the device clock is less than
+  // 24 hours past the sail departure time (e.g. 10am the next morning).
+  const sailCal = new Date(SAIL_DATE.getFullYear(), SAIL_DATE.getMonth(), SAIL_DATE.getDate());
+  const nowCal  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diff = Math.round((nowCal - sailCal) / (1000 * 60 * 60 * 24));
   if (diff < 0 || diff > 7) return -1;
   return diff;
 }
