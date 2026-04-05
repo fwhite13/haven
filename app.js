@@ -1641,7 +1641,7 @@ function searchKB(query) {
 
   // Anniversary
   if (q.includes('anniversary') || q.includes('special') || q.includes('celebrate')) {
-    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa treatments in the morning, Onda at Sea balcony dinner in the evening, and Rocket Man show with Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
+    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa (acupuncture consultation 1:30pm + facial 2pm at Mandara), dinner at Cagney's Steakhouse at 6pm, and Rocket Man show with Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
   }
 
   // PIN / reset
@@ -1714,7 +1714,7 @@ function formatGFAnswer(restaurant) {
 function formatGFGeneral() {
   if (!gfGuide) return "GF guide unavailable — try again in a moment.";
   const safe = gfGuide.restaurants.filter(r => r.gf_status === 'safe').map(r => r.name);
-  return `Holly's safest options are the **Haven Restaurant** (dedicated staff, flag on day 1) and **Onda by Scarpetta** (GF pasta available). Also safe: ${safe.slice(2).join(', ')}. Always alert each restaurant to her gluten-free dietary requirement and ask about cross-contamination.`;
+  return `Holly's safest options are the **Haven Restaurant** (dedicated staff, flag on day 1) and **Cagney's Steakhouse** (steak/sides, confirm sauces). Also safe: ${safe.slice(2).join(', ')}. Always alert each restaurant to her gluten-free dietary requirement and ask about cross-contamination.`;
 }
 
 function formatTodayAnswer() {

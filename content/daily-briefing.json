@@ -18,12 +18,13 @@
       "dayLabel": "Sea Day — Anniversary",
       "greeting": "Happy Anniversary. Today is all about you two.",
       "highlights": [
-        { "icon": "💆", "text": "Holly's spa morning at Mandara — Deck 16. Thermal suite opens at 8am." },
-        { "icon": "🌅", "text": "Sunrise on the Haven Sundeck if you're up early. Worth it." },
-        { "icon": "🍝", "text": "Dinner tonight: Onda by Scarpetta — GF pasta available, balcony table." },
-        { "icon": "🎭", "text": "Rocket Man show tonight — Haven priority seating, 9pm." }
+        { "icon": "🎲", "text": "Bingo at 11am in Luna Theater." },
+        { "icon": "💆", "text": "Holly: acupuncture consultation 1:30pm → facial 2pm at Mandara Spa. Arrive 15 min early." },
+        { "icon": "🎲", "text": "Bingo at 4pm at the Improv at Sea." },
+        { "icon": "🥩", "text": "Dinner tonight: Cagney's Steakhouse — 6pm reservation." },
+        { "icon": "🎭", "text": "Rocket Man show tonight — Haven priority seating." }
       ],
-      "gfTip": "Onda: GF pasta available. Tell them at seating. Confirm with your butler in the afternoon.",
+      "gfTip": "Cagney's: alert staff to Holly's GF requirement at seating. Stick to steak and sides — confirm sauces.",
       "reminder": "It's your anniversary. Slow down. Be present."
     },
     {
