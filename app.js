@@ -1641,7 +1641,7 @@ function searchKB(query) {
 
   // Anniversary
   if (q.includes('anniversary') || q.includes('special') || q.includes('celebrate')) {
-    return `Your anniversary is April 5 (Sea Day). Planned: Holly's spa (acupuncture consultation 1:30pm + facial 2pm at Mandara), dinner at Cagney's Steakhouse at 6pm, and HIKO show — meet at Deck 6 Luna Theater, left side entrance, before 7:30pm for Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
+    return `Your anniversary is April 5 (Sea Day). Planned: Fred's NAD+ treatment + Holly's acupuncture consultation at 1:30pm, Holly's facial at 2pm (Mandara Spa), dinner at Cagney's Steakhouse at 6pm, and HIKO show — meet at Deck 6 Luna Theater, left side entrance, before 7:30pm for Haven priority seating. Suite décor was requested at embarkation. The concierge can arrange additional surprises.`;
   }
 
   // PIN / reset
